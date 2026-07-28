@@ -1,0 +1,18 @@
+{
+  "list": [
+    { "name": "更漏子", "family": "xiaoling", "meter": "双调四十六字，前片两仄韵两平韵，后片三仄韵两平韵，平仄换叶。", "tone": "宜写夜深怀人，声情幽咽。", "ci_ids": ["genglouzi-liusichang", "genglouzi-xingdouxi", "genglouzi-yuluxiang"] },
+    { "name": "忆余杭", "family": "xiaoling", "meter": "《酒泉子》变体，潘阆用以忆杭州，联章五首为一组。", "tone": "追忆之体，一唱三叹。", "ci_ids": ["yiyuhang-changyiqiantang", "yiyuhang-changyixihu", "yiyuhang-changyigushan", "yiyuhang-changyixishan", "yiyuhang-changyiguanchao"] },
+    { "name": "浣溪沙", "family": "xiaoling", "meter": "双调四十二字，前片三平韵，后片两平韵。", "tone": "清婉流转，伤春怀旧皆宜。", "ci_ids": ["huanxisha-handan", "huanxisha-shoujuan"] },
+    { "name": "清平乐", "family": "xiaoling", "meter": "双调四十六字，前片四仄韵，后片三平韵；仄平转换，先抑后扬。", "tone": "前促后舒，便于由景入情。", "ci_ids": ["qingpingle-bielaichunban", "qingpingle-chungui"] },
+    { "name": "踏莎行", "family": "xiaoling", "meter": "双调五十八字，前后片各三仄韵，起二句多对仗。", "tone": "含蓄深婉，宜写幽怀。", "ci_ids": ["tashaxing-xiaojinghongxi", "tashaxing-bihaiwubo", "tashaxing-yanyan"] },
+    { "name": "鹧鸪天", "family": "xiaoling", "meter": "双调五十五字，前片三平韵，后片两平韵；七言句为主，近七律而词味自别。", "tone": "流丽婉转，叙事抒情皆便。", "ci_ids": ["zhegutian-huangju", "zhegutian-hanri", "zhegutian-xiangmo", "zhegutian-feishui"] },
+    { "name": "鹊桥仙", "family": "xiaoling", "meter": "双调五十六字，前后片各两仄韵；因七夕牛郎织女事得名。", "tone": "清隽空灵，多咏七夕。", "ci_ids": ["queqiaoxian-xianyun"] },
+    { "name": "苏幕遮", "family": "zhongdiao", "meter": "双调六十二字，前后片各四仄韵，句法参差错落。", "tone": "低回往复，咏物抒怀两宜。", "ci_ids": ["sumuzhe-cao", "sumuzhe-liaochenxiang"] },
+    { "name": "临江仙", "family": "zhongdiao", "meter": "双调六十字，前后片各三平韵。", "tone": "清旷超逸，宜写旷达之怀。", "ci_ids": ["linjiangxian-yeyin"] },
+    { "name": "八声甘州", "family": "manci", "meter": "双调九十七字，前后片各四平韵；长调，领字与铺叙是命脉。", "tone": "开阔悲凉，宜登高怀远。", "ci_ids": ["bashengganzhou-duixiaoxiao", "bashengganzhou-youqingfeng"] },
+    { "name": "永遇乐", "family": "manci", "meter": "双调一百零四字，前后片各四仄韵。", "tone": "沉郁苍凉，怀古感旧两胜。", "ci_ids": ["yongyule-changyibieshi"] },
+    { "name": "满庭芳", "family": "manci", "meter": "双调九十五字，前片四平韵，后片五平韵。", "tone": "缠绵宛转，最宜离情。", "ci_ids": ["mantingfang-shanmoweiyun"] },
+    { "name": "水调歌头", "family": "manci", "meter": "双调九十五字，前后片各四平韵，起调高远。", "tone": "豪旷超迈，东坡一出而天下重之。", "ci_ids": ["shuidiaogetou-mengou"] },
+    { "name": "摸鱼儿", "family": "manci", "meter": "双调一百一十六字，前片六仄韵，后片七仄韵，句法最长于吞吐。", "tone": "沉郁顿挫，能纳大感慨。", "ci_ids": ["moyuer-gengnengxiao"] }
+  ]
+}

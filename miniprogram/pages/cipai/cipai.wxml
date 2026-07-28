@@ -1,0 +1,29 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="🎵" title="词牌卡未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading}}">
+    <view class="page-intro">词牌不是空壳：格律如何限制表达，声情又如何暗示情绪。点开一张卡看看。</view>
+
+    <view class="card cp" wx:for="{{list}}" wx:key="name">
+      <view class="cp-head" data-name="{{item.name}}" bindtap="onExpand">
+        <view class="cp-name">{{item.name}}</view>
+        <view class="seal seal-celadon">{{item.familyLabel}}</view>
+        <view class="cp-arrow">{{expanded === item.name ? '−' : '＋'}}</view>
+      </view>
+      <block wx:if="{{expanded === item.name}}">
+        <view class="cp-row"><text class="cp-label">格律</text><text class="cp-text">{{item.meter}}</text></view>
+        <view class="cp-row"><text class="cp-label">声情</text><text class="cp-text">{{item.tone}}</text></view>
+        <view class="cp-row">
+          <text class="cp-label">课内</text>
+          <view class="cp-items">
+            <view class="cp-item" wx:for="{{item.items}}" wx:for-item="ci" wx:key="id" data-id="{{ci.id}}" bindtap="goDetail">
+              《{{ci.cipai}}{{ci.title ? '·' + ci.title : ''}}》 {{ci.author}}
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

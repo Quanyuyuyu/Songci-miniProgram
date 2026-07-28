@@ -1,0 +1,10 @@
+<view class="ms">
+  <view class="ms-row" wx:for="{{items}}" wx:key="index">
+    <view class="ms-left">
+      <view class="ms-dot {{index === 0 ? 'ms-dot-first' : ''}}">{{index + 1}}</view>
+      <view class="ms-line" wx:if="{{index < items.length - 1}}"></view>
+    </view>
+    <view class="ms-text">{{item}}</view>
+  </view>
+  <view class="ms-note" wx:if="{{note}}">{{note}}</view>
+</view>

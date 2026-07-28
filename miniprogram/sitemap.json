@@ -1,0 +1,4 @@
+{
+  "desc": "宋词导读·课程助手",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

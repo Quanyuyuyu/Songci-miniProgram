@@ -1,0 +1,11 @@
+# WeChat Developer Tools local settings
+project.private.config.json
+
+# Generated dependencies and local artifacts
+node_modules/
+miniprogram_npm/
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db

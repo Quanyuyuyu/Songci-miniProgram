@@ -1,0 +1,15 @@
+.chip {
+  display: inline-block;
+  font-size: 24rpx;
+  border-radius: 999rpx;
+  padding: 2rpx 18rpx;
+  margin: 0 12rpx 12rpx 0;
+}
+.chip-theme {
+  color: var(--celadon, #8AA6A0);
+  border: 1rpx solid var(--celadon, #8AA6A0);
+}
+.chip-technique {
+  color: var(--primary, #2F4A6E);
+  border: 1rpx solid var(--primary, #2F4A6E);
+}

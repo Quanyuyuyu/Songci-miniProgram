@@ -1,0 +1,9 @@
+<view class="chk">
+  <view class="chk-row" wx:for="{{items}}" wx:key="index" data-index="{{index}}" bindtap="onToggle">
+    <view class="chk-box {{checked.indexOf(index) >= 0 ? 'chk-box-on' : ''}}">
+      <text wx:if="{{checked.indexOf(index) >= 0}}">✓</text>
+    </view>
+    <view class="chk-text {{checked.indexOf(index) >= 0 ? 'chk-text-on' : ''}}">{{item}}</view>
+  </view>
+  <view class="chk-hint">勾选仅保存在本机，用于自我检查，不具有凭证效力。</view>
+</view>

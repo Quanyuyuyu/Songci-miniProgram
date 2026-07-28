@@ -1,0 +1,38 @@
+<view class="page">
+  <empty-state wx:if="{{error}}" icon="📄" title="作品加载失败" reason="{{error}}" />
+
+  <block wx:elif="{{!loading}}">
+    <!-- 内容整理中 -->
+    <view wx:if="{{work.collecting}}" class="collecting">
+      <view class="c-ico">🗂</view>
+      <view class="c-title">内容整理中</view>
+      <view class="c-reason">该作品正文陆续整理收录，先看看卡片上的简介～</view>
+    </view>
+
+    <!-- 正常内容 -->
+    <block wx:else>
+      <view class="work-head">
+        <view class="work-title">{{work.title}}</view>
+        <view class="seal" wx:if="{{work.form_tag}}">{{work.form_tag}}</view>
+      </view>
+      <view class="work-meta" wx:if="{{work.term}}">收录学期：{{work.term}}</view>
+
+      <view class="work-body">
+        <block wx:for="{{work.sections}}" wx:key="idx" wx:for-index="idx">
+          <view wx:if="{{item.type === 'h'}}" class="sec-h">{{item.text}}</view>
+          <view wx:elif="{{item.type === 'p'}}" class="sec-p">{{item.text}}</view>
+          <view wx:elif="{{item.type === 'quote'}}" class="sec-quote">{{item.text}}</view>
+          <image wx:elif="{{item.type === 'img'}}" class="sec-img" src="{{item.url}}" mode="widthFix" lazy-load show-menu-by-longpress />
+        </block>
+      </view>
+
+      <view wx:if="{{work.link}}" class="link-bar" bindtap="onCopyLink">
+        原文链接（点击复制，在浏览器中打开）›
+      </view>
+    </block>
+
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

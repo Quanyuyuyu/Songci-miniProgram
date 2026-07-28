@@ -1,0 +1,9 @@
+<view class="task" bindtap="onTap">
+  <view class="task-head">
+    <text class="task-emoji">{{emoji}}</text>
+    <text class="task-title">{{title}}</text>
+    <text class="task-arrow">›</text>
+  </view>
+  <view class="task-summary">{{summary}}</view>
+  <view class="task-point" wx:for="{{points}}" wx:key="index">· {{item}}</view>
+</view>

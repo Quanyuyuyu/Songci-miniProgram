@@ -1,0 +1,67 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="🧭" title="脉络图未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading}}">
+    <view class="seg">
+      <view class="seg-item {{view === 'timeline' ? 'seg-on' : ''}}" data-view="timeline" bindtap="onSegTap">词史轴</view>
+      <view class="seg-item {{view === 'family' ? 'seg-on' : ''}}" data-view="family" bindtap="onSegTap">词牌家族</view>
+      <view class="seg-item {{view === 'theme' ? 'seg-on' : ''}}" data-view="theme" bindtap="onSegTap">主题串联</view>
+    </view>
+
+    <!-- 词史脉络轴 -->
+    <block wx:if="{{view === 'timeline'}}">
+      <view class="view-intro">今天这节课，在整个词史里的什么位置？</view>
+      <view class="tl">
+        <view class="tl-row" wx:for="{{timeline}}" wx:key="w">
+          <view class="tl-no {{item.w === currentWeek ? 'tl-no-cur' : ''}}">W{{item.w}}</view>
+          <view class="tl-track">
+            <view class="tl-dot era-{{item.era}} {{item.w === currentWeek ? 'tl-dot-cur' : ''}}"></view>
+            <view class="tl-line" wx:if="{{index < timeline.length - 1}}"></view>
+          </view>
+          <view class="tl-label {{item.w === currentWeek ? 'tl-label-cur' : ''}}">
+            {{item.label}}
+            <text class="seal" wx:if="{{item.w === currentWeek}}">本周</text>
+          </view>
+        </view>
+      </view>
+      <view class="era-legend">
+        <view class="era-item" wx:for="{{eras}}" wx:key="key">
+          <view class="tl-dot era-{{item.key}}"></view>
+          <text class="era-name">{{item.label}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 词牌家族 -->
+    <block wx:if="{{view === 'family'}}">
+      <view class="view-intro">体式如何限制与解放表达：点开词牌，看课内同调篇目。</view>
+      <view class="card fam" wx:for="{{family}}" wx:key="key">
+        <view class="fam-label">{{item.label}}</view>
+        <view class="fam-names">
+          <text class="fam-name" wx:for="{{item.names}}" wx:for-item="name" wx:key="*this"
+                data-name="{{name}}" bindtap="goCipaiList">{{name}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 主题串联 -->
+    <block wx:if="{{view === 'theme'}}">
+      <view class="view-intro">讨论课选题、期末连缀成文，都从这里开始：点开主题，课内相关词一次列全。</view>
+      <view class="card theme" wx:for="{{themes}}" wx:key="tag">
+        <view class="theme-head" data-tag="{{item.tag}}" bindtap="onThemeTap">
+          <view class="theme-tag">{{item.tag}}</view>
+          <view class="theme-desc">{{item.desc}}</view>
+          <view class="theme-count">{{item.count}} 首 {{expandedTheme === item.tag ? '−' : '＋'}}</view>
+        </view>
+        <view wx:if="{{expandedTheme === item.tag}}" class="theme-list">
+          <view class="theme-ci" wx:for="{{themeItems[item.tag]}}" wx:for-item="ci" wx:key="id" data-id="{{ci.id}}" bindtap="goDetail">
+            《{{ci.cipai}}{{ci.title ? '·' + ci.title : ''}}》 {{ci.author}}
+            <text class="theme-lesson">第 {{ci.lesson}} 课</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

@@ -1,0 +1,26 @@
+.hero { position: relative; overflow: hidden; }
+.hero-seal {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+  width: 72rpx;
+  height: 72rpx;
+  background: var(--cinnabar);
+  color: #FFFDF6;
+  border-radius: 12rpx;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+}
+.hero-name {
+  font-size: 38rpx;
+  font-weight: 600;
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  color: var(--ink);
+}
+.hero-sub { font-size: 26rpx; color: var(--gray); margin-top: 12rpx; line-height: 1.7; }
+.para { font-size: 28rpx; color: var(--ink-soft); line-height: 1.7; }
+.statement { color: var(--cinnabar); }
+.item { font-size: 26rpx; color: var(--ink-soft); padding: 8rpx 0; line-height: 1.6; }

@@ -1,0 +1,39 @@
+.search-bar {
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 999rpx;
+  padding: 8rpx 28rpx;
+  margin-bottom: 20rpx;
+}
+.search-input { font-size: 28rpx; color: var(--ink); }
+
+.filter-scroll { margin-bottom: 12rpx; white-space: nowrap; }
+.filter-row { display: flex; align-items: center; }
+.filter-label {
+  font-size: 24rpx;
+  color: var(--gray);
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+.filter-chip {
+  display: inline-block;
+  font-size: 24rpx;
+  color: var(--primary);
+  border: 1rpx solid var(--line);
+  background: var(--card);
+  border-radius: 999rpx;
+  padding: 6rpx 22rpx;
+  margin-right: 14rpx;
+}
+.chip-on { background: var(--primary); color: #FFFDF6; border-color: var(--primary); }
+
+.result-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8rpx 0 20rpx;
+}
+.result-count { font-size: 24rpx; color: var(--gray); }
+.result-clear { font-size: 24rpx; color: var(--cinnabar); }
+
+.loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }

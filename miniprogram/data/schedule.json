@@ -1,0 +1,116 @@
+{
+  "rule_text": "每节课由 2 位同学分享，名单以课程群通知为准",
+  "from_lesson": 3,
+  "to_lesson": 14,
+  "lessons": [
+    {
+      "lesson": 3, "topic": "花间词",
+      "items": [
+        { "ci_id": "genglouzi-liusichang", "updated": false },
+        { "ci_id": "genglouzi-xingdouxi", "updated": false },
+        { "ci_id": "genglouzi-yuluxiang", "updated": false }
+      ]
+    },
+    {
+      "lesson": 4, "topic": "南唐词",
+      "items": [
+        { "ci_id": "yejinmen-fengzhaqi", "updated": false },
+        { "ci_id": "huanxisha-handan", "updated": false },
+        { "ci_id": "huanxisha-shoujuan", "updated": false },
+        { "ci_id": "qingpingle-bielaichunban", "updated": false }
+      ]
+    },
+    {
+      "lesson": 5, "topic": "北宋初期词风（一）",
+      "items": [
+        { "ci_id": "yiyuhang-changyiqiantang", "updated": false },
+        { "ci_id": "yiyuhang-changyixihu", "updated": false },
+        { "ci_id": "yiyuhang-changyigushan", "updated": false },
+        { "ci_id": "yiyuhang-changyixishan", "updated": false },
+        { "ci_id": "yiyuhang-changyiguanchao", "updated": false },
+        { "ci_id": "yangguanyin-kouzhun", "updated": false }
+      ]
+    },
+    {
+      "lesson": 6, "topic": "北宋初期词风（二）",
+      "items": [
+        { "ci_id": "tashaxing-xiaojinghongxi", "updated": false },
+        { "ci_id": "tashaxing-bihaiwubo", "updated": false },
+        { "ci_id": "shantingliu-yanshu", "updated": false },
+        { "ci_id": "yulouchun-zunqian", "updated": false }
+      ]
+    },
+    {
+      "lesson": 7, "topic": "柳永",
+      "items": [
+        { "ci_id": "qishi-liuyong", "updated": false },
+        { "ci_id": "bashengganzhou-duixiaoxiao", "updated": false },
+        { "ci_id": "yidijing-liuyong", "updated": false }
+      ]
+    },
+    {
+      "lesson": 8, "topic": "苏轼",
+      "items": [
+        { "ci_id": "linjiangxian-yeyin", "updated": false },
+        { "ci_id": "yongyule-changyibieshi", "updated": false },
+        { "ci_id": "shuilongyin-xiaozhouhengjie", "updated": false },
+        { "ci_id": "bashengganzhou-youqingfeng", "updated": false }
+      ]
+    },
+    {
+      "lesson": 9, "topic": "淮海词与山谷词",
+      "items": [
+        { "ci_id": "mantingfang-shanmoweiyun", "updated": false },
+        { "ci_id": "queqiaoxian-xianyun", "updated": false },
+        { "ci_id": "niannujiao-duanhong", "updated": false },
+        { "ci_id": "zhegutian-huangju", "updated": false },
+        { "ci_id": "qingpingle-chungui", "updated": false }
+      ]
+    },
+    {
+      "lesson": 10, "topic": "咏物词专题",
+      "items": [
+        { "ci_id": "sumuzhe-cao", "updated": false },
+        { "ci_id": "fengxiaoyin-hanzhen", "updated": false },
+        { "ci_id": "yanjiaoer-guanmei", "updated": false },
+        { "ci_id": "hangongchun-mei", "updated": false },
+        { "ci_id": "pusaman-qixi", "updated": false },
+        { "ci_id": "xingxiangzi-qixi", "updated": false }
+      ]
+    },
+    {
+      "lesson": 11, "topic": "周邦彦",
+      "items": [
+        { "ci_id": "sumuzhe-liaochenxiang", "updated": false },
+        { "ci_id": "shaonianyou-bingdao", "updated": false },
+        { "ci_id": "xihe-jinling", "updated": false }
+      ]
+    },
+    {
+      "lesson": 12, "topic": "李清照",
+      "items": [
+        { "ci_id": "yujiaao-xueli", "updated": false },
+        { "ci_id": "yiwangsun-hushang", "updated": false },
+        { "ci_id": "zhegutian-hanri", "updated": false },
+        { "ci_id": "fenghuangtaishang-xiangleng", "updated": false }
+      ]
+    },
+    {
+      "lesson": 13, "topic": "辛弃疾",
+      "items": [
+        { "ci_id": "moyuer-gengnengxiao", "updated": false },
+        { "ci_id": "hexinlang-shenyi", "updated": false },
+        { "ci_id": "shuidiaogetou-mengou", "updated": false }
+      ]
+    },
+    {
+      "lesson": 14, "topic": "姜夔",
+      "items": [
+        { "ci_id": "tashaxing-yanyan", "updated": false },
+        { "ci_id": "zhegutian-xiangmo", "updated": false },
+        { "ci_id": "zhegutian-feishui", "updated": false },
+        { "ci_id": "qitianle-yilang", "updated": false }
+      ]
+    }
+  ]
+}

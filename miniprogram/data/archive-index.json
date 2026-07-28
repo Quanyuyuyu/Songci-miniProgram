@@ -1,0 +1,16 @@
+{
+  "terms": [
+    { "term": "26Spring", "display": "2026 春", "status": "ready", "note": "最近一期" },
+    { "term": "25Fall", "display": "2025 秋", "status": "collecting", "note": "" },
+    { "term": "25Spring", "display": "2025 春", "status": "collecting", "note": "" },
+    { "term": "24Fall", "display": "2024 秋", "status": "collecting", "note": "" },
+    { "term": "24Spring", "display": "2024 春", "status": "collecting", "note": "" },
+    { "term": "23Fall", "display": "2023 秋", "status": "collecting", "note": "" }
+  ],
+  "categories": [
+    { "key": "creative", "label": "优秀创意作品", "desc": "往届讨论课展示：音乐改编、PPT 汇报等形式平等收录" },
+    { "key": "photo", "label": "优秀拍照配词", "desc": "一张照片、一首词、一段文字的相遇" },
+    { "key": "essay", "label": "优秀期末论文", "desc": "读书札记、连缀成文与其他形式的期末习作" }
+  ],
+  "note": "作品均经作者本人授权后收录，未收录的学期与类别显示「陆续收录中」。"
+}

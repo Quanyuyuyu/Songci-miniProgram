@@ -1,0 +1,4 @@
+<view class="disclaimer">
+  <text class="disclaimer-seal">非官方</text>
+  <text class="disclaimer-text">{{text}}</text>
+</view>

@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/overview/overview",
+    "pages/homework/homework",
+    "pages/archive/archive",
+    "pages/library/library",
+    "pages/schedule/schedule",
+    "pages/task/task",
+    "pages/ci-detail/ci-detail",
+    "pages/ci-list/ci-list",
+    "pages/cipai/cipai",
+    "pages/maps/maps",
+    "pages/notes/notes",
+    "pages/about/about",
+    "pages/work-detail/work-detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F6F1E4",
+    "navigationBarTitleText": "宋词导读·课程助手",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F6F1E4",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8A8378",
+    "selectedColor": "#2F4A6E",
+    "backgroundColor": "#FBF7EC",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/overview/overview",
+        "text": "课程",
+        "iconPath": "images/tabbar/overview.png",
+        "selectedIconPath": "images/tabbar/overview-active.png"
+      },
+      {
+        "pagePath": "pages/homework/homework",
+        "text": "作业",
+        "iconPath": "images/tabbar/homework.png",
+        "selectedIconPath": "images/tabbar/homework-active.png"
+      },
+      {
+        "pagePath": "pages/archive/archive",
+        "text": "档案",
+        "iconPath": "images/tabbar/archive.png",
+        "selectedIconPath": "images/tabbar/archive-active.png"
+      },
+      {
+        "pagePath": "pages/library/library",
+        "text": "资料",
+        "iconPath": "images/tabbar/library.png",
+        "selectedIconPath": "images/tabbar/library-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

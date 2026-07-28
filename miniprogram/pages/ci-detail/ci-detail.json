@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "篇目",
+  "usingComponents": {
+    "section-head": "/components/section-head/section-head",
+    "empty-state": "/components/empty-state/empty-state",
+    "tag-chip": "/components/tag-chip/tag-chip",
+    "disclaimer-bar": "/components/disclaimer-bar/disclaimer-bar"
+  }
+}

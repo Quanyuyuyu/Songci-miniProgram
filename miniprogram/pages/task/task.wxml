@@ -1,0 +1,117 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="📝" title="任务数据未能加载" reason="{{error}}" />
+
+  <!-- ============ 拍照配词 ============ -->
+  <block wx:if="{{!loading && type === 'photo' && photo}}">
+    <section-head title="是什么" />
+    <view class="card"><view class="para">{{photo.what}}</view></view>
+
+    <section-head title="要求" />
+    <view class="card">
+      <view class="req" wx:for="{{photo.requirements}}" wx:key="index">· {{item}}</view>
+      <view class="req-note">{{photo.submit_note}}</view>
+    </view>
+
+    <section-head title="交之前逐项自检" />
+    <view class="card">
+      <checklist items="{{photo.checklist}}" store-key="{{chkPhotoKey}}" />
+    </view>
+
+    <section-head title="两种交付形式" />
+    <view class="card deliver" wx:for="{{photo.deliver}}" wx:key="form">
+      <view class="deliver-form">{{item.form}}</view>
+      <view class="deliver-submit">提交物：{{item.submit}}</view>
+      <view class="deliver-points">展示要点：{{item.points}}</view>
+    </view>
+
+    <section-head title="里程碑" sub="只有顺序，没有日期" />
+    <view class="card">
+      <milestone-list items="{{photo.milestones}}" note="具体时间以课程群通知为准" />
+    </view>
+
+    <view class="link-card card card-tap" bindtap="goArchive">
+      <view class="link-title">看范例 · 优秀拍照配词</view>
+      <view class="link-desc">往届做成过什么样（全文见课程 ima 知识库）›</view>
+    </view>
+  </block>
+
+  <!-- ============ 讨论课展示 ============ -->
+  <block wx:if="{{!loading && type === 'discussion' && discussion}}">
+    <section-head title="本学期主题" />
+    <view class="card theme-card">
+      <view class="theme-title">{{discussion.theme_title}}</view>
+      <view class="para">{{discussion.theme_desc}}</view>
+      <view class="theme-meta">
+        <text class="chip">{{discussion.group_rule}}</text>
+        <text class="chip">{{discussion.duration}}</text>
+      </view>
+    </view>
+
+    <section-head title="展示前的三步" sub="常驻展示，不得折叠" />
+    <view class="card">
+      <milestone-list items="{{discussion.milestones}}" note="{{discussion.milestones_note}}" />
+    </view>
+
+    <section-head title="准备清单" sub="只排顺序，不排日历" />
+    <view class="card">
+      <milestone-list items="{{discussion.prepare}}" />
+    </view>
+
+    <section-head title="历学期主题对照" sub="什么算好选题" />
+    <view class="card past" wx:for="{{discussion.past_themes}}" wx:key="term">
+      <view class="past-term">{{item.display}}</view>
+      <view class="past-title" wx:if="{{item.known}}">{{item.title}}</view>
+      <view class="past-unknown" wx:else>陆续收录中</view>
+    </view>
+
+    <view class="link-card card card-tap" bindtap="goArchive">
+      <view class="link-title">看范例 · 优秀创意作品</view>
+      <view class="link-desc">往届讨论课做成过什么样（唱歌与汇报平等展示，不分新旧）›</view>
+    </view>
+  </block>
+
+  <!-- ============ 期末习作 ============ -->
+  <block wx:if="{{!loading && type === 'final' && final}}">
+    <section-head title="是什么" />
+    <view class="card">
+      <view class="para">{{final.what}}</view>
+      <view class="form-chips">
+        <text class="chip" wx:for="{{final.forms}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <section-head title="要求" />
+    <view class="card">
+      <view class="req">· {{final.min_words_note}}</view>
+      <view class="req">· {{final.naming_note}}</view>
+      <view class="req">· 如利用 AI 写作，请提前与任课老师沟通，或清晰标注在习作中</view>
+      <view class="copy-row" bindtap="onCopyNaming">
+        <text class="copy-btn">复制命名格式「{{final.naming}}」</text>
+      </view>
+      <view class="req-note">{{final.submit_note}}</view>
+    </view>
+
+    <section-head title="学术规范自检" />
+    <view class="card">
+      <checklist items="{{final.integrity}}" store-key="{{chkFinalKey}}" />
+    </view>
+
+    <section-head title="里程碑" sub="只有顺序，没有日期" />
+    <view class="card">
+      <milestone-list items="{{final.milestones}}" note="迟交代价：{{final.late_penalty}}" />
+    </view>
+
+    <view class="link-card card card-tap" bindtap="goNotes">
+      <view class="link-title">攒精读体悟 · 我的笔记</view>
+      <view class="link-desc">课件明写：期末可由对精读词作的体悟连缀成文 ›</view>
+    </view>
+
+    <view class="link-card card card-tap" bindtap="goArchive">
+      <view class="link-title">看范例 · 优秀期末论文</view>
+      <view class="link-desc">往届写成过什么样（全文见课程 ima 知识库）›</view>
+    </view>
+  </block>
+
+  <disclaimer-bar />
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

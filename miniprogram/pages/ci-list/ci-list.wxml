@@ -1,0 +1,44 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="🔍" title="索引未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading}}">
+    <view class="search-bar">
+      <input class="search-input" placeholder="搜索词牌 / 作者 / 首句" value="{{keyword}}" bindinput="onKeywordInput" />
+    </view>
+
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-row">
+        <view class="filter-label">词牌</view>
+        <view class="filter-chip {{activeCipai === item ? 'chip-on' : ''}}"
+              wx:for="{{cipaiList}}" wx:key="*this"
+              data-kind="cipai" data-value="{{item}}" bindtap="onFilterTap">{{item}}</view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-row">
+        <view class="filter-label">作者</view>
+        <view class="filter-chip {{activeAuthor === item ? 'chip-on' : ''}}"
+              wx:for="{{authorList}}" wx:key="*this"
+              data-kind="author" data-value="{{item}}" bindtap="onFilterTap">{{item}}</view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-row">
+        <view class="filter-label">流派</view>
+        <view class="filter-chip {{activeSchool === item ? 'chip-on' : ''}}"
+              wx:for="{{schoolList}}" wx:key="*this"
+              data-kind="school" data-value="{{item}}" bindtap="onFilterTap">{{item}}</view>
+      </view>
+    </scroll-view>
+
+    <view class="result-bar">
+      <text class="result-count">共 {{filtered.length}} / {{total}} 首</text>
+      <text class="result-clear" wx:if="{{activeCipai || activeAuthor || activeSchool || keyword}}" bindtap="onClearFilter">清除筛选</text>
+    </view>
+
+    <empty-state wx:if="{{!filtered.length}}" icon="🍃" title="没有匹配的篇目" reason="换个关键词或清除筛选试试" />
+    <ci-card wx:for="{{filtered}}" wx:key="id" item="{{item}}" show-lesson />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

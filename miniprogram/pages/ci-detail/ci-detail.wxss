@@ -1,0 +1,122 @@
+.head { display: flex; align-items: baseline; flex-wrap: wrap; }
+.head-cipai {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: var(--primary);
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+}
+.head-title { font-size: 34rpx; color: var(--ink); margin-left: 8rpx; }
+.head .seal { margin-left: 16rpx; }
+.seal-blue { background: var(--primary); }
+.head-meta { font-size: 24rpx; color: var(--gray); margin: 10rpx 0 24rpx; }
+
+.preface {
+  font-size: 24rpx;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 20rpx;
+  padding: 16rpx 20rpx;
+  background: var(--card);
+  border-radius: 16rpx;
+  border: 1rpx solid var(--line);
+}
+
+.text-card { padding: 36rpx 32rpx; }
+.text-para { display: block; margin-bottom: 24rpx; }
+.text-para:last-child { margin-bottom: 0; }
+
+.py-bar { display: flex; flex-wrap: wrap; margin-bottom: 8rpx; }
+.py {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 16rpx;
+  padding: 12rpx 20rpx;
+  margin: 0 16rpx 16rpx 0;
+}
+.py-ch { font-size: 32rpx; font-family: "Songti SC", "STSong", "SimSun", serif; }
+.py-py { font-size: 22rpx; color: var(--cinnabar); margin-top: 4rpx; }
+
+.note { padding: 10rpx 0; }
+.note-term { font-size: 26rpx; font-weight: 600; color: var(--primary); }
+.note-gloss { font-size: 26rpx; color: var(--ink-soft); margin-left: 12rpx; }
+
+.para { font-size: 28rpx; color: var(--ink-soft); line-height: 1.7; }
+
+.q-card { padding-bottom: 8rpx; }
+.q { display: flex; padding: 14rpx 0; }
+.q-no {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: var(--cinnabar);
+  color: #FFFDF6;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 18rpx;
+  margin-top: 2rpx;
+}
+.q-text { font-size: 28rpx; color: var(--ink); line-height: 1.6; }
+
+.tags-bar { margin: 12rpx 0 4rpx; }
+
+.links-scroll { white-space: nowrap; margin-bottom: 8rpx; }
+.link-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 260rpx;
+  white-space: normal;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-right: 20rpx;
+}
+.link-card:active { opacity: 0.75; }
+.link-rel {
+  display: inline-block;
+  font-size: 20rpx;
+  color: var(--cinnabar);
+  border: 1rpx solid var(--cinnabar);
+  border-radius: 6rpx;
+  padding: 0 10rpx;
+  margin-bottom: 10rpx;
+}
+.link-cipai { font-size: 28rpx; font-weight: 600; color: var(--primary); display: inline; }
+.link-ci-title { font-size: 24rpx; color: var(--ink); display: inline; }
+.link-author { font-size: 22rpx; color: var(--gray); margin-top: 6rpx; }
+.link-note { font-size: 22rpx; color: var(--ink-soft); margin-top: 8rpx; line-height: 1.5; }
+
+.cihua { background: #F3EDDD; }
+.cihua-quote {
+  font-size: 28rpx;
+  color: var(--ink-soft);
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  line-height: 1.8;
+}
+.cihua-src { font-size: 24rpx; color: var(--gray); margin-top: 12rpx; text-align: right; }
+
+.note-input {
+  width: 100%;
+  min-height: 140rpx;
+  font-size: 28rpx;
+  color: var(--ink);
+  box-sizing: border-box;
+}
+.note-actions { display: flex; align-items: center; justify-content: flex-end; margin-top: 16rpx; }
+.note-status { font-size: 22rpx; color: var(--celadon); margin-right: 20rpx; }
+.note-save {
+  font-size: 26rpx;
+  color: #FFFDF6;
+  background: var(--primary);
+  border-radius: 999rpx;
+  padding: 10rpx 36rpx;
+}
+.to-notes { text-align: center; font-size: 26rpx; color: var(--primary); padding: 8rpx 0 16rpx; }
+
+.loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }

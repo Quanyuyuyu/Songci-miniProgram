@@ -1,0 +1,38 @@
+.ms { padding: 8rpx 0; }
+.ms-row { display: flex; align-items: stretch; }
+.ms-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.ms-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: var(--cinnabar, #A03B2C);
+  color: #FFFDF6;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ms-line {
+  width: 2rpx;
+  flex: 1;
+  background: var(--line, #E4DDCB);
+  margin: 4rpx 0;
+  min-height: 28rpx;
+}
+.ms-text {
+  font-size: 28rpx;
+  color: var(--ink, #2A2620);
+  padding-bottom: 32rpx;
+  padding-top: 4rpx;
+}
+.ms-note {
+  font-size: 24rpx;
+  color: var(--gray, #8A8378);
+  margin-top: 4rpx;
+}

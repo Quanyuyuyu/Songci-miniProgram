@@ -1,0 +1,17 @@
+<view class="page-body">
+  <view class="hint-bar">{{hint}}</view>
+
+  <empty-state wx:if="{{!loading && !notes.length}}" icon="🖋" title="还没有笔记"
+    reason="在读词详情页底部可以随手记下体悟；纯自愿，课程不要求交书面笔记" />
+
+  <block wx:if="{{!loading && notes.length}}">
+    <view class="note-card card" wx:for="{{notes}}" wx:key="ci_id" data-id="{{item.ci_id}}" bindtap="goDetail">
+      <view class="note-head">《{{item.cipai}}{{item.title ? '·' + item.title : ''}}》 {{item.author}}</view>
+      <view class="note-text">{{item.text}}</view>
+    </view>
+
+    <view class="copy-all" bindtap="onCopyAll">一键复制全部笔记</view>
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

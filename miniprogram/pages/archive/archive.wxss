@@ -1,0 +1,38 @@
+.page-intro { font-size: 26rpx; color: var(--gray); line-height: 1.7; margin-bottom: 24rpx; }
+
+.term-grid { display: flex; flex-wrap: wrap; margin: 0 -8rpx; }
+.term-card {
+  width: calc(33.33% - 16rpx);
+  margin: 8rpx;
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: 20rpx;
+  padding: 24rpx 12rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.term-ready { border-color: var(--primary); }
+.term-card:active { opacity: 0.75; }
+.term-display { font-size: 30rpx; font-weight: 600; color: var(--ink); }
+.term-status { font-size: 22rpx; color: var(--gray); margin-top: 8rpx; }
+.term-status-ready { color: var(--cinnabar); }
+
+.cat-bar { display: flex; margin-bottom: 12rpx; }
+.cat-chip {
+  font-size: 26rpx;
+  color: var(--primary);
+  border: 1rpx solid var(--primary);
+  border-radius: 999rpx;
+  padding: 8rpx 24rpx;
+  margin-right: 16rpx;
+}
+.cat-chip-on { background: var(--primary); color: #FFFDF6; }
+.cat-desc { font-size: 24rpx; color: var(--gray); margin-bottom: 20rpx; }
+
+.work-head { display: flex; align-items: center; justify-content: space-between; }
+.work-title { font-size: 30rpx; font-weight: 600; color: var(--ink); flex: 1; padding-right: 16rpx; }
+.work-brief { font-size: 26rpx; color: var(--ink-soft); margin-top: 12rpx; line-height: 1.7; }
+.work-meta { font-size: 22rpx; color: var(--celadon); margin-top: 10rpx; }
+
+.archive-note { font-size: 24rpx; color: var(--gray); line-height: 1.7; margin-top: 8rpx; }
+.loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }

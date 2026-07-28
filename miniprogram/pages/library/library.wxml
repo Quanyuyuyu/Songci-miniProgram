@@ -1,0 +1,65 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="📚" title="资料数据未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading}}">
+    <!-- 功能入口 -->
+    <view class="entry-card" data-url="/pages/ci-list/ci-list" bindtap="go">
+      <view class="entry-emoji">🔍</view>
+      <view class="entry-main">
+        <view class="entry-title">篇目速查</view>
+        <view class="entry-desc">49 首课内词作：按词牌、作者、流派检索，原文一键可达</view>
+      </view>
+      <view class="entry-arrow">›</view>
+    </view>
+
+    <view class="entry-card" data-url="/pages/cipai/cipai" bindtap="go">
+      <view class="entry-emoji">🎵</view>
+      <view class="entry-main">
+        <view class="entry-title">词牌卡</view>
+        <view class="entry-desc">格律梗概与声情，同调篇目并列参看</view>
+      </view>
+      <view class="entry-arrow">›</view>
+    </view>
+
+    <view class="entry-card" data-url="/pages/maps/maps" bindtap="go">
+      <view class="entry-emoji">🧭</view>
+      <view class="entry-main">
+        <view class="entry-title">脉络图</view>
+        <view class="entry-desc">词史脉络轴 · 词牌家族 · 主题串联（讨论课与期末的选题工具）</view>
+      </view>
+      <view class="entry-arrow">›</view>
+    </view>
+
+    <view class="entry-card" data-url="/pages/notes/notes" bindtap="go">
+      <view class="entry-emoji">🖋</view>
+      <view class="entry-main">
+        <view class="entry-title">我的笔记</view>
+        <view class="entry-desc">平时攒下的精读体悟，期末可以连缀成文（仅存本机）</view>
+      </view>
+      <view class="entry-arrow">›</view>
+    </view>
+
+    <!-- 教材与参考书目 -->
+    <section-head title="教材与参考书目" sub="仅列书目信息" />
+    <view class="card book" wx:for="{{textbooks}}" wx:key="isbn">
+      <view class="book-title">《{{item.title}}》</view>
+      <view class="book-meta">{{item.author}}{{item.translator ? ' 著 · ' + item.translator + ' 译' : ' 著'}}</view>
+      <view class="book-meta">{{item.publisher}} · {{item.year}}</view>
+      <view class="book-isbn">ISBN {{item.isbn}}</view>
+    </view>
+
+    <section-head title="推荐阅读材料" />
+    <view class="card book" wx:for="{{readings}}" wx:key="title">
+      <view class="book-title">{{item.title}}</view>
+      <view class="book-meta">{{item.author}}</view>
+      <view class="book-isbn">{{item.source}}</view>
+    </view>
+    <view class="books-note">{{booksNote}}</view>
+
+    <view class="about-link" data-url="/pages/about/about" bindtap="go">关于本产品 ›</view>
+
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

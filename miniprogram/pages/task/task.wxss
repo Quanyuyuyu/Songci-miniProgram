@@ -1,0 +1,39 @@
+.para { font-size: 28rpx; color: var(--ink-soft); line-height: 1.7; }
+.req { font-size: 28rpx; color: var(--ink); padding: 8rpx 0; line-height: 1.6; }
+.req-note { font-size: 24rpx; color: var(--cinnabar); margin-top: 16rpx; }
+
+.deliver-form { font-size: 28rpx; font-weight: 600; color: var(--primary); }
+.deliver-submit { font-size: 26rpx; color: var(--ink); margin-top: 8rpx; }
+.deliver-points { font-size: 24rpx; color: var(--gray); margin-top: 8rpx; line-height: 1.6; }
+
+.theme-card { border-left: 6rpx solid var(--cinnabar); }
+.theme-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  margin-bottom: 12rpx;
+}
+.theme-meta { margin-top: 16rpx; }
+
+.past { display: flex; align-items: baseline; padding: 20rpx 24rpx; }
+.past-term { font-size: 26rpx; color: var(--gray); width: 130rpx; flex-shrink: 0; }
+.past-title { font-size: 28rpx; color: var(--ink); }
+.past-unknown { font-size: 26rpx; color: var(--gray); }
+
+.form-chips { margin-top: 16rpx; }
+.copy-row { margin-top: 20rpx; }
+.copy-btn {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #FFFDF6;
+  background: var(--primary);
+  border-radius: 999rpx;
+  padding: 12rpx 32rpx;
+}
+
+.link-card { border-left: 6rpx solid var(--celadon); }
+.link-title { font-size: 28rpx; font-weight: 600; color: var(--ink); }
+.link-desc { font-size: 24rpx; color: var(--gray); margin-top: 8rpx; }
+
+.loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }

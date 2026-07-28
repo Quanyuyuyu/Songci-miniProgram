@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "篇目速查",
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state",
+    "ci-card": "/components/ci-card/ci-card"
+  }
+}

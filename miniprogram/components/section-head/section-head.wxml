@@ -1,0 +1,5 @@
+<view class="sec">
+  <view class="sec-mark"></view>
+  <view class="sec-title">{{title}}</view>
+  <view class="sec-sub" wx:if="{{sub}}">{{sub}}</view>
+</view>

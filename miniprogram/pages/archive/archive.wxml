@@ -1,0 +1,44 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="🗂" title="档案数据未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading}}">
+    <view class="page-intro">往届学长学姐做成过什么样——看的是「什么样算做得好」，不是拿来抄。</view>
+
+    <!-- 学期卡片 -->
+    <section-head title="六个学期" />
+    <view class="term-grid">
+      <view class="term-card {{item.status === 'ready' ? 'term-ready' : ''}}"
+            wx:for="{{terms}}" wx:key="term"
+            data-item="{{item}}" bindtap="onTermTap">
+        <view class="term-display">{{item.display}}</view>
+        <view class="term-status {{item.status === 'ready' ? 'term-status-ready' : ''}}">
+          {{item.status === 'ready' ? '最近一期' : '陆续收录中'}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 优秀作品 -->
+    <section-head title="优秀作品" sub="三类平等展示，不分新旧" />
+    <view class="cat-bar">
+      <view class="cat-chip {{activeCategory === item.key ? 'cat-chip-on' : ''}}"
+            wx:for="{{categories}}" wx:key="key"
+            data-key="{{item.key}}" bindtap="onCategoryTap">{{item.label}}</view>
+    </view>
+    <view class="cat-desc" wx:for="{{categories}}" wx:key="key" wx:if="{{activeCategory === item.key}}">{{item.desc}}</view>
+
+    <empty-state wx:if="{{!works.length}}" icon="🗂" title="暂未收录" reason="该类别作品陆续收录中" />
+    <view class="work-card card card-tap" wx:for="{{works}}" wx:key="id" data-id="{{item.id}}" bindtap="onWorkTap">
+      <view class="work-head">
+        <view class="work-title">{{item.title}}</view>
+        <view class="seal" wx:if="{{item.form_tag}}">{{item.form_tag}}</view>
+      </view>
+      <view class="work-brief">{{item.brief}}</view>
+      <view class="work-meta" wx:if="{{item.term}}">收录学期：{{item.term}}</view>
+    </view>
+
+    <view class="archive-note">{{note}}</view>
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

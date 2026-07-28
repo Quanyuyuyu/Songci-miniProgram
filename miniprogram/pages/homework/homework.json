@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我要交作业",
+  "usingComponents": {
+    "section-head": "/components/section-head/section-head",
+    "empty-state": "/components/empty-state/empty-state",
+    "task-card": "/components/task-card/task-card",
+    "disclaimer-bar": "/components/disclaimer-bar/disclaimer-bar"
+  }
+}

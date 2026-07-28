@@ -1,0 +1,12 @@
+<view class="ci-card" bindtap="onTap">
+  <view class="ci-head">
+    <text class="ci-cipai">{{item.cipai}}</text>
+    <text class="ci-title" wx:if="{{item.title}}">· {{item.title}}</text>
+    <text class="ci-level seal" wx:if="{{item.level === 'intensive'}}">精读</text>
+  </view>
+  <view class="ci-author">{{item.dynasty}} · {{item.author}}<text wx:if="{{showLesson && item.lesson}}" class="ci-lesson">　第 {{item.lesson}} 课</text></view>
+  <view class="ci-first ci-text" wx:if="{{item.first_line}}">{{item.first_line}}</view>
+  <view class="ci-tags" wx:if="{{item.themes && item.themes.length}}">
+    <text class="ci-tag" wx:for="{{item.themes}}" wx:key="*this">{{item}}</text>
+  </view>
+</view>

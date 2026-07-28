@@ -1,0 +1,15 @@
+.sec {
+  display: flex;
+  align-items: baseline;
+  margin: 36rpx 0 20rpx;
+}
+.sec-mark {
+  width: 12rpx;
+  height: 28rpx;
+  background: var(--cinnabar, #A03B2C);
+  border-radius: 3rpx;
+  margin-right: 16rpx;
+  align-self: center;
+}
+.sec-title { font-size: 34rpx; font-weight: 600; color: var(--ink, #2A2620); }
+.sec-sub { font-size: 24rpx; color: var(--gray, #8A8378); margin-left: 16rpx; }

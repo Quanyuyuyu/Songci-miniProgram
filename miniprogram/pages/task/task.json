@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "任务",
+  "usingComponents": {
+    "section-head": "/components/section-head/section-head",
+    "empty-state": "/components/empty-state/empty-state",
+    "milestone-list": "/components/milestone-list/milestone-list",
+    "checklist": "/components/checklist/checklist",
+    "disclaimer-bar": "/components/disclaimer-bar/disclaimer-bar"
+  }
+}

@@ -1,0 +1,97 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="📜" title="篇目未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading && ci}}">
+    <!-- 头部 -->
+    <view class="head">
+      <view class="head-cipai">{{ci.cipai}}</view>
+      <view class="head-title" wx:if="{{ci.title}}">· {{ci.title}}</view>
+      <view class="seal seal-blue" wx:if="{{ci.level === 'intensive'}}">精读</view>
+    </view>
+    <view class="head-meta">{{ci.dynasty}} · {{ci.author}}　|　{{ci.school}}　|　第 {{ci.lesson}} 课</view>
+
+    <!-- 词序 -->
+    <view class="preface" wx:if="{{ci.preface}}">{{ci.preface}}</view>
+
+    <!-- 原文 -->
+    <view class="card text-card">
+      <text class="ci-text text-para" wx:for="{{ci.text}}" wx:key="index" selectable>{{item}}</text>
+    </view>
+
+    <!-- 注音 -->
+    <block wx:if="{{ci.pinyin && ci.pinyin.length}}">
+      <section-head title="生僻字注音" />
+      <view class="py-bar">
+        <view class="py" wx:for="{{ci.pinyin}}" wx:key="ch">
+          <text class="py-ch">{{item.ch}}</text>
+          <text class="py-py">{{item.py}}</text>
+        </view>
+      </view>
+    </block>
+
+    <!-- 简注 -->
+    <section-head title="词语简注" sub="自撰，只注典故名物生僻词" />
+    <view class="card">
+      <view class="note" wx:for="{{ci.notes}}" wx:key="term">
+        <text class="note-term">{{index + 1}}. {{item.term}}</text>
+        <text class="note-gloss">{{item.gloss}}</text>
+      </view>
+    </view>
+
+    <!-- 一句话背景 -->
+    <section-head title="背景一句话" wx:if="{{ci.background}}" />
+    <view class="card" wx:if="{{ci.background}}">
+      <view class="para">{{ci.background}}</view>
+    </view>
+
+    <!-- 入手三问 -->
+    <section-head title="入手三问" sub="为课堂分享的三分钟准备，不给答案" wx:if="{{ci.questions && ci.questions.length}}" />
+    <view class="card q-card" wx:if="{{ci.questions && ci.questions.length}}">
+      <view class="q" wx:for="{{ci.questions}}" wx:key="index">
+        <view class="q-no">{{index + 1}}</view>
+        <view class="q-text">{{item}}</view>
+      </view>
+    </view>
+
+    <!-- 标签 -->
+    <view class="tags-bar">
+      <tag-chip wx:for="{{ci.tags.theme}}" wx:key="*this" text="{{item}}" kind="theme" />
+      <tag-chip wx:for="{{ci.tags.technique}}" wx:key="*this" text="{{item}}" kind="technique" />
+    </view>
+
+    <!-- 关联篇目 -->
+    <section-head title="关联篇目" sub="同调 · 同人 · 同题 · 同法 · 同源" wx:if="{{links.length}}" />
+    <scroll-view scroll-x class="links-scroll" wx:if="{{links.length}}">
+      <view class="link-card" wx:for="{{links}}" wx:key="ci_id" data-id="{{item.ci_id}}" bindtap="goLinked">
+        <view class="link-rel">{{item.relLabel}}</view>
+        <view class="link-cipai">{{item.cipai}}</view>
+        <view class="link-ci-title" wx:if="{{item.title}}">· {{item.title}}</view>
+        <view class="link-author">{{item.author}}</view>
+        <view class="link-note" wx:if="{{item.note}}">{{item.note}}</view>
+      </view>
+    </scroll-view>
+
+    <!-- 词话摘引 -->
+    <section-head title="古代词话" wx:if="{{ci.cihua && ci.cihua.length}}" />
+    <view class="card cihua" wx:for="{{ci.cihua}}" wx:key="src">
+      <view class="cihua-quote">{{item.quote}}</view>
+      <view class="cihua-src">—— {{item.src}}</view>
+    </view>
+
+    <!-- 私人笔记 -->
+    <section-head title="我的笔记" sub="纯自愿，仅保存在本机" />
+    <view class="card">
+      <textarea class="note-input" placeholder="写下此刻的体悟（课程不要求交书面笔记，此内容只存本机、不回传）"
+                value="{{noteText}}" bindinput="onNoteInput" maxlength="2000" auto-height />
+      <view class="note-actions">
+        <view class="note-status" wx:if="{{noteSaved}}">已存于本机</view>
+        <view class="note-save" bindtap="onNoteSave">保存</view>
+      </view>
+    </view>
+    <view class="to-notes" bindtap="goNotes" wx:if="{{noteSaved}}">查看全部笔记（期末可连缀成文）›</view>
+
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

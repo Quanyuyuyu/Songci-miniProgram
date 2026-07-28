@@ -1,0 +1,18 @@
+<view class="page-body">
+  <empty-state wx:if="{{error}}" icon="📝" title="任务数据未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading && cards.length}}">
+    <view class="page-intro">这学期的四件事：做什么、按什么顺序做、往届做成过什么样。具体时间以课程群通知为准。</view>
+
+    <task-card wx:for="{{cards}}" wx:key="type" emoji="{{item.emoji}}" title="{{item.title}}" summary="{{item.summary}}" points="{{item.points}}" type="{{item.type}}" bind:tapcard="onCardTap" />
+
+    <view class="hint-card card">
+      <view class="hint-title">💡 交之前看一眼</view>
+      <view class="hint-text">作业仍交到作业网盘，公众号形式交链接；提交地址见课程 QQ 群。本工具只负责提醒和自检，不代收作业。</view>
+    </view>
+
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+</view>

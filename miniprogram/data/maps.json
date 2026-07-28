@@ -1,0 +1,39 @@
+{
+  "timeline": [
+    { "w": 1, "era": "tang", "label": "何谓「词」" },
+    { "w": 2, "era": "tang", "label": "唐人之词" },
+    { "w": 3, "era": "tang", "label": "花间词派" },
+    { "w": 4, "era": "tang", "label": "南唐词" },
+    { "w": 5, "era": "beisong", "label": "北宋初期（一）" },
+    { "w": 6, "era": "beisong", "label": "北宋初期（二）" },
+    { "w": 7, "era": "beisong", "label": "柳永" },
+    { "w": 8, "era": "beisong", "label": "苏轼" },
+    { "w": 9, "era": "beisong", "label": "淮海与山谷" },
+    { "w": 10, "era": "beisong", "label": "咏物词" },
+    { "w": 11, "era": "beisong", "label": "周邦彦" },
+    { "w": 12, "era": "beisong", "label": "讨论课" },
+    { "w": 13, "era": "beisong", "label": "讨论课" },
+    { "w": 14, "era": "nansong", "label": "李清照" },
+    { "w": 15, "era": "nansong", "label": "辛弃疾" },
+    { "w": 16, "era": "nansong", "label": "姜夔" }
+  ],
+  "eras": [
+    { "key": "tang", "label": "唐五代" },
+    { "key": "beisong", "label": "北宋" },
+    { "key": "nansong", "label": "南宋" }
+  ],
+  "themes": [
+    { "tag": "闺情", "desc": "闺中相思与男女情事", "ci_ids": ["genglouzi-liusichang", "genglouzi-xingdouxi", "genglouzi-yuluxiang", "yejinmen-fengzhaqi", "huanxisha-shoujuan", "tashaxing-bihaiwubo", "yidijing-liuyong", "mantingfang-shanmoweiyun", "queqiaoxian-xianyun", "fengxiaoyin-hanzhen", "pusaman-qixi", "xingxiangzi-qixi", "shaonianyou-bingdao", "fenghuangtaishang-xiangleng", "tashaxing-yanyan", "zhegutian-feishui"] },
+    { "tag": "羁旅", "desc": "客中行役与思归", "ci_ids": ["qingpingle-bielaichunban", "yiyuhang-changyiqiantang", "yiyuhang-changyixihu", "yiyuhang-changyigushan", "yiyuhang-changyixishan", "yiyuhang-changyiguanchao", "qishi-liuyong", "bashengganzhou-duixiaoxiao", "yidijing-liuyong", "mantingfang-shanmoweiyun", "sumuzhe-liaochenxiang"] },
+    { "tag": "咏物", "desc": "咏物寄意：草、梅、蟋蟀", "ci_ids": ["sumuzhe-cao", "fengxiaoyin-hanzhen", "yanjiaoer-guanmei", "hangongchun-mei", "yujiaao-xueli", "qitianle-yilang"] },
+    { "tag": "友情", "desc": "送别、怀友与知己之谊", "ci_ids": ["yangguanyin-kouzhun", "yulouchun-zunqian", "yongyule-changyibieshi", "shuilongyin-xiaozhouhengjie", "bashengganzhou-youqingfeng", "niannujiao-duanhong", "hexinlang-shenyi"] },
+    { "tag": "怀古", "desc": "登临怀古，兴亡之叹", "ci_ids": ["xihe-jinling"] },
+    { "tag": "惜春", "desc": "伤春惜时，春光易逝", "ci_ids": ["huanxisha-handan", "huanxisha-shoujuan", "qingpingle-bielaichunban", "tashaxing-xiaojinghongxi", "yulouchun-zunqian", "qingpingle-chungui", "sumuzhe-cao", "yiwangsun-hushang", "moyuer-gengnengxiao"] },
+    { "tag": "身世", "desc": "自写生平怀抱与进退", "ci_ids": ["shantingliu-yanshu", "qishi-liuyong", "linjiangxian-yeyin", "bashengganzhou-youqingfeng", "niannujiao-duanhong", "zhegutian-huangju", "zhegutian-hanri", "moyuer-gengnengxiao", "hexinlang-shenyi", "shuidiaogetou-mengou", "zhegutian-xiangmo", "qitianle-yilang"] }
+  ],
+  "family": {
+    "xiaoling": ["更漏子", "谒金门", "浣溪沙", "清平乐", "忆余杭", "踏莎行", "玉楼春", "鹊桥仙", "鹧鸪天", "盐角儿", "菩萨蛮", "少年游", "双调忆王孙"],
+    "zhongdiao": ["苏幕遮", "临江仙", "山亭柳", "忆帝京", "行香子", "渔家傲", "阳关引"],
+    "manci": ["戚氏", "八声甘州", "永遇乐", "水龙吟", "满庭芳", "念奴娇", "凤箫吟", "汉宫春", "西河", "凤凰台上忆吹箫", "摸鱼儿", "贺新郎", "水调歌头", "齐天乐"]
+  }
+}

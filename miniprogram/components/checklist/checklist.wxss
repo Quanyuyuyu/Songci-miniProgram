@@ -1,0 +1,27 @@
+.chk { padding: 4rpx 0; }
+.chk-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 14rpx 0;
+}
+.chk-box {
+  width: 36rpx;
+  height: 36rpx;
+  border: 2rpx solid var(--gray, #8A8378);
+  border-radius: 8rpx;
+  margin-right: 18rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFDF6;
+  font-size: 26rpx;
+  margin-top: 4rpx;
+}
+.chk-box-on {
+  background: var(--celadon, #8AA6A0);
+  border-color: var(--celadon, #8AA6A0);
+}
+.chk-text { font-size: 28rpx; color: var(--ink, #2A2620); line-height: 1.5; }
+.chk-text-on { color: var(--gray, #8A8378); text-decoration: line-through; }
+.chk-hint { font-size: 22rpx; color: var(--gray, #8A8378); margin-top: 12rpx; }

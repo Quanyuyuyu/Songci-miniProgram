@@ -1,0 +1,39 @@
+.ci-card {
+  background: var(--card, #FFFDF6);
+  border: 1rpx solid var(--line, #E4DDCB);
+  border-radius: 24rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 20rpx;
+}
+.ci-card:active { opacity: 0.75; }
+.ci-head { display: flex; align-items: baseline; }
+.ci-cipai { font-size: 32rpx; font-weight: 600; color: var(--primary, #2F4A6E); }
+.ci-title { font-size: 28rpx; color: var(--ink, #2A2620); margin-left: 6rpx; }
+.ci-level {
+  margin-left: auto;
+  display: inline-block;
+  color: #FFFDF6;
+  background: var(--cinnabar, #A03B2C);
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  padding: 2rpx 12rpx;
+  line-height: 1.6;
+}
+.ci-author { font-size: 24rpx; color: var(--gray, #8A8378); margin-top: 6rpx; }
+.ci-lesson { color: var(--celadon, #8AA6A0); }
+.ci-first {
+  font-size: 30rpx;
+  margin-top: 12rpx;
+  color: var(--ink-soft, #4A443A);
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  line-height: 1.8;
+}
+.ci-tags { margin-top: 10rpx; }
+.ci-tag {
+  font-size: 22rpx;
+  color: var(--celadon, #8AA6A0);
+  border: 1rpx solid var(--celadon, #8AA6A0);
+  border-radius: 999rpx;
+  padding: 0 14rpx;
+  margin-right: 12rpx;
+}

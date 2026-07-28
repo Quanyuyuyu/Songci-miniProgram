@@ -1,0 +1,24 @@
+<view class="page-body">
+  <view class="hero card">
+    <view class="hero-seal">词</view>
+    <view class="hero-name">宋词导读 · 课程助手</view>
+    <view class="hero-sub">一门课的深度档案：本周读什么、要交什么、往届做成过什么样</view>
+  </view>
+
+  <section-head title="定位声明" />
+  <view class="card">
+    <view class="para statement">{{statement}}</view>
+  </view>
+
+  <section-head title="这个工具不做什么" />
+  <view class="card">
+    <view class="item" wx:for="{{boundaries}}" wx:key="index">· {{item}}</view>
+  </view>
+
+  <section-head title="内容来源" />
+  <view class="card">
+    <view class="item" wx:for="{{sources}}" wx:key="index">· {{item}}</view>
+  </view>
+
+  <disclaimer-bar text="{{statement}}" />
+</view>

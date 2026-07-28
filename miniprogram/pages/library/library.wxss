@@ -1,0 +1,11 @@
+.book-title { font-size: 30rpx; font-weight: 600; color: var(--ink); }
+.book-meta { font-size: 26rpx; color: var(--ink-soft); margin-top: 8rpx; }
+.book-isbn { font-size: 24rpx; color: var(--gray); margin-top: 8rpx; }
+.books-note { font-size: 24rpx; color: var(--gray); margin: 4rpx 0 12rpx; }
+.about-link {
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--primary);
+  padding: 24rpx 0 8rpx;
+}
+.loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }
