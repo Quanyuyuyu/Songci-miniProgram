@@ -1,5 +1,6 @@
 {
   "list": [
+    { "name": "忆江南", "family": "xiaoling", "meter": "单调二十七字，五句三平韵；联章可换头反复咏唱。", "tone": "明快流丽，最宜写风物与追忆。", "ci_ids": ["yijiangnan-jiangnanhao", "yijiangnan-zuiyihangzhou", "yijiangnan-qiciyiwugong"] },
     { "name": "更漏子", "family": "xiaoling", "meter": "双调四十六字，前片两仄韵两平韵，后片三仄韵两平韵，平仄换叶。", "tone": "宜写夜深怀人，声情幽咽。", "ci_ids": ["genglouzi-liusichang", "genglouzi-xingdouxi", "genglouzi-yuluxiang"] },
     { "name": "忆余杭", "family": "xiaoling", "meter": "《酒泉子》变体，潘阆用以忆杭州，联章五首为一组。", "tone": "追忆之体，一唱三叹。", "ci_ids": ["yiyuhang-changyiqiantang", "yiyuhang-changyixihu", "yiyuhang-changyigushan", "yiyuhang-changyixishan", "yiyuhang-changyiguanchao"] },
     { "name": "浣溪沙", "family": "xiaoling", "meter": "双调四十二字，前片三平韵，后片两平韵。", "tone": "清婉流转，伤春怀旧皆宜。", "ci_ids": ["huanxisha-handan", "huanxisha-shoujuan"] },

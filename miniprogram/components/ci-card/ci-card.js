@@ -1,7 +1,7 @@
 Component({
   properties: {
-    item: { type: Object, value: {} },   // {id,title,author,cipai,first_line,themes,level,lesson}
-    showLesson: { type: Boolean, value: false }
+    item: { type: Object, value: {} },   // {id,title,author,cipai,first_line,themes,week}
+    showWeek: { type: Boolean, value: false }
   },
   methods: {
     onTap() {

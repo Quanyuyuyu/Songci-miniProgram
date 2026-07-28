@@ -1,0 +1,56 @@
+{
+  "id": "yijiangnan-zuiyihangzhou",
+  "cipai": "忆江南",
+  "title": "最忆是杭州",
+  "author": "白居易",
+  "dynasty": "唐",
+  "school": "唐词",
+  "week": 2,
+  "text": [
+    "江南忆，最忆是杭州。山寺月中寻桂子，郡亭枕上看潮头。何日更重游？"
+  ],
+  "pinyin": [],
+  "notes": [
+    {
+      "term": "山寺",
+      "gloss": "杭州山中寺院，通常联系天竺寺一带。"
+    },
+    {
+      "term": "郡亭",
+      "gloss": "州郡官署中的亭楼。"
+    },
+    {
+      "term": "潮头",
+      "gloss": "钱塘潮涌起的前锋。"
+    }
+  ],
+  "background": "白居易曾任杭州刺史，对当地山水与生活留有深切记忆。本词选取月中寻桂、亭上观潮两个具体片段，写“最忆”杭州的缘由。",
+  "questions": [
+    "“最忆”比一般的“忆”多出怎样的情感分量？",
+    "月中寻桂偏静，枕上看潮偏动，这一静一动怎样共同构成杭州记忆？",
+    "“何日更重游”把往事、此刻与未来怎样连接在一起？"
+  ],
+  "tags": {
+    "theme": [
+      "江南",
+      "怀旧"
+    ],
+    "technique": [
+      "选景",
+      "动静相生"
+    ]
+  },
+  "links": [
+    {
+      "ci_id": "yijiangnan-jiangnanhao",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yijiangnan-qiciyiwugong",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    }
+  ],
+  "cihua": []
+}

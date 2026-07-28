@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "精读词目",
+  "navigationBarTitleText": "全学期阅读词目",
   "usingComponents": {
     "section-head": "/components/section-head/section-head",
     "empty-state": "/components/empty-state/empty-state",

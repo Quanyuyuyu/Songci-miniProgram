@@ -3,7 +3,7 @@
 // 并在微信开发者工具「详情 → 本地设置」勾选「不校验合法域名」
 module.exports = {
   BASE_URL: 'http://127.0.0.1:8080',
-  DATA_VERSION: 'v1',
+  DATA_VERSION: 'v5',
   STORAGE_PREFIX: 'sc_',
   CACHE_TTL: 7 * 24 * 3600 * 1000 // 数据缓存 7 天
 };

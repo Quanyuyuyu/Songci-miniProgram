@@ -37,36 +37,34 @@
 
   <!-- ============ 讨论课展示 ============ -->
   <block wx:if="{{!loading && type === 'discussion' && discussion}}">
-    <section-head title="本学期主题" />
-    <view class="card theme-card">
-      <view class="theme-title">{{discussion.theme_title}}</view>
-      <view class="para">{{discussion.theme_desc}}</view>
-      <view class="theme-meta">
-        <text class="chip">{{discussion.group_rule}}</text>
-        <text class="chip">{{discussion.duration}}</text>
-      </view>
+    <section-head title="历学期主题" />
+    <view class="card theme-card {{item.status === 'known' ? 'theme-known' : ''}}"
+          wx:for="{{discussion.themes}}" wx:key="term">
+      <view class="theme-term">{{item.display}}</view>
+      <block wx:if="{{item.status === 'known'}}">
+        <view class="theme-title">{{item.title}}</view>
+        <view class="para">{{item.desc}}</view>
+        <view class="theme-meta">
+          <text class="chip">{{item.group_rule}}</text>
+          <text class="chip">{{item.duration}}</text>
+        </view>
+      </block>
+      <view class="theme-pending" wx:elif="{{item.status === 'pending'}}">主题尚未发布</view>
+      <view class="theme-uncollected" wx:else>主题资料暂未收录</view>
     </view>
 
-    <section-head title="展示前的三步" sub="常驻展示，不得折叠" />
+    <view class="pending-note" wx:if="{{discussion.themes[0].status === 'pending'}}">
+      2026 秋具体安排以课程群通知为准
+    </view>
+
+    <section-head title="展示前的三步" />
     <view class="card">
       <milestone-list items="{{discussion.milestones}}" note="{{discussion.milestones_note}}" />
     </view>
 
-    <section-head title="准备清单" sub="只排顺序，不排日历" />
+    <section-head title="准备清单" />
     <view class="card">
       <milestone-list items="{{discussion.prepare}}" />
-    </view>
-
-    <section-head title="历学期主题对照" sub="什么算好选题" />
-    <view class="card past" wx:for="{{discussion.past_themes}}" wx:key="term">
-      <view class="past-term">{{item.display}}</view>
-      <view class="past-title" wx:if="{{item.known}}">{{item.title}}</view>
-      <view class="past-unknown" wx:else>陆续收录中</view>
-    </view>
-
-    <view class="link-card card card-tap" bindtap="goArchive">
-      <view class="link-title">看范例 · 优秀创意作品</view>
-      <view class="link-desc">往届讨论课做成过什么样（唱歌与汇报平等展示，不分新旧）›</view>
     </view>
   </block>
 
@@ -102,8 +100,8 @@
     </view>
 
     <view class="link-card card card-tap" bindtap="goNotes">
-      <view class="link-title">攒精读体悟 · 我的笔记</view>
-      <view class="link-desc">课件明写：期末可由对精读词作的体悟连缀成文 ›</view>
+      <view class="link-title">攒词作体悟 · 我的笔记</view>
+      <view class="link-desc">期末可由平时积累的阅读体悟连缀成文 ›</view>
     </view>
 
     <view class="link-card card card-tap" bindtap="goArchive">

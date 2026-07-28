@@ -34,21 +34,14 @@ Page({
       if (!meta) throw { code: 'EMPTY', reason: '未找到该篇目' };
       this._index = idx.list || [];
       this._meta = meta;
-      if (meta.level === 'intensive') {
-        return getData('ci-intensive', id).then((ci) => this.render(ci, meta));
-      }
-      return getData('ci-skim').then((skim) => {
-        const ci = (skim.list || []).find((c) => c.id === id);
-        if (!ci) throw { code: 'EMPTY', reason: '该篇目内容陆续整理中' };
-        this.render(ci, meta);
-      });
+      return getData('ci-detail', id).then((ci) => this.render(ci, meta));
     }).catch((err) => {
       this.setData({ loading: false, error: errorReason(err) });
     });
   },
 
   render(ci, meta) {
-    // 关联篇目：intensive 用人工连线；skim 及补充用索引现算（同调/同人）
+    // 人工关联优先，再按同调、同人补足。
     const links = [];
     const seen = { [meta.id]: true };
     (ci.links || []).forEach((l) => {
@@ -83,7 +76,7 @@ Page({
     const savedNote = store.get(NOTE_PREFIX + meta.id, null);
     this.setData({
       loading: false,
-      ci: Object.assign({}, ci, { level: meta.level, school: meta.school }),
+      ci: Object.assign({}, ci, { school: meta.school, week: meta.week }),
       links: links,
       noteText: savedNote && savedNote.text ? savedNote.text : '',
       noteSaved: !!(savedNote && savedNote.text)

@@ -3,7 +3,8 @@ App({
   globalData: {
     // 当前学期（与 data/archive-index.json 中最近一期保持一致）
     currentTerm: '26Spring',
-    currentTermDisplay: '2026 春'
+    currentTermDisplay: '2026 春',
+    archiveEntry: null
   },
   onLaunch() {
     // 预留：后续可在此预取 course/weeks 关键数据

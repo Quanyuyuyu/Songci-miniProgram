@@ -2,7 +2,7 @@
   <view class="hero card">
     <view class="hero-seal">词</view>
     <view class="hero-name">宋词导读 · 课程助手</view>
-    <view class="hero-sub">一门课的深度档案：本周读什么、要交什么、往届做成过什么样</view>
+    <view class="hero-sub">一门课的深度档案：全学期读什么、要交什么、往届做成过什么样</view>
   </view>
 
   <section-head title="定位声明" />

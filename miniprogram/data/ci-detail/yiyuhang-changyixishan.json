@@ -1,0 +1,60 @@
+{
+  "id": "yiyuhang-changyixishan",
+  "cipai": "忆余杭",
+  "title": "长忆西山",
+  "author": "潘阆",
+  "dynasty": "北宋初",
+  "text": [
+    "长忆西山，灵隐寺前三竺后，冷泉亭上几行游，三伏似清秋。",
+    "白猿时见攀高树，长啸一声何处去？别来几向画阑看，终是欠峰峦！"
+  ],
+  "pinyin": [],
+  "notes": [
+    {
+      "term": "三竺",
+      "gloss": "上天竺、中天竺、下天竺三寺，在杭州灵隐寺一带。"
+    },
+    {
+      "term": "冷泉亭",
+      "gloss": "灵隐寺前名亭。"
+    },
+    {
+      "term": "欠峰峦",
+      "gloss": "眼前总缺了那一片山水。"
+    }
+  ],
+  "tags": {
+    "theme": [
+      "羁旅"
+    ],
+    "technique": [
+      "铺叙"
+    ]
+  },
+  "school": "北宋诸家",
+  "week": 5,
+  "background": "北宋初潘阆词，具体写作时间未详。作品从“长忆西山，灵隐寺前三竺后。”起笔，围绕羁旅展开，并以铺叙组织景物、叙事与情感。",
+  "questions": [
+    "“长忆西山，灵隐寺前三竺后。”如何交代全词的时间、空间与情绪基调？",
+    "“三竺”与“冷泉亭”在词中如何相互照应，又怎样推动情感变化？",
+    "结尾“别来几向画阑看，终是欠峰峦”是收束、转折还是留白？结合上下片说明理由。"
+  ],
+  "links": [
+    {
+      "ci_id": "yiyuhang-changyiguanchao",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yiyuhang-changyigushan",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yiyuhang-changyiqiantang",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    }
+  ],
+  "cihua": []
+}

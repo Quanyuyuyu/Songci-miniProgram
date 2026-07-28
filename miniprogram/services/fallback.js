@@ -1,5 +1,6 @@
-// 首屏关键数据的内联兜底（仅在网络与缓存均不可用时启用）
-// 仅保留 course / weeks 的精简副本，保证首页永远能说明「这是什么产品」
+// 网络与缓存均不可用时启用；阅读周历完整打包，保证真机也能离线打开。
+const bundledData = require('./bundled-data.js');
+
 module.exports = {
   course: {
     course: {
@@ -9,7 +10,7 @@ module.exports = {
     grade: [
       { item: '考勤', percent: 5, note: '点名；含缺勤扣分硬规则' },
       { item: '课堂报告', percent: 20, note: '即讨论课展示，主题与周次逐学期变化' },
-      { item: '平时表现与作业', percent: 35, note: '拍照配词 1 次 + 约 2 次精读反馈 + 课堂表现' },
+      { item: '平时表现与作业', percent: 35, note: '拍照配词 1 次 + 约 2 次词作反馈 + 课堂表现' },
       { item: '期末习作', percent: 40, note: '体悟与思考类习作，形式开放' }
     ],
     disclaimer: '本产品为学生个人创作的学习辅助工具，非课程或学校官方发布，内容仅供参考，一切要求以教师课堂通知为准。'
@@ -36,5 +37,8 @@ module.exports = {
       { w: 18, theme: '考试周', period: 'nansong' }
     ],
     notice: '以教师课堂通知为准'
-  }
+  },
+  schedule: bundledData.schedule,
+  'ci-index': bundledData['ci-index'],
+  'semester__26spring': bundledData['semester-26spring']
 };

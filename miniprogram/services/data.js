@@ -2,7 +2,7 @@
 // 数据层唯一入口：getData(type, key)
 // 全项目禁止在页面中直接 wx.request 或 require json 文件
 // 调用链：内存缓存 → inflight 并发去重 → wx.request
-//         失败降级：storage 旧缓存 → fallback 内联兜底 → reject
+//         失败降级：storage 旧缓存 → 打包数据兜底 → reject
 // ============================================================
 const { BASE_URL, DATA_VERSION, CACHE_TTL } = require('../config.js');
 const registry = require('./registry.js');
@@ -12,6 +12,11 @@ const { DATA_CACHE_PREFIX } = require('../utils/constants.js');
 
 const memCache = {};    // { cacheKey: data }
 const inflight = {};    // { cacheKey: Promise }
+const BUNDLED_FIRST = {
+  schedule: true,
+  'ci-index': true,
+  'semester__26spring': true
+};
 
 function cacheKey(type, key) {
   return key ? `${type}__${key}` : type;
@@ -46,6 +51,18 @@ function requestJson(url) {
   });
 }
 
+function isUsableData(type, data) {
+  if (!data || typeof data !== 'object') return false;
+  if (type === 'schedule') return Array.isArray(data.weeks) && data.weeks.length > 0;
+  if (type === 'ci-index') return Array.isArray(data.list) && data.list.length > 0;
+  if (type === 'semester') return !!(data.tasks && data.discussion);
+  return true;
+}
+
+function bundledFor(type, key) {
+  return fallback[cacheKey(type, key)];
+}
+
 /**
  * 读取数据
  * @param {string} type  registry 中注册的类型
@@ -64,9 +81,17 @@ function getData(type, key) {
     return Promise.reject({ code: 'EMPTY', reason: '数据类型未注册：' + type });
   }
 
+  // 核心课程数据随小程序打包发布，优先使用本地完整副本。
+  const localFallback = bundledFor(type, key);
+  if (BUNDLED_FIRST[ck] && isUsableData(type, localFallback)) {
+    memCache[ck] = localFallback;
+    return Promise.resolve(localFallback);
+  }
+
   const done = () => { delete inflight[ck]; };
   const p = requestJson(url)
     .then((data) => {
+      if (!isUsableData(type, data)) throw { code: 'INVALID_DATA' };
       memCache[ck] = data;
       store.setCache(storageKey(type, key), data, CACHE_TTL, DATA_VERSION);
       done();
@@ -75,15 +100,15 @@ function getData(type, key) {
     .catch((err) => {
       // 降级 1：storage 旧缓存
       const cached = store.getCache(storageKey(type, key), DATA_VERSION);
-      if (cached) {
+      if (isUsableData(type, cached)) {
         memCache[ck] = cached;
         done();
         return cached;
       }
-      // 降级 2：内联兜底（仅 course / weeks）
-      if (!key && fallback[type]) {
+      // 降级 2：包内兜底数据
+      if (isUsableData(type, localFallback)) {
         done();
-        return fallback[type];
+        return localFallback;
       }
       done();
       // 降级 3：404 视为「未收录」空态，其余为网络错误

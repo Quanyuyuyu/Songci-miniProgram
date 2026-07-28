@@ -46,11 +46,7 @@ Page({
         (c.cipai + (c.title || '') + c.author + (c.first_line || '')).indexOf(kw) >= 0
       );
     }
-    // 精读排前
-    list = list.slice().sort((a, b) => {
-      if (a.level === b.level) return a.lesson - b.lesson;
-      return a.level === 'intensive' ? -1 : 1;
-    });
+    list = list.slice().sort((a, b) => a.week - b.week || a.id.localeCompare(b.id));
     this.setData({ filtered: list });
   },
 

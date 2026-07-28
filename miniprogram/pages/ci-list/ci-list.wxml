@@ -37,7 +37,7 @@
     </view>
 
     <empty-state wx:if="{{!filtered.length}}" icon="🍃" title="没有匹配的篇目" reason="换个关键词或清除筛选试试" />
-    <ci-card wx:for="{{filtered}}" wx:key="id" item="{{item}}" show-lesson />
+    <ci-card wx:for="{{filtered}}" wx:key="id" item="{{item}}" show-week />
   </block>
 
   <view wx:if="{{loading}}" class="loading-hint">加载中…</view>

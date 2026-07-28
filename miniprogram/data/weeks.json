@@ -1,8 +1,8 @@
 {
   "weeks": [
     { "w": 1, "theme": "何谓「词」", "period": "tang", "detail": "词的起源、体式与风格；词调、词牌等专有名词" },
-    { "w": 2, "theme": "唐人之词", "period": "tang", "detail": "唐词特点；白居易《忆江南》三首精读" },
-    { "w": 3, "theme": "花间词派", "period": "tang", "detail": "温庭筠与韦庄的比较；温庭筠《更漏子》三首精读" },
+    { "w": 2, "theme": "唐人之词", "period": "tang", "detail": "唐词特点；白居易《忆江南》三首阅读" },
+    { "w": 3, "theme": "花间词派", "period": "tang", "detail": "温庭筠与韦庄的比较；温庭筠《更漏子》三首阅读" },
     { "w": 4, "theme": "南唐词", "period": "tang", "detail": "冯延巳、李璟、李煜；李后主词的美丽与哀愁" },
     { "w": 5, "theme": "北宋初期词风（一）", "period": "beisong", "detail": "潘阆《忆余杭》五首、寇准《阳关引》；唐人以诗入词" },
     { "w": 6, "theme": "北宋初期词风（二）", "period": "beisong", "detail": "北宋小令：晏殊、欧阳修、晏几道" },
@@ -15,9 +15,7 @@
     { "w": 13, "theme": "讨论课 2", "period": "beisong", "detail": "宋词相关主题分组展示与总结（默认模板）" },
     { "w": 14, "theme": "李清照", "period": "nansong", "detail": "女性词作与「要眇宜修」的词体" },
     { "w": 15, "theme": "辛弃疾", "period": "nansong", "detail": "辛词对苏轼豪放词的发展；南宋爱国词" },
-    { "w": 16, "theme": "姜夔", "period": "nansong", "detail": "格韵清越的白石词" },
-    { "w": 17, "theme": "期末习作提交", "period": "nansong", "detail": "不授课；提交时间以课程群通知为准" },
-    { "w": 18, "theme": "考试周", "period": "nansong", "detail": "不授课" }
+    { "w": 16, "theme": "姜夔", "period": "nansong", "detail": "格韵清越的白石词" }
   ],
   "periods": [
     { "key": "tang", "label": "唐五代", "range": "W1–W4" },

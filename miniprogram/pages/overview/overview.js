@@ -12,16 +12,14 @@ Page({
     weeks: [],
     periods: [],
     weeksNotice: '',
-    currentWeek: 0,
     disclaimer: ''
   },
 
   onLoad() {
     Promise.all([
       getData('course'),
-      getData('weeks'),
-      getData('semester', '26spring')
-    ]).then(([course, weeks, semester]) => {
+      getData('weeks')
+    ]).then(([course, weeks]) => {
       this.setData({
         loading: false,
         course: course.course,
@@ -31,8 +29,7 @@ Page({
         disclaimer: course.disclaimer || '',
         weeks: weeks.weeks || [],
         periods: weeks.periods || [],
-        weeksNotice: weeks.notice || '',
-        currentWeek: (semester && semester.current_week) || 0
+        weeksNotice: weeks.notice || ''
       });
     }).catch((err) => {
       this.setData({ loading: false, error: errorReason(err) });

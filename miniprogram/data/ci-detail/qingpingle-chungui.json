@@ -1,0 +1,65 @@
+{
+  "id": "qingpingle-chungui",
+  "cipai": "清平乐",
+  "title": "春归何处",
+  "author": "黄庭坚",
+  "dynasty": "北宋",
+  "text": [
+    "春归何处？寂寞无行路。若有人知春去处，唤取归来同住。",
+    "春无踪迹谁知？除非问取黄鹂。百啭无人能解，因风飞过蔷薇。"
+  ],
+  "pinyin": [
+    {
+      "ch": "啭",
+      "py": "zhuàn"
+    }
+  ],
+  "notes": [
+    {
+      "term": "寂寞无行路",
+      "gloss": "春天悄悄归去，不见行踪。"
+    },
+    {
+      "term": "问取",
+      "gloss": "问。"
+    },
+    {
+      "term": "百啭",
+      "gloss": "鸟鸣婉转。"
+    }
+  ],
+  "tags": {
+    "theme": [
+      "惜春"
+    ],
+    "technique": [
+      "比兴"
+    ]
+  },
+  "school": "北宋诸家",
+  "week": 9,
+  "background": "北宋黄庭坚词，具体写作时间未详。作品从“春归何处？寂寞无行路。”起笔，围绕惜春展开，并以比兴组织景物、叙事与情感。",
+  "questions": [
+    "“春归何处？寂寞无行路。”如何交代全词的时间、空间与情绪基调？",
+    "“寂寞无行路”与“问取”在词中如何相互照应，又怎样推动情感变化？",
+    "结尾“百啭无人能解，因风飞过蔷薇”是收束、转折还是留白？结合上下片说明理由。"
+  ],
+  "links": [
+    {
+      "ci_id": "qingpingle-bielaichunban",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "niannujiao-duanhong",
+      "rel": "same_author",
+      "note": "同一词人互读"
+    },
+    {
+      "ci_id": "zhegutian-huangju",
+      "rel": "same_author",
+      "note": "同一词人互读"
+    }
+  ],
+  "cihua": []
+}

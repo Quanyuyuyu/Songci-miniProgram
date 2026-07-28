@@ -1,0 +1,56 @@
+{
+  "id": "yijiangnan-qiciyiwugong",
+  "cipai": "忆江南",
+  "title": "其次忆吴宫",
+  "author": "白居易",
+  "dynasty": "唐",
+  "school": "唐词",
+  "week": 2,
+  "text": [
+    "江南忆，其次忆吴宫。吴酒一杯春竹叶，吴娃双舞醉芙蓉。早晚复相逢？"
+  ],
+  "pinyin": [],
+  "notes": [
+    {
+      "term": "吴宫",
+      "gloss": "这里泛指苏州一带带有吴地风物的游赏空间。"
+    },
+    {
+      "term": "竹叶",
+      "gloss": "竹叶青一类美酒的代称。"
+    },
+    {
+      "term": "醉芙蓉",
+      "gloss": "形容舞者面容红润、姿态明艳。"
+    }
+  ],
+  "background": "《忆江南》组词的第三首由杭州转向吴地，以酒与舞保存一段具体而明艳的生活记忆，并在结尾落到重逢之愿。",
+  "questions": [
+    "“其次忆”是否削弱了吴地记忆？它在组词内部起到什么次序作用？",
+    "“一杯”与“双舞”怎样从数量、节奏和色彩上组织画面？",
+    "“早晚复相逢”中的“相逢”可以指人、地方还是往日生活？请结合全词判断。"
+  ],
+  "tags": {
+    "theme": [
+      "江南",
+      "怀旧"
+    ],
+    "technique": [
+      "场景截取",
+      "以问作结"
+    ]
+  },
+  "links": [
+    {
+      "ci_id": "yijiangnan-jiangnanhao",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yijiangnan-zuiyihangzhou",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    }
+  ],
+  "cihua": []
+}

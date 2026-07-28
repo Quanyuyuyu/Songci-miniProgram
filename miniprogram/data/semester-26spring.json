@@ -1,36 +1,48 @@
 {
   "term": "26Spring",
   "display": "2026 春",
-  "current_week": 8,
   "weekly_override": [
     { "w": 16, "note": "本学期讨论课展示安排在第 16 周（非默认模板的 W12–W13）" }
   ],
   "discussion": {
-    "theme_title": "回廊晚月，也应暗记：宋代的友情词",
-    "theme_desc": "以「宋代的友情词」为主题切入，自选角度（尽量集中），如苏轼的友情词、以梦写友情的词等，进行分组讨论与展示。探究词篇数量自定，注意时间控制。",
-    "group_rule": "2 人一组",
-    "duration": "每组 10–15 分钟",
+    "themes": [
+      {
+        "term": "26Fall",
+        "display": "2026 秋",
+        "status": "pending",
+        "title": "",
+        "desc": "",
+        "group_rule": "",
+        "duration": ""
+      },
+      {
+        "term": "26Spring",
+        "display": "2026 春",
+        "status": "known",
+        "title": "回廊晚月，也应暗记：宋代的友情词",
+        "desc": "以「宋代的友情词」为主题切入，自选角度（尽量集中），如苏轼的友情词、以梦写友情的词等，进行分组讨论与展示。探究词篇数量自定，注意时间控制。",
+        "group_rule": "2 人一组",
+        "duration": "每组 10–15 分钟"
+      },
+      { "term": "25Fall", "display": "2025 秋", "status": "uncollected", "title": "" },
+      { "term": "25Spring", "display": "2025 春", "status": "uncollected", "title": "" },
+      { "term": "24Fall", "display": "2024 秋", "status": "uncollected", "title": "" },
+      { "term": "24Spring", "display": "2024 春", "status": "uncollected", "title": "" },
+      { "term": "23Fall", "display": "2023 秋", "status": "uncollected", "title": "" }
+    ],
     "milestones": [
       "确定分组与探究主题（填在线文档，文档地址见课程 QQ 群）",
       "展示 PPT 发给助教",
       "课堂展示"
     ],
     "milestones_note": "只排顺序，具体时间由助教在课程群通知",
-    "prepare": ["定题", "读文本", "找旁证", "搭结构", "试讲计时"],
-    "past_themes": [
-      { "term": "26Spring", "display": "2026 春", "title": "回廊晚月，也应暗记：宋代的友情词", "known": true },
-      { "term": "25Fall", "display": "2025 秋", "title": "", "known": false },
-      { "term": "25Spring", "display": "2025 春", "title": "", "known": false },
-      { "term": "24Fall", "display": "2024 秋", "title": "", "known": false },
-      { "term": "24Spring", "display": "2024 春", "title": "", "known": false },
-      { "term": "23Fall", "display": "2023 秋", "title": "", "known": false }
-    ]
+    "prepare": ["定题", "读文本", "找旁证", "搭结构", "试讲计时"]
   },
   "tasks": {
-    "intensive": {
-      "what": "每次课后由教师指定下节课的精读词作，阅读理解后在下节课上口头分享感受与心得；覆盖第 3 课至第 14 课。不需要交书面笔记。",
+    "reading": {
+      "what": "按教师安排阅读相应词作，并在课堂上口头分享感受与心得。不需要交书面笔记。",
       "rule_text": "每节课由 2 位同学分享，名单以课程群通知为准",
-      "milestones": ["查看本周词目", "阅读并理解词作", "课堂上口头分享"]
+      "milestones": ["查看全学期词目", "阅读并理解词作", "课堂上口头分享"]
     },
     "photo": {
       "what": "每学期一次的「拍照配词」作业：用自己拍的照片配上合适的唐宋词，并各写一段约 300 字的文字。",
@@ -57,14 +69,14 @@
       "submit_note": "提交地址见课程 QQ 群"
     },
     "final": {
-      "what": "对本课程相关或延伸内容的体悟与思考。可为几篇读书札记，也可将对精读词作的体悟连缀成文，或其它更具创造力的作品（纯文字 / 结合图文 / 数字艺术均可）。要有自己的观点和感悟。",
+      "what": "对本课程相关或延伸内容的体悟与思考。可为几篇读书札记，也可将平时的词作体悟连缀成文，或其它更具创造力的作品（纯文字 / 结合图文 / 数字艺术均可）。要有自己的观点和感悟。",
       "forms": ["读书札记", "连缀成文", "图文", "数字艺术", "视频", "公众号"],
       "min_words": 2000,
       "min_words_media": 1500,
       "min_words_note": "不低于 2000 字；涉及视频生成、公众号写作等形式可降至 1500 字",
       "naming": "题目_姓名",
       "naming_note": "上传网盘，以「题目_姓名」命名",
-      "milestones": ["定方向", "攒精读体悟", "成稿", "按「题目_姓名」上传网盘"],
+      "milestones": ["定方向", "攒词作体悟", "成稿", "按「题目_姓名」上传网盘"],
       "integrity": [
         "为自己的观点与感悟，未抄袭",
         "引用体例与参考文献齐备",

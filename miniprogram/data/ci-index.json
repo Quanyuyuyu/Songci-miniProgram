@@ -1,53 +1,696 @@
 {
   "list": [
-    { "id": "genglouzi-liusichang", "cipai": "更漏子", "title": "柳丝长", "author": "温庭筠", "dynasty": "晚唐", "school": "花间", "themes": ["闺情"], "level": "intensive", "lesson": 3, "first_line": "柳丝长，春雨细，花外漏声迢递。" },
-    { "id": "genglouzi-xingdouxi", "cipai": "更漏子", "title": "星斗稀", "author": "温庭筠", "dynasty": "晚唐", "school": "花间", "themes": ["闺情"], "level": "skim", "lesson": 3, "first_line": "星斗稀，钟鼓歇，帘外晓莺残月。" },
-    { "id": "genglouzi-yuluxiang", "cipai": "更漏子", "title": "玉炉香", "author": "温庭筠", "dynasty": "晚唐", "school": "花间", "themes": ["闺情"], "level": "skim", "lesson": 3, "first_line": "玉炉香，红蜡泪，偏照画堂秋思。" },
-    { "id": "yejinmen-fengzhaqi", "cipai": "谒金门", "title": "风乍起", "author": "冯延巳", "dynasty": "南唐", "school": "南唐", "themes": ["闺情"], "level": "skim", "lesson": 4, "first_line": "风乍起，吹皱一池春水。" },
-    { "id": "huanxisha-handan", "cipai": "浣溪沙", "title": "菡萏香销翠叶残", "author": "李璟", "dynasty": "南唐", "school": "南唐", "themes": ["惜春"], "level": "skim", "lesson": 4, "first_line": "菡萏香销翠叶残，西风愁起绿波间。" },
-    { "id": "huanxisha-shoujuan", "cipai": "浣溪沙", "title": "手卷珠帘上玉钩", "author": "李璟", "dynasty": "南唐", "school": "南唐", "themes": ["闺情", "惜春"], "level": "skim", "lesson": 4, "first_line": "手卷珠帘上玉钩，依前春恨锁重楼。" },
-    { "id": "qingpingle-bielaichunban", "cipai": "清平乐", "title": "别来春半", "author": "李煜", "dynasty": "南唐", "school": "南唐", "themes": ["羁旅", "惜春"], "level": "intensive", "lesson": 4, "first_line": "别来春半，触目愁肠断。" },
-    { "id": "yiyuhang-changyiqiantang", "cipai": "忆余杭", "title": "长忆钱塘", "author": "潘阆", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["羁旅"], "level": "intensive", "lesson": 5, "first_line": "长忆钱塘，不是人寰是天上。" },
-    { "id": "yiyuhang-changyixihu", "cipai": "忆余杭", "title": "长忆西湖", "author": "潘阆", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["羁旅"], "level": "skim", "lesson": 5, "first_line": "长忆西湖，尽日凭阑楼上望。" },
-    { "id": "yiyuhang-changyigushan", "cipai": "忆余杭", "title": "长忆孤山", "author": "潘阆", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["羁旅"], "level": "skim", "lesson": 5, "first_line": "长忆孤山，山在湖心如黛簇。" },
-    { "id": "yiyuhang-changyixishan", "cipai": "忆余杭", "title": "长忆西山", "author": "潘阆", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["羁旅"], "level": "skim", "lesson": 5, "first_line": "长忆西山，灵隐寺前三竺后。" },
-    { "id": "yiyuhang-changyiguanchao", "cipai": "忆余杭", "title": "长忆观潮", "author": "潘阆", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["羁旅"], "level": "skim", "lesson": 5, "first_line": "长忆观潮，满郭人争江上望。" },
-    { "id": "yangguanyin-kouzhun", "cipai": "阳关引", "title": "塞草烟光阔", "author": "寇准", "dynasty": "北宋初", "school": "北宋诸家", "themes": ["友情"], "level": "skim", "lesson": 5, "first_line": "塞草烟光阔，渭水波声咽。" },
-    { "id": "tashaxing-xiaojinghongxi", "cipai": "踏莎行", "title": "小径红稀", "author": "晏殊", "dynasty": "北宋", "school": "北宋诸家", "themes": ["惜春"], "level": "skim", "lesson": 6, "first_line": "小径红稀，芳郊绿遍。" },
-    { "id": "tashaxing-bihaiwubo", "cipai": "踏莎行", "title": "碧海无波", "author": "晏殊", "dynasty": "北宋", "school": "北宋诸家", "themes": ["闺情"], "level": "skim", "lesson": 6, "first_line": "碧海无波，瑶台有路。" },
-    { "id": "shantingliu-yanshu", "cipai": "山亭柳", "title": "家住西秦", "author": "晏殊", "dynasty": "北宋", "school": "北宋诸家", "themes": ["身世"], "level": "skim", "lesson": 6, "first_line": "家住西秦，赌薄艺随身。" },
-    { "id": "yulouchun-zunqian", "cipai": "玉楼春", "title": "尊前拟把归期说", "author": "欧阳修", "dynasty": "北宋", "school": "北宋诸家", "themes": ["友情", "惜春"], "level": "intensive", "lesson": 6, "first_line": "尊前拟把归期说，未语春容先惨咽。" },
-    { "id": "qishi-liuyong", "cipai": "戚氏", "title": "晚秋天", "author": "柳永", "dynasty": "北宋", "school": "婉约", "themes": ["羁旅", "身世"], "level": "skim", "lesson": 7, "first_line": "晚秋天，一霎微雨洒庭轩。" },
-    { "id": "bashengganzhou-duixiaoxiao", "cipai": "八声甘州", "title": "对潇潇暮雨洒江天", "author": "柳永", "dynasty": "北宋", "school": "婉约", "themes": ["羁旅"], "level": "intensive", "lesson": 7, "first_line": "对潇潇暮雨洒江天，一番洗清秋。" },
-    { "id": "yidijing-liuyong", "cipai": "忆帝京", "title": "薄衾小枕凉天气", "author": "柳永", "dynasty": "北宋", "school": "婉约", "themes": ["羁旅", "闺情"], "level": "skim", "lesson": 7, "first_line": "薄衾小枕凉天气，乍觉别离滋味。" },
-    { "id": "linjiangxian-yeyin", "cipai": "临江仙", "title": "夜饮东坡醒复醉", "author": "苏轼", "dynasty": "北宋", "school": "豪放", "themes": ["身世"], "level": "intensive", "lesson": 8, "first_line": "夜饮东坡醒复醉，归来仿佛三更。" },
-    { "id": "yongyule-changyibieshi", "cipai": "永遇乐", "title": "长忆别时", "author": "苏轼", "dynasty": "北宋", "school": "豪放", "themes": ["友情"], "level": "skim", "lesson": 8, "first_line": "长忆别时，景疏楼上，明月如水。" },
-    { "id": "shuilongyin-xiaozhouhengjie", "cipai": "水龙吟", "title": "小舟横截春江", "author": "苏轼", "dynasty": "北宋", "school": "豪放", "themes": ["友情"], "level": "skim", "lesson": 8, "first_line": "小舟横截春江，卧看翠壁红楼起。" },
-    { "id": "bashengganzhou-youqingfeng", "cipai": "八声甘州", "title": "寄参寥子", "author": "苏轼", "dynasty": "北宋", "school": "豪放", "themes": ["友情", "身世"], "level": "skim", "lesson": 8, "first_line": "有情风万里卷潮来，无情送潮归。" },
-    { "id": "mantingfang-shanmoweiyun", "cipai": "满庭芳", "title": "山抹微云", "author": "秦观", "dynasty": "北宋", "school": "婉约", "themes": ["闺情", "羁旅"], "level": "skim", "lesson": 9, "first_line": "山抹微云，天连衰草。" },
-    { "id": "queqiaoxian-xianyun", "cipai": "鹊桥仙", "title": "纤云弄巧", "author": "秦观", "dynasty": "北宋", "school": "婉约", "themes": ["闺情"], "level": "intensive", "lesson": 9, "first_line": "纤云弄巧，飞星传恨。" },
-    { "id": "niannujiao-duanhong", "cipai": "念奴娇", "title": "断虹霁雨", "author": "黄庭坚", "dynasty": "北宋", "school": "北宋诸家", "themes": ["友情", "身世"], "level": "skim", "lesson": 9, "first_line": "断虹霁雨，净秋空、山染修眉新绿。" },
-    { "id": "zhegutian-huangju", "cipai": "鹧鸪天", "title": "黄菊枝头生晓寒", "author": "黄庭坚", "dynasty": "北宋", "school": "北宋诸家", "themes": ["身世"], "level": "skim", "lesson": 9, "first_line": "黄菊枝头生晓寒，人生莫放酒杯干。" },
-    { "id": "qingpingle-chungui", "cipai": "清平乐", "title": "春归何处", "author": "黄庭坚", "dynasty": "北宋", "school": "北宋诸家", "themes": ["惜春"], "level": "skim", "lesson": 9, "first_line": "春归何处？寂寞无行路。" },
-    { "id": "sumuzhe-cao", "cipai": "苏幕遮", "title": "草", "author": "梅尧臣", "dynasty": "北宋", "school": "北宋诸家", "themes": ["咏物", "惜春"], "level": "intensive", "lesson": 10, "first_line": "露堤平，烟墅杳。" },
-    { "id": "fengxiaoyin-hanzhen", "cipai": "凤箫吟", "title": "锁离愁", "author": "韩缜", "dynasty": "北宋", "school": "北宋诸家", "themes": ["咏物", "闺情"], "level": "skim", "lesson": 10, "first_line": "锁离愁、连绵无际。" },
-    { "id": "yanjiaoer-guanmei", "cipai": "盐角儿", "title": "观梅", "author": "晁补之", "dynasty": "北宋", "school": "北宋诸家", "themes": ["咏物"], "level": "skim", "lesson": 10, "first_line": "开时似雪，谢时似雪。" },
-    { "id": "hangongchun-mei", "cipai": "汉宫春", "title": "潇洒江梅", "author": "晁冲之", "dynasty": "北宋", "school": "北宋诸家", "themes": ["咏物"], "level": "skim", "lesson": 10, "first_line": "潇洒江梅，向竹梢稀处，横两三枝。" },
-    { "id": "pusaman-qixi", "cipai": "菩萨蛮", "title": "七夕", "author": "陈师道", "dynasty": "北宋", "school": "北宋诸家", "themes": ["闺情"], "level": "skim", "lesson": 10, "first_line": "行云过尽星河烂。" },
-    { "id": "xingxiangzi-qixi", "cipai": "行香子", "title": "七夕", "author": "李清照", "dynasty": "南北宋间", "school": "婉约", "themes": ["闺情"], "level": "skim", "lesson": 10, "first_line": "草际鸣蛩，惊落梧桐。" },
-    { "id": "sumuzhe-liaochenxiang", "cipai": "苏幕遮", "title": "燎沉香", "author": "周邦彦", "dynasty": "北宋", "school": "格律", "themes": ["羁旅"], "level": "intensive", "lesson": 11, "first_line": "燎沉香，消溽暑。" },
-    { "id": "shaonianyou-bingdao", "cipai": "少年游", "title": "并刀如水", "author": "周邦彦", "dynasty": "北宋", "school": "格律", "themes": ["闺情"], "level": "skim", "lesson": 11, "first_line": "并刀如水，吴盐胜雪。" },
-    { "id": "xihe-jinling", "cipai": "西河", "title": "金陵怀古", "author": "周邦彦", "dynasty": "北宋", "school": "格律", "themes": ["怀古"], "level": "skim", "lesson": 11, "first_line": "佳丽地，南朝盛事谁记？" },
-    { "id": "yujiaao-xueli", "cipai": "渔家傲", "title": "雪里已知春信至", "author": "李清照", "dynasty": "南北宋间", "school": "婉约", "themes": ["咏物"], "level": "skim", "lesson": 12, "first_line": "雪里已知春信至，寒梅点缀琼枝腻。" },
-    { "id": "yiwangsun-hushang", "cipai": "双调忆王孙", "title": "湖上风来波浩渺", "author": "李清照", "dynasty": "南北宋间", "school": "婉约", "themes": ["惜春"], "level": "skim", "lesson": 12, "first_line": "湖上风来波浩渺。" },
-    { "id": "zhegutian-hanri", "cipai": "鹧鸪天", "title": "寒日萧萧上琐窗", "author": "李清照", "dynasty": "南北宋间", "school": "婉约", "themes": ["身世"], "level": "skim", "lesson": 12, "first_line": "寒日萧萧上琐窗。" },
-    { "id": "fenghuangtaishang-xiangleng", "cipai": "凤凰台上忆吹箫", "title": "香冷金猊", "author": "李清照", "dynasty": "南北宋间", "school": "婉约", "themes": ["闺情"], "level": "intensive", "lesson": 12, "first_line": "香冷金猊，被翻红浪。" },
-    { "id": "moyuer-gengnengxiao", "cipai": "摸鱼儿", "title": "更能消几番风雨", "author": "辛弃疾", "dynasty": "南宋", "school": "豪放", "themes": ["身世", "惜春"], "level": "intensive", "lesson": 13, "first_line": "更能消几番风雨，匆匆春又归去。" },
-    { "id": "hexinlang-shenyi", "cipai": "贺新郎", "title": "甚矣吾衰矣", "author": "辛弃疾", "dynasty": "南宋", "school": "豪放", "themes": ["友情", "身世"], "level": "skim", "lesson": 13, "first_line": "甚矣吾衰矣。" },
-    { "id": "shuidiaogetou-mengou", "cipai": "水调歌头", "title": "盟鸥", "author": "辛弃疾", "dynasty": "南宋", "school": "豪放", "themes": ["身世"], "level": "skim", "lesson": 13, "first_line": "带湖吾甚爱，千丈翠奁开。" },
-    { "id": "tashaxing-yanyan", "cipai": "踏莎行", "title": "燕燕轻盈", "author": "姜夔", "dynasty": "南宋", "school": "格律", "themes": ["闺情"], "level": "skim", "lesson": 14, "first_line": "燕燕轻盈，莺莺娇软。" },
-    { "id": "zhegutian-xiangmo", "cipai": "鹧鸪天", "title": "正月十一日观灯", "author": "姜夔", "dynasty": "南宋", "school": "格律", "themes": ["身世"], "level": "skim", "lesson": 14, "first_line": "巷陌风光纵赏时。" },
-    { "id": "zhegutian-feishui", "cipai": "鹧鸪天", "title": "元夕有所梦", "author": "姜夔", "dynasty": "南宋", "school": "格律", "themes": ["闺情"], "level": "intensive", "lesson": 14, "first_line": "肥水东流无尽期。" },
-    { "id": "qitianle-yilang", "cipai": "齐天乐", "title": "庾郎先自吟愁赋", "author": "姜夔", "dynasty": "南宋", "school": "格律", "themes": ["咏物", "身世"], "level": "skim", "lesson": 14, "first_line": "庾郎先自吟愁赋，凄凄更闻私语。" }
+    {
+      "id": "yijiangnan-jiangnanhao",
+      "cipai": "忆江南",
+      "title": "江南好",
+      "author": "白居易",
+      "dynasty": "唐",
+      "school": "唐词",
+      "themes": [
+        "江南",
+        "怀旧"
+      ],
+      "week": 2,
+      "first_line": "江南好，风景旧曾谙。"
+    },
+    {
+      "id": "yijiangnan-qiciyiwugong",
+      "cipai": "忆江南",
+      "title": "其次忆吴宫",
+      "author": "白居易",
+      "dynasty": "唐",
+      "school": "唐词",
+      "themes": [
+        "江南",
+        "怀旧"
+      ],
+      "week": 2,
+      "first_line": "江南忆，其次忆吴宫。"
+    },
+    {
+      "id": "yijiangnan-zuiyihangzhou",
+      "cipai": "忆江南",
+      "title": "最忆是杭州",
+      "author": "白居易",
+      "dynasty": "唐",
+      "school": "唐词",
+      "themes": [
+        "江南",
+        "怀旧"
+      ],
+      "week": 2,
+      "first_line": "江南忆，最忆是杭州。"
+    },
+    {
+      "id": "genglouzi-liusichang",
+      "cipai": "更漏子",
+      "title": "柳丝长",
+      "author": "温庭筠",
+      "dynasty": "晚唐",
+      "school": "花间",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "柳丝长，春雨细，花外漏声迢递。",
+      "week": 3
+    },
+    {
+      "id": "genglouzi-xingdouxi",
+      "cipai": "更漏子",
+      "title": "星斗稀",
+      "author": "温庭筠",
+      "dynasty": "晚唐",
+      "school": "花间",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "星斗稀，钟鼓歇，帘外晓莺残月。",
+      "week": 3
+    },
+    {
+      "id": "genglouzi-yuluxiang",
+      "cipai": "更漏子",
+      "title": "玉炉香",
+      "author": "温庭筠",
+      "dynasty": "晚唐",
+      "school": "花间",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "玉炉香，红蜡泪，偏照画堂秋思。",
+      "week": 3
+    },
+    {
+      "id": "yejinmen-fengzhaqi",
+      "cipai": "谒金门",
+      "title": "风乍起",
+      "author": "冯延巳",
+      "dynasty": "南唐",
+      "school": "南唐",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "风乍起，吹皱一池春水。",
+      "week": 4
+    },
+    {
+      "id": "qingpingle-bielaichunban",
+      "cipai": "清平乐",
+      "title": "别来春半",
+      "author": "李煜",
+      "dynasty": "南唐",
+      "school": "南唐",
+      "themes": [
+        "羁旅",
+        "惜春"
+      ],
+      "first_line": "别来春半，触目愁肠断。",
+      "week": 4
+    },
+    {
+      "id": "huanxisha-handan",
+      "cipai": "浣溪沙",
+      "title": "菡萏香销翠叶残",
+      "author": "李璟",
+      "dynasty": "南唐",
+      "school": "南唐",
+      "themes": [
+        "惜春"
+      ],
+      "first_line": "菡萏香销翠叶残，西风愁起绿波间。",
+      "week": 4
+    },
+    {
+      "id": "huanxisha-shoujuan",
+      "cipai": "浣溪沙",
+      "title": "手卷珠帘上玉钩",
+      "author": "李璟",
+      "dynasty": "南唐",
+      "school": "南唐",
+      "themes": [
+        "闺情",
+        "惜春"
+      ],
+      "first_line": "手卷珠帘上玉钩，依前春恨锁重楼。",
+      "week": 4
+    },
+    {
+      "id": "yangguanyin-kouzhun",
+      "cipai": "阳关引",
+      "title": "塞草烟光阔",
+      "author": "寇准",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "友情"
+      ],
+      "first_line": "塞草烟光阔，渭水波声咽。",
+      "week": 5
+    },
+    {
+      "id": "yiyuhang-changyiguanchao",
+      "cipai": "忆余杭",
+      "title": "长忆观潮",
+      "author": "潘阆",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "长忆观潮，满郭人争江上望。",
+      "week": 5
+    },
+    {
+      "id": "yiyuhang-changyigushan",
+      "cipai": "忆余杭",
+      "title": "长忆孤山",
+      "author": "潘阆",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "长忆孤山，山在湖心如黛簇。",
+      "week": 5
+    },
+    {
+      "id": "yiyuhang-changyiqiantang",
+      "cipai": "忆余杭",
+      "title": "长忆钱塘",
+      "author": "潘阆",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "长忆钱塘，不是人寰是天上。",
+      "week": 5
+    },
+    {
+      "id": "yiyuhang-changyixihu",
+      "cipai": "忆余杭",
+      "title": "长忆西湖",
+      "author": "潘阆",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "长忆西湖，尽日凭阑楼上望。",
+      "week": 5
+    },
+    {
+      "id": "yiyuhang-changyixishan",
+      "cipai": "忆余杭",
+      "title": "长忆西山",
+      "author": "潘阆",
+      "dynasty": "北宋初",
+      "school": "北宋诸家",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "长忆西山，灵隐寺前三竺后。",
+      "week": 5
+    },
+    {
+      "id": "shantingliu-yanshu",
+      "cipai": "山亭柳",
+      "title": "家住西秦",
+      "author": "晏殊",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "家住西秦，赌薄艺随身。",
+      "week": 6
+    },
+    {
+      "id": "tashaxing-bihaiwubo",
+      "cipai": "踏莎行",
+      "title": "碧海无波",
+      "author": "晏殊",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "碧海无波，瑶台有路。",
+      "week": 6
+    },
+    {
+      "id": "tashaxing-xiaojinghongxi",
+      "cipai": "踏莎行",
+      "title": "小径红稀",
+      "author": "晏殊",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "惜春"
+      ],
+      "first_line": "小径红稀，芳郊绿遍。",
+      "week": 6
+    },
+    {
+      "id": "yulouchun-zunqian",
+      "cipai": "玉楼春",
+      "title": "尊前拟把归期说",
+      "author": "欧阳修",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "友情",
+        "惜春"
+      ],
+      "first_line": "尊前拟把归期说，未语春容先惨咽。",
+      "week": 6
+    },
+    {
+      "id": "bashengganzhou-duixiaoxiao",
+      "cipai": "八声甘州",
+      "title": "对潇潇暮雨洒江天",
+      "author": "柳永",
+      "dynasty": "北宋",
+      "school": "婉约",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "对潇潇暮雨洒江天，一番洗清秋。",
+      "week": 7
+    },
+    {
+      "id": "qishi-liuyong",
+      "cipai": "戚氏",
+      "title": "晚秋天",
+      "author": "柳永",
+      "dynasty": "北宋",
+      "school": "婉约",
+      "themes": [
+        "羁旅",
+        "身世"
+      ],
+      "first_line": "晚秋天，一霎微雨洒庭轩。",
+      "week": 7
+    },
+    {
+      "id": "yidijing-liuyong",
+      "cipai": "忆帝京",
+      "title": "薄衾小枕凉天气",
+      "author": "柳永",
+      "dynasty": "北宋",
+      "school": "婉约",
+      "themes": [
+        "羁旅",
+        "闺情"
+      ],
+      "first_line": "薄衾小枕凉天气，乍觉别离滋味。",
+      "week": 7
+    },
+    {
+      "id": "bashengganzhou-youqingfeng",
+      "cipai": "八声甘州",
+      "title": "寄参寥子",
+      "author": "苏轼",
+      "dynasty": "北宋",
+      "school": "豪放",
+      "themes": [
+        "友情",
+        "身世"
+      ],
+      "first_line": "有情风万里卷潮来，无情送潮归。",
+      "week": 8
+    },
+    {
+      "id": "linjiangxian-yeyin",
+      "cipai": "临江仙",
+      "title": "夜饮东坡醒复醉",
+      "author": "苏轼",
+      "dynasty": "北宋",
+      "school": "豪放",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "夜饮东坡醒复醉，归来仿佛三更。",
+      "week": 8
+    },
+    {
+      "id": "shuilongyin-xiaozhouhengjie",
+      "cipai": "水龙吟",
+      "title": "小舟横截春江",
+      "author": "苏轼",
+      "dynasty": "北宋",
+      "school": "豪放",
+      "themes": [
+        "友情"
+      ],
+      "first_line": "小舟横截春江，卧看翠壁红楼起。",
+      "week": 8
+    },
+    {
+      "id": "yongyule-changyibieshi",
+      "cipai": "永遇乐",
+      "title": "长忆别时",
+      "author": "苏轼",
+      "dynasty": "北宋",
+      "school": "豪放",
+      "themes": [
+        "友情"
+      ],
+      "first_line": "长忆别时，景疏楼上，明月如水。",
+      "week": 8
+    },
+    {
+      "id": "mantingfang-shanmoweiyun",
+      "cipai": "满庭芳",
+      "title": "山抹微云",
+      "author": "秦观",
+      "dynasty": "北宋",
+      "school": "婉约",
+      "themes": [
+        "闺情",
+        "羁旅"
+      ],
+      "first_line": "山抹微云，天连衰草。",
+      "week": 9
+    },
+    {
+      "id": "queqiaoxian-xianyun",
+      "cipai": "鹊桥仙",
+      "title": "纤云弄巧",
+      "author": "秦观",
+      "dynasty": "北宋",
+      "school": "婉约",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "纤云弄巧，飞星传恨。",
+      "week": 9
+    },
+    {
+      "id": "niannujiao-duanhong",
+      "cipai": "念奴娇",
+      "title": "断虹霁雨",
+      "author": "黄庭坚",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "友情",
+        "身世"
+      ],
+      "first_line": "断虹霁雨，净秋空、山染修眉新绿。",
+      "week": 9
+    },
+    {
+      "id": "qingpingle-chungui",
+      "cipai": "清平乐",
+      "title": "春归何处",
+      "author": "黄庭坚",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "惜春"
+      ],
+      "first_line": "春归何处？寂寞无行路。",
+      "week": 9
+    },
+    {
+      "id": "zhegutian-huangju",
+      "cipai": "鹧鸪天",
+      "title": "黄菊枝头生晓寒",
+      "author": "黄庭坚",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "黄菊枝头生晓寒，人生莫放酒杯干。",
+      "week": 9
+    },
+    {
+      "id": "hangongchun-mei",
+      "cipai": "汉宫春",
+      "title": "潇洒江梅",
+      "author": "晁冲之",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "咏物"
+      ],
+      "first_line": "潇洒江梅，向竹梢稀处，横两三枝。",
+      "week": 10
+    },
+    {
+      "id": "yanjiaoer-guanmei",
+      "cipai": "盐角儿",
+      "title": "观梅",
+      "author": "晁补之",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "咏物"
+      ],
+      "first_line": "开时似雪，谢时似雪。",
+      "week": 10
+    },
+    {
+      "id": "xingxiangzi-qixi",
+      "cipai": "行香子",
+      "title": "七夕",
+      "author": "李清照",
+      "dynasty": "南北宋间",
+      "school": "婉约",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "草际鸣蛩，惊落梧桐。",
+      "week": 10
+    },
+    {
+      "id": "sumuzhe-cao",
+      "cipai": "苏幕遮",
+      "title": "草",
+      "author": "梅尧臣",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "咏物",
+        "惜春"
+      ],
+      "first_line": "露堤平，烟墅杳。",
+      "week": 10
+    },
+    {
+      "id": "pusaman-qixi",
+      "cipai": "菩萨蛮",
+      "title": "七夕",
+      "author": "陈师道",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "行云过尽星河烂。",
+      "week": 10
+    },
+    {
+      "id": "fengxiaoyin-hanzhen",
+      "cipai": "凤箫吟",
+      "title": "锁离愁",
+      "author": "韩缜",
+      "dynasty": "北宋",
+      "school": "北宋诸家",
+      "themes": [
+        "咏物",
+        "闺情"
+      ],
+      "first_line": "锁离愁、连绵无际。",
+      "week": 10
+    },
+    {
+      "id": "shaonianyou-bingdao",
+      "cipai": "少年游",
+      "title": "并刀如水",
+      "author": "周邦彦",
+      "dynasty": "北宋",
+      "school": "格律",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "并刀如水，吴盐胜雪。",
+      "week": 11
+    },
+    {
+      "id": "sumuzhe-liaochenxiang",
+      "cipai": "苏幕遮",
+      "title": "燎沉香",
+      "author": "周邦彦",
+      "dynasty": "北宋",
+      "school": "格律",
+      "themes": [
+        "羁旅"
+      ],
+      "first_line": "燎沉香，消溽暑。",
+      "week": 11
+    },
+    {
+      "id": "xihe-jinling",
+      "cipai": "西河",
+      "title": "金陵怀古",
+      "author": "周邦彦",
+      "dynasty": "北宋",
+      "school": "格律",
+      "themes": [
+        "怀古"
+      ],
+      "first_line": "佳丽地，南朝盛事谁记？",
+      "week": 11
+    },
+    {
+      "id": "fenghuangtaishang-xiangleng",
+      "cipai": "凤凰台上忆吹箫",
+      "title": "香冷金猊",
+      "author": "李清照",
+      "dynasty": "南北宋间",
+      "school": "婉约",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "香冷金猊，被翻红浪。",
+      "week": 14
+    },
+    {
+      "id": "yiwangsun-hushang",
+      "cipai": "双调忆王孙",
+      "title": "湖上风来波浩渺",
+      "author": "李清照",
+      "dynasty": "南北宋间",
+      "school": "婉约",
+      "themes": [
+        "惜春"
+      ],
+      "first_line": "湖上风来波浩渺。",
+      "week": 14
+    },
+    {
+      "id": "yujiaao-xueli",
+      "cipai": "渔家傲",
+      "title": "雪里已知春信至",
+      "author": "李清照",
+      "dynasty": "南北宋间",
+      "school": "婉约",
+      "themes": [
+        "咏物"
+      ],
+      "first_line": "雪里已知春信至，寒梅点缀琼枝腻。",
+      "week": 14
+    },
+    {
+      "id": "zhegutian-hanri",
+      "cipai": "鹧鸪天",
+      "title": "寒日萧萧上琐窗",
+      "author": "李清照",
+      "dynasty": "南北宋间",
+      "school": "婉约",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "寒日萧萧上琐窗。",
+      "week": 14
+    },
+    {
+      "id": "hexinlang-shenyi",
+      "cipai": "贺新郎",
+      "title": "甚矣吾衰矣",
+      "author": "辛弃疾",
+      "dynasty": "南宋",
+      "school": "豪放",
+      "themes": [
+        "友情",
+        "身世"
+      ],
+      "first_line": "甚矣吾衰矣。",
+      "week": 15
+    },
+    {
+      "id": "moyuer-gengnengxiao",
+      "cipai": "摸鱼儿",
+      "title": "更能消几番风雨",
+      "author": "辛弃疾",
+      "dynasty": "南宋",
+      "school": "豪放",
+      "themes": [
+        "身世",
+        "惜春"
+      ],
+      "first_line": "更能消几番风雨，匆匆春又归去。",
+      "week": 15
+    },
+    {
+      "id": "shuidiaogetou-mengou",
+      "cipai": "水调歌头",
+      "title": "盟鸥",
+      "author": "辛弃疾",
+      "dynasty": "南宋",
+      "school": "豪放",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "带湖吾甚爱，千丈翠奁开。",
+      "week": 15
+    },
+    {
+      "id": "qitianle-yilang",
+      "cipai": "齐天乐",
+      "title": "庾郎先自吟愁赋",
+      "author": "姜夔",
+      "dynasty": "南宋",
+      "school": "格律",
+      "themes": [
+        "咏物",
+        "身世"
+      ],
+      "first_line": "庾郎先自吟愁赋，凄凄更闻私语。",
+      "week": 16
+    },
+    {
+      "id": "tashaxing-yanyan",
+      "cipai": "踏莎行",
+      "title": "燕燕轻盈",
+      "author": "姜夔",
+      "dynasty": "南宋",
+      "school": "格律",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "燕燕轻盈，莺莺娇软。",
+      "week": 16
+    },
+    {
+      "id": "zhegutian-feishui",
+      "cipai": "鹧鸪天",
+      "title": "元夕有所梦",
+      "author": "姜夔",
+      "dynasty": "南宋",
+      "school": "格律",
+      "themes": [
+        "闺情"
+      ],
+      "first_line": "肥水东流无尽期。",
+      "week": 16
+    },
+    {
+      "id": "zhegutian-xiangmo",
+      "cipai": "鹧鸪天",
+      "title": "正月十一日观灯",
+      "author": "姜夔",
+      "dynasty": "南宋",
+      "school": "格律",
+      "themes": [
+        "身世"
+      ],
+      "first_line": "巷陌风光纵赏时。",
+      "week": 16
+    }
   ]
 }

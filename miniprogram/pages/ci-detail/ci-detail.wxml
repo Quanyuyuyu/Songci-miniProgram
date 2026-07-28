@@ -6,9 +6,8 @@
     <view class="head">
       <view class="head-cipai">{{ci.cipai}}</view>
       <view class="head-title" wx:if="{{ci.title}}">· {{ci.title}}</view>
-      <view class="seal seal-blue" wx:if="{{ci.level === 'intensive'}}">精读</view>
     </view>
-    <view class="head-meta">{{ci.dynasty}} · {{ci.author}}　|　{{ci.school}}　|　第 {{ci.lesson}} 课</view>
+    <view class="head-meta">{{ci.dynasty}} · {{ci.author}}　|　{{ci.school}}　|　W{{ci.week}}</view>
 
     <!-- 词序 -->
     <view class="preface" wx:if="{{ci.preface}}">{{ci.preface}}</view>

@@ -1,215 +1,309 @@
 # -*- coding: utf-8 -*-
+"""Compile Markdown work manuscripts into mini-program sections JSON.
+
+The compiler intentionally supports a small, stable Markdown subset:
+graded headings, paragraphs, block quotes, small notes and images. This matches the native
+``work-detail`` renderer and keeps all content available offline.
 """
-markdown -> 小程序作品 sections JSON 转换器
-============================================
-把每个作品用熟悉的 markdown 写稿，转换为 work-detail 页能直接渲染的 JSON。
 
-输出 schema（与 work-detail.wxml 完全对齐）:
-  {
-    "title": "...",
-    "form_tag": "文字|摄影|创作",
-    "term": "2026春",
-    "collecting": false,
-    "sections": [
-      {"type":"h",     "text":"..."},
-      {"type":"p",     "text":"..."},
-      {"type":"quote", "text":"..."},
-      {"type":"img",   "url":"...", "alt":"..."}
-    ]
-  }
+from __future__ import annotations
 
-图片处理（闭环关键）:
-  - http(s) 链接: 原样保留（生产环境必须是 HTTPS 且在小程序后台 downloadFile 合法域名白名单内）
-  - 本地相对路径（如 images/works/essay-2-1.jpg）: 自动拷贝到 miniprogram/images/works/，
-    并改写为小程序本地路径 /images/works/<文件名>，无需联网即可显示
-  - IMA 带时效签名的图片链接【不推荐】直接写死，会因过期而失效
-
-用法:
-  python tools/md_to_workjson.py data/works_src            # 批量转换目录下所有 .md（跳过 README/_ 开头）
-  python tools/md_to_workjson.py data/works_src/essay-2.md # 转换单个文件
-  python tools/md_to_workjson.py --demo data/works_src/_example.md  # 仅打印结果，不写文件/不拷图
-
-依赖: 仅 Python 标准库
-"""
-import os
-import re
-import sys
+import argparse
 import json
+import math
+import re
 import shutil
-
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # songci-miniprogram/
-IMG_DEST = os.path.join(REPO_ROOT, "miniprogram", "images", "works")
-OUT_DIR_DEFAULT = os.path.join(REPO_ROOT, "miniprogram", "data", "works")
-
-IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
-HEAD_RE = re.compile(r"^#{1,6}\s+(.*)$")
-QUOTE_RE = re.compile(r"^>\s?")
-BLOCKQUOTE_INLINE_RE = re.compile(r"^>\s?(.*)$")
+import sys
+from pathlib import Path
+from typing import Any
 
 
-def parse_front_matter(text):
-    """解析顶部的 --- ... --- 区块，返回 (meta dict, body string)。"""
-    meta = {"title": "", "form_tag": "", "term": "", "collecting": False}
-    if not text.startswith("---"):
-        return meta, text
-    parts = text.split("\n")
-    if parts[0].strip() != "---":
-        return meta, text
-    end = None
-    for i in range(1, len(parts)):
-        if parts[i].strip() == "---":
-            end = i
-            break
-    if end is None:
-        return meta, text
-    for line in parts[1:end]:
-        line = line.strip()
-        if not line or ":" not in line:
+REPO_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "miniprogram" / "data" / "works"
+DEFAULT_IMAGE_DIR = REPO_ROOT / "miniprogram" / "images" / "works"
+
+WORK_ID_RE = re.compile(r"^(creative|essay|photo)-\d+$")
+IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$")
+QUOTE_RE = re.compile(r"^>\s?(.*)$")
+NOTE_RE = re.compile(r"^\*([^*].*?)\*$")
+REMOTE_IMAGE_RE = re.compile(r"^https://", re.IGNORECASE)
+KNOWN_META = {
+    "title",
+    "form_tag",
+    "term",
+    "collecting",
+    "summary",
+    "source_note",
+    "original_url",
+}
+
+
+class CompileError(ValueError):
+    """Raised when a manuscript cannot be compiled safely."""
+
+
+def parse_front_matter(text: str) -> tuple[dict[str, Any], str]:
+    defaults: dict[str, Any] = {
+        "title": "",
+        "form_tag": "",
+        "term": "",
+        "collecting": False,
+        "summary": "",
+        "source_note": "",
+        "original_url": "",
+    }
+    lines = text.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    if not lines or lines[0].strip() != "---":
+        return defaults, text
+
+    try:
+        end = next(i for i, line in enumerate(lines[1:], 1) if line.strip() == "---")
+    except StopIteration as exc:
+        raise CompileError("front matter 缺少结束标记 ---") from exc
+
+    for raw in lines[1:end]:
+        line = raw.strip()
+        if not line or line.startswith("#"):
             continue
-        k, v = line.split(":", 1)
-        k, v = k.strip(), v.strip().strip('"').strip("'")
-        if k == "title":
-            meta["title"] = v
-        elif k == "form_tag":
-            meta["form_tag"] = v
-        elif k == "term":
-            meta["term"] = v
-        elif k == "collecting":
-            meta["collecting"] = v.lower() in ("true", "1", "yes")
-    body = "\n".join(parts[end + 1:])
-    return meta, body
+        if ":" not in line:
+            raise CompileError(f"front matter 行缺少冒号: {raw}")
+        key, value = (part.strip() for part in line.split(":", 1))
+        if key not in KNOWN_META:
+            raise CompileError(f"未知 front matter 字段: {key}")
+        value = value.strip('"').strip("'")
+        if key == "collecting":
+            if value.lower() not in {"true", "false", "1", "0", "yes", "no"}:
+                raise CompileError("collecting 只能为 true 或 false")
+            defaults[key] = value.lower() in {"true", "1", "yes"}
+        else:
+            defaults[key] = value
+    return defaults, "\n".join(lines[end + 1 :])
 
 
-def resolve_image(alt, url, src_dir):
-    url = url.strip()
-    if url.startswith("http://") or url.startswith("https://"):
-        return {"type": "img", "url": url, "alt": alt}
-    # 本地相对路径
-    src = os.path.normpath(os.path.join(src_dir, url))
-    if os.path.exists(src):
-        os.makedirs(IMG_DEST, exist_ok=True)
-        base = os.path.basename(url)
-        shutil.copy(src, os.path.join(IMG_DEST, base))
-        return {"type": "img", "url": "/images/works/" + base, "alt": alt}
-    print("  [WARN] 图片源文件不存在，保留原相对路径（小程序内将加载失败）: %s" % url)
-    return {"type": "img", "url": url, "alt": alt}
+def _safe_local_image(source_dir: Path, raw_url: str) -> Path:
+    if raw_url.startswith("/") or re.match(r"^[A-Za-z]:[\\/]", raw_url):
+        raise CompileError(f"本地图片必须使用相对路径: {raw_url}")
+    source = (source_dir / raw_url).resolve()
+    try:
+        source.relative_to(source_dir.resolve())
+    except ValueError as exc:
+        raise CompileError(f"图片路径不能离开 Markdown 所在目录: {raw_url}") from exc
+    if not source.is_file():
+        raise CompileError(f"图片不存在: {raw_url}")
+    return source
 
 
-def parse_body(body, src_dir):
-    sections = []
-    para_buf = []
-    quote_buf = []
+def resolve_image(
+    alt: str,
+    url: str,
+    source_dir: Path,
+    work_id: str,
+    image_dir: Path,
+    copy_images: bool,
+) -> dict[str, str]:
+    url = url.strip().split(maxsplit=1)[0].strip("<>")
+    if REMOTE_IMAGE_RE.match(url):
+        return {"type": "img", "url": url, "alt": alt.strip()}
+    if url.lower().startswith("http://"):
+        raise CompileError(f"远程图片必须使用 HTTPS: {url}")
 
-    def flush_para():
-        if para_buf:
-            t = "\n".join(para_buf).strip()
-            if t:
-                sections.append({"type": "p", "text": t})
-            para_buf.clear()
+    source = _safe_local_image(source_dir, url)
+    destination = image_dir / work_id / source.name
+    if copy_images:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if source != destination.resolve():
+            shutil.copy2(source, destination)
+    return {
+        "type": "img",
+        "url": f"/images/works/{work_id}/{source.name}",
+        "alt": alt.strip(),
+    }
 
-    def flush_quote():
-        if quote_buf:
-            t = "\n".join(quote_buf).strip()
-            if t:
-                sections.append({"type": "quote", "text": t})
-            quote_buf.clear()
 
-    for raw in body.split("\n"):
-        stripped = raw.strip()
-        if not stripped:
-            flush_para()
+def parse_body(
+    body: str,
+    source_dir: Path,
+    work_id: str,
+    image_dir: Path,
+    copy_images: bool,
+) -> list[dict[str, Any]]:
+    sections: list[dict[str, Any]] = []
+    paragraph: list[str] = []
+    quote: list[str] = []
+
+    def flush_paragraph() -> None:
+        if paragraph:
+            text = "\n".join(paragraph).strip()
+            if text:
+                sections.append({"type": "p", "text": text})
+            paragraph.clear()
+
+    def flush_quote() -> None:
+        if quote:
+            text = "\n".join(quote).strip()
+            if text:
+                sections.append({"type": "quote", "text": text})
+            quote.clear()
+
+    for raw in body.splitlines():
+        line = raw.strip()
+        if not line:
+            flush_paragraph()
             flush_quote()
             continue
-        hm = HEAD_RE.match(stripped)
-        if hm:
-            flush_para()
+
+        heading = HEADING_RE.match(line)
+        if heading:
+            flush_paragraph()
             flush_quote()
-            sections.append({"type": "h", "text": hm.group(1).strip()})
+            sections.append({
+                "type": "h",
+                "level": min(len(heading.group(1)), 3),
+                "text": heading.group(2).strip(),
+            })
             continue
-        if QUOTE_RE.match(stripped):
-            flush_para()
-            quote_buf.append(BLOCKQUOTE_INLINE_RE.match(stripped).group(1))
-            continue
-        if "![" in stripped:
-            flush_para()
+
+        note = NOTE_RE.match(line)
+        if note:
+            flush_paragraph()
             flush_quote()
-            parts = re.split(r"(!\[[^\]]*\]\([^)]+\))", stripped)
-            for part in parts:
-                part = part.strip()
-                if not part:
-                    continue
-                im = IMG_RE.match(part)
-                if im:
-                    sections.append(resolve_image(im.group(1), im.group(2), src_dir))
-                else:
-                    sections.append({"type": "p", "text": part})
+            sections.append({"type": "note", "text": note.group(1).strip()})
             continue
+
+        quoted = QUOTE_RE.match(line)
+        if quoted:
+            flush_paragraph()
+            quote.append(quoted.group(1))
+            continue
+
+        if "![" in line:
+            flush_paragraph()
+            flush_quote()
+            cursor = 0
+            for match in IMAGE_RE.finditer(line):
+                leading = line[cursor : match.start()].strip()
+                if leading:
+                    sections.append({"type": "p", "text": leading})
+                sections.append(
+                    resolve_image(
+                        match.group(1),
+                        match.group(2),
+                        source_dir,
+                        work_id,
+                        image_dir,
+                        copy_images,
+                    )
+                )
+                cursor = match.end()
+            trailing = line[cursor:].strip()
+            if trailing:
+                sections.append({"type": "p", "text": trailing})
+            continue
+
         flush_quote()
-        para_buf.append(stripped)
+        paragraph.append(line)
 
-    flush_para()
+    flush_paragraph()
     flush_quote()
     return sections
 
 
-def convert_file(md_path, out_dir, demo=False):
-    with open(md_path, "r", encoding="utf-8") as f:
-        text = f.read()
-    meta, body = parse_front_matter(text)
+def compile_markdown(
+    markdown_path: Path,
+    image_dir: Path = DEFAULT_IMAGE_DIR,
+    copy_images: bool = True,
+) -> dict[str, Any]:
+    work_id = markdown_path.stem
+    if not WORK_ID_RE.fullmatch(work_id):
+        raise CompileError(f"文件名不是合法作品 ID: {work_id}")
+
+    meta, body = parse_front_matter(markdown_path.read_text(encoding="utf-8"))
     if not meta["title"]:
-        print("[SKIP] 缺少 title 前置信息: %s" % md_path)
-        return None
-    src_dir = os.path.dirname(os.path.abspath(md_path))
-    sections = parse_body(body, src_dir)
-    doc = {
+        raise CompileError("缺少 title")
+    if not meta["form_tag"]:
+        raise CompileError("缺少 form_tag")
+
+    sections = parse_body(body, markdown_path.parent, work_id, image_dir, copy_images)
+    if not meta["collecting"] and not sections:
+        raise CompileError("非 collecting 作品必须包含正文")
+
+    text_count = sum(len(section.get("text", "")) for section in sections)
+    image_urls = [section["url"] for section in sections if section["type"] == "img"]
+    document: dict[str, Any] = {
+        "id": work_id,
         "title": meta["title"],
         "form_tag": meta["form_tag"],
         "term": meta["term"],
         "collecting": bool(meta["collecting"]),
+        "reading_minutes": max(1, math.ceil(text_count / 450)),
+        "image_urls": image_urls,
         "sections": sections,
     }
-    stem = os.path.splitext(os.path.basename(md_path))[0]
-    if demo:
-        print("=== %s.json (demo) ===" % stem)
-        print(json.dumps(doc, ensure_ascii=False, indent=2))
-        return doc
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, stem + ".json")
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(doc, f, ensure_ascii=False, indent=2)
-    print("[OK] %s -> %s  (sections=%d)" % (stem + ".md", out_path, len(sections)))
-    return doc
+    for key in ("summary", "source_note", "original_url"):
+        if meta[key]:
+            document[key] = meta[key]
+    return document
 
 
-def is_skippable(name):
-    base = os.path.basename(name)
-    return base.upper() == "README.md" or base.startswith("_")
+def discover_markdown(target: Path) -> list[Path]:
+    if target.is_file():
+        return [target]
+    if not target.is_dir():
+        raise CompileError(f"输入路径不存在: {target}")
+    return sorted(
+        path
+        for path in target.glob("*.md")
+        if path.name.upper() != "README.MD" and not path.name.startswith("_")
+    )
 
 
-def main():
-    args = sys.argv[1:]
-    demo = False
-    if "--demo" in args:
-        demo = True
-        args.remove("--demo")
-    if not args:
-        print(__doc__)
-        return
-    target = args[0]
-    out_dir = OUT_DIR_DEFAULT
-    if os.path.isdir(target):
-        files = sorted(
-            f for f in os.listdir(target)
-            if f.endswith(".md") and not is_skippable(f)
-        )
-        if not files:
-            print("目录内无可转换的 .md 文件: %s" % target)
-            return
-        for f in files:
-            convert_file(os.path.join(target, f), out_dir, demo)
-    else:
-        convert_file(target, out_dir, demo)
+def write_json(document: dict[str, Any], output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output = output_dir / f"{document['id']}.json"
+    temporary = output.with_suffix(".json.tmp")
+    temporary.write_text(
+        json.dumps(document, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(output)
+    return output
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("target", type=Path, help="Markdown 文件或目录")
+    parser.add_argument("--check", action="store_true", help="只校验，不写 JSON 或复制图片")
+    parser.add_argument("--demo", action="store_true", help="在终端打印生成结果")
+    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument("--image-dir", type=Path, default=DEFAULT_IMAGE_DIR)
+    args = parser.parse_args(argv)
+
+    try:
+        paths = discover_markdown(args.target)
+    except CompileError as exc:
+        print(f"[ERROR] {exc}", file=sys.stderr)
+        return 1
+    if not paths:
+        print(f"[ERROR] 没有可转换的 Markdown: {args.target}", file=sys.stderr)
+        return 1
+
+    failures = 0
+    for path in paths:
+        try:
+            document = compile_markdown(path, args.image_dir, not (args.check or args.demo))
+            if args.demo:
+                print(json.dumps(document, ensure_ascii=False, indent=2))
+            elif args.check:
+                print(f"[OK] {path.name}: {len(document['sections'])} sections")
+            else:
+                output = write_json(document, args.output_dir)
+                print(f"[OK] {path.name} -> {output.relative_to(REPO_ROOT)}")
+        except (CompileError, OSError, UnicodeError) as exc:
+            failures += 1
+            print(f"[ERROR] {path}: {exc}", file=sys.stderr)
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

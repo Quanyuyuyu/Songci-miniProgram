@@ -34,7 +34,7 @@
       <view class="entry-emoji">🖋</view>
       <view class="entry-main">
         <view class="entry-title">我的笔记</view>
-        <view class="entry-desc">平时攒下的精读体悟，期末可以连缀成文（仅存本机）</view>
+        <view class="entry-desc">平时攒下的词作体悟，期末可以连缀成文（仅存本机）</view>
       </view>
       <view class="entry-arrow">›</view>
     </view>

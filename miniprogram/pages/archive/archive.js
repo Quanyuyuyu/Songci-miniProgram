@@ -1,5 +1,6 @@
 const { getData } = require('../../services/data.js');
 const { errorReason, toast } = require('../../utils/ui.js');
+const { formatTerm } = require('../../utils/term.js');
 
 Page({
   data: {
@@ -7,38 +8,83 @@ Page({
     error: '',
     terms: [],
     categories: [],
-    activeCategory: 'creative',
+    activeTerm: '26Spring',
+    activeTermDisplay: '2026 春',
+    activeCategory: 'photo',
     works: [],
-    note: ''
+    note: '',
+    returnTarget: null
   },
 
   onLoad() {
     Promise.all([getData('archive-index'), getData('archive', 'all')])
       .then(([index, all]) => {
+        const terms = (index.terms || []).map((term) => {
+          const count = ['photo', 'essay'].reduce((total, category) => {
+            return total + (all[category] || []).filter((work) => work.term === term.term).length;
+          }, 0);
+          return Object.assign({}, term, {
+            count: count,
+            statusText: count ? '已收录 ' + count + ' 篇' : '暂未收录'
+          });
+        });
         this.setData({
           loading: false,
-          terms: index.terms || [],
+          terms: terms,
           categories: index.categories || [],
           note: index.note || '',
           _all: all
+        }, () => {
+          this.applyFilters(this._pendingCategory || 'photo', this.data.activeTerm);
         });
-        this.applyCategory('creative');
       })
       .catch((err) => {
         this.setData({ loading: false, error: errorReason(err) });
       });
   },
 
-  applyCategory(key) {
-    const all = this.data._all || {};
+  onShow() {
+    const app = getApp();
+    const entry = app.globalData.archiveEntry;
+    if (!entry) {
+      this.setData({ returnTarget: null });
+      return;
+    }
+
+    this._pendingCategory = entry.category || 'photo';
     this.setData({
-      activeCategory: key,
-      works: all[key] || []
+      returnTarget: {
+        url: entry.returnUrl,
+        label: entry.returnLabel || '返回上一页'
+      }
+    });
+    if (this.data._all) {
+      this.applyFilters(this._pendingCategory, this.data.activeTerm);
+    }
+  },
+
+  applyFilters(category, term) {
+    const all = this.data._all || {};
+    const source = all[category] || [];
+    const works = category === 'creative'
+      ? source
+      : source.filter((work) => work.term === term);
+    this.setData({
+      activeCategory: category,
+      activeTerm: term,
+      activeTermDisplay: formatTerm(term),
+      works: works.map((work) => Object.assign({}, work, {
+        termDisplay: formatTerm(work.term)
+      }))
     });
   },
 
   onCategoryTap(e) {
-    this.applyCategory(e.currentTarget.dataset.key);
+    this.applyFilters(e.currentTarget.dataset.key, this.data.activeTerm);
+  },
+
+  onTermTap(e) {
+    this.applyFilters(this.data.activeCategory, e.currentTarget.dataset.term);
   },
 
   onWorkTap(e) {
@@ -50,12 +96,12 @@ Page({
     wx.navigateTo({ url: '/pages/work-detail/work-detail?id=' + id });
   },
 
-  onTermTap(e) {
-    const item = e.currentTarget.dataset.item;
-    if (item.status === 'ready') {
-      wx.navigateTo({ url: '/pages/task/task?type=discussion' });
-    } else {
-      toast(item.display + '：内容陆续收录中');
-    }
+  onReturn() {
+    const target = this.data.returnTarget;
+    if (!target || !target.url) return;
+    getApp().globalData.archiveEntry = null;
+    this._pendingCategory = '';
+    this.setData({ returnTarget: null });
+    wx.navigateTo({ url: target.url });
   }
 });

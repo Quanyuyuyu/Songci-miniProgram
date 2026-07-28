@@ -1,0 +1,73 @@
+{
+  "id": "yiyuhang-changyigushan",
+  "cipai": "忆余杭",
+  "title": "长忆孤山",
+  "author": "潘阆",
+  "dynasty": "北宋初",
+  "text": [
+    "长忆孤山，山在湖心如黛簇，僧房四面向湖开，轻棹去还来。",
+    "芰荷香喷连云阁，阁上清声檐下铎。别来尘土污人衣，空役梦魂飞。"
+  ],
+  "pinyin": [
+    {
+      "ch": "棹",
+      "py": "zhào"
+    },
+    {
+      "ch": "芰",
+      "py": "jì"
+    },
+    {
+      "ch": "铎",
+      "py": "duó"
+    }
+  ],
+  "notes": [
+    {
+      "term": "黛簇",
+      "gloss": "青山如黛，簇拥湖中。"
+    },
+    {
+      "term": "芰荷",
+      "gloss": "菱与荷。"
+    },
+    {
+      "term": "檐下铎",
+      "gloss": "屋檐下悬挂的铃铎，风动则响。"
+    }
+  ],
+  "tags": {
+    "theme": [
+      "羁旅"
+    ],
+    "technique": [
+      "铺叙"
+    ]
+  },
+  "school": "北宋诸家",
+  "week": 5,
+  "background": "北宋初潘阆词，具体写作时间未详。作品从“长忆孤山，山在湖心如黛簇。”起笔，围绕羁旅展开，并以铺叙组织景物、叙事与情感。",
+  "questions": [
+    "“长忆孤山，山在湖心如黛簇。”如何交代全词的时间、空间与情绪基调？",
+    "“黛簇”与“芰荷”在词中如何相互照应，又怎样推动情感变化？",
+    "结尾“别来尘土污人衣，空役梦魂飞”是收束、转折还是留白？结合上下片说明理由。"
+  ],
+  "links": [
+    {
+      "ci_id": "yiyuhang-changyiguanchao",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yiyuhang-changyiqiantang",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    },
+    {
+      "ci_id": "yiyuhang-changyixihu",
+      "rel": "same_cipai",
+      "note": "同调互读"
+    }
+  ],
+  "cihua": []
+}

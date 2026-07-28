@@ -10,7 +10,6 @@ Page({
     view: 'timeline',     // timeline | family | theme
     timeline: [],
     eras: [],
-    currentWeek: 0,
     family: [],
     themes: [],
     expandedTheme: '',
@@ -20,9 +19,8 @@ Page({
   onLoad() {
     Promise.all([
       getData('maps'),
-      getData('ci-index'),
-      getData('semester', '26spring')
-    ]).then(([maps, idx, semester]) => {
+      getData('ci-index')
+    ]).then(([maps, idx]) => {
       const indexMap = {};
       (idx.list || []).forEach((c) => { indexMap[c.id] = c; });
       this._index = indexMap;
@@ -44,7 +42,6 @@ Page({
         loading: false,
         timeline: maps.timeline || [],
         eras: maps.eras || [],
-        currentWeek: (semester && semester.current_week) || 0,
         family: family,
         themes: themes
       });

@@ -12,12 +12,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-display);
 }
 .hero-name {
   font-size: 48rpx;
   font-weight: 600;
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-display);
   color: var(--ink);
 }
 .hero-sub { font-size: 26rpx; color: var(--gray); margin-top: 8rpx; }
@@ -56,11 +56,8 @@
   font-weight: 600;
   padding-top: 4rpx;
 }
-.week-no-cur { color: var(--cinnabar); }
 .week-main { flex: 1; border-left: 2rpx solid var(--line); padding-left: 20rpx; }
 .week-theme { font-size: 28rpx; color: var(--ink); }
-.week-theme-cur { color: var(--cinnabar); font-weight: 600; }
-.week-theme .seal { margin-left: 12rpx; }
 .week-detail { font-size: 24rpx; color: var(--gray); margin-top: 4rpx; }
 .weeks-notice {
   margin-top: 20rpx;

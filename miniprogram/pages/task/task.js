@@ -8,6 +8,11 @@ const TITLES = {
   final: '期末习作'
 };
 
+const ARCHIVE_CATEGORIES = {
+  photo: 'photo',
+  final: 'essay'
+};
+
 Page({
   data: {
     loading: true,
@@ -45,6 +50,12 @@ Page({
   },
 
   goArchive() {
+    const type = this.data.type;
+    getApp().globalData.archiveEntry = {
+      category: ARCHIVE_CATEGORIES[type] || 'photo',
+      returnUrl: '/pages/task/task?type=' + type,
+      returnLabel: '返回' + (TITLES[type] || '任务')
+    };
     wx.switchTab({ url: '/pages/archive/archive' });
   },
 

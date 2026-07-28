@@ -1,5 +1,15 @@
 .page-intro { font-size: 26rpx; color: var(--gray); line-height: 1.7; margin-bottom: 24rpx; }
 
+.archive-return {
+  display: inline-flex;
+  align-items: center;
+  min-height: 56rpx;
+  margin-bottom: 12rpx;
+  color: var(--primary);
+  font-size: 25rpx;
+}
+.return-icon { margin-right: 10rpx; font-size: 34rpx; line-height: 1; }
+
 .term-grid { display: flex; flex-wrap: wrap; margin: 0 -8rpx; }
 .term-card {
   width: calc(33.33% - 16rpx);
@@ -11,21 +21,25 @@
   text-align: center;
   box-sizing: border-box;
 }
-.term-ready { border-color: var(--primary); }
+.term-active { border-color: var(--primary); box-shadow: inset 0 0 0 1rpx var(--primary); }
 .term-card:active { opacity: 0.75; }
 .term-display { font-size: 30rpx; font-weight: 600; color: var(--ink); }
 .term-status { font-size: 22rpx; color: var(--gray); margin-top: 8rpx; }
-.term-status-ready { color: var(--cinnabar); }
+.term-status-active { color: var(--cinnabar); }
 
 .cat-bar { display: flex; margin-bottom: 12rpx; }
 .cat-chip {
+  flex: 1;
   font-size: 26rpx;
   color: var(--primary);
   border: 1rpx solid var(--primary);
   border-radius: 999rpx;
-  padding: 8rpx 24rpx;
-  margin-right: 16rpx;
+  padding: 8rpx 8rpx;
+  margin-right: 12rpx;
+  text-align: center;
+  white-space: nowrap;
 }
+.cat-chip:last-child { margin-right: 0; }
 .cat-chip-on { background: var(--primary); color: #FFFDF6; }
 .cat-desc { font-size: 24rpx; color: var(--gray); margin-bottom: 20rpx; }
 

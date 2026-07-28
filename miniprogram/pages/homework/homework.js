@@ -11,15 +11,17 @@ Page({
   onLoad() {
     getData('semester', '26spring').then((sem) => {
       const tasks = sem.tasks || {};
+      const discussion = sem.discussion || {};
+      const currentTheme = (discussion.themes || [])[0] || {};
       this.setData({
         loading: false,
         cards: [
           {
             emoji: '📖',
-            title: '本周读哪首词？',
-            type: 'intensive',
-            summary: tasks.intensive ? tasks.intensive.what : '',
-            points: [tasks.intensive ? tasks.intensive.rule_text : '']
+            title: '全学期阅读词目',
+            type: 'reading',
+            summary: '按教学周查看全部阅读篇目，每首均提供原文、简注与导读。',
+            points: ['实际授课进度以当学期课堂安排为准']
           },
           {
             emoji: '📷',
@@ -32,11 +34,12 @@ Page({
             emoji: '🎤',
             title: '讨论课展示',
             type: 'discussion',
-            summary: sem.discussion ? sem.discussion.theme_title : '待教师公布',
-            points: [
-              (sem.discussion ? sem.discussion.group_rule : '') + ' · ' + (sem.discussion ? sem.discussion.duration : ''),
-              '填分组表 → 交 PPT → 课堂展示'
-            ]
+            summary: currentTheme.status === 'known'
+              ? currentTheme.title
+              : (currentTheme.display || '新学期') + '主题尚未发布',
+            points: currentTheme.status === 'known'
+              ? [currentTheme.group_rule + ' · ' + currentTheme.duration, '填分组表 → 交 PPT → 课堂展示']
+              : ['具体安排以课程群通知为准']
           },
           {
             emoji: '✍️',
@@ -54,7 +57,7 @@ Page({
 
   onCardTap(e) {
     const type = e.detail.type;
-    if (type === 'intensive') {
+    if (type === 'reading') {
       wx.navigateTo({ url: '/pages/schedule/schedule' });
     } else if (type) {
       wx.navigateTo({ url: '/pages/task/task?type=' + type });

@@ -1,48 +1,25 @@
 <view class="page-body">
   <empty-state wx:if="{{error}}" icon="📖" title="词目数据未能加载" reason="{{error}}" />
+  <empty-state wx:if="{{!loading && !error && !weeks.length}}" icon="📖" title="暂无阅读词目" reason="阅读周历尚未收录内容" />
 
-  <block wx:if="{{!loading}}">
-    <view class="rule-bar">{{ruleText}}</view>
+  <block wx:if="{{!loading && weeks.length}}">
+    <view class="schedule-note" wx:if="{{notice}}">{{notice}}</view>
 
-    <view class="seg">
-      <view class="seg-item {{view === 'week' ? 'seg-on' : ''}}" data-view="week" bindtap="onSegTap">本周</view>
-      <view class="seg-item {{view === 'all' ? 'seg-on' : ''}}" data-view="all" bindtap="onSegTap">全学期</view>
-    </view>
-
-    <!-- 本周视图 -->
-    <block wx:if="{{view === 'week'}}">
-      <view class="week-notice">{{notice}}</view>
-      <empty-state wx:if="{{!weekLesson}}" icon="🍵" title="本周无精读课次" reason="精读词目覆盖第 3–14 课；其余周次见全学期视图" />
-      <view class="card ci-row" wx:for="{{weekLesson.items}}" wx:key="ci_id" data-id="{{item.ci_id}}" bindtap="goDetail">
+    <view class="week-block" wx:for="{{weeks}}" wx:key="week" wx:for-item="weekItem">
+      <view class="week-head">
+        <view class="week-no">W{{weekItem.week}}</view>
+        <view class="week-topic">{{weekItem.topic}}</view>
+        <view class="week-count">{{weekItem.items.length}} 首</view>
+      </view>
+      <view class="card ci-row" wx:for="{{weekItem.items}}" wx:key="ci_id" wx:for-item="ci" data-id="{{ci.ci_id}}" bindtap="goDetail">
         <view class="ci-head">
-          <text class="ci-cipai">{{item.cipai}}</text>
-          <text class="ci-title" wx:if="{{item.title}}">· {{item.title}}</text>
-          <text class="seal" wx:if="{{item.updated}}">已更新</text>
-          <text class="seal seal-blue" wx:if="{{item.level === 'intensive'}}">精读</text>
+          <text class="ci-cipai">{{ci.cipai}}</text>
+          <text class="ci-title" wx:if="{{ci.title}}">· {{ci.title}}</text>
         </view>
-        <view class="ci-author">{{item.dynasty}} · {{item.author}}</view>
-        <view class="ci-go">原文与简注 ›</view>
+        <view class="ci-author">{{ci.dynasty}} · {{ci.author}}</view>
+        <view class="ci-go">原文、简注与导读 ›</view>
       </view>
-    </block>
-
-    <!-- 全学期视图 -->
-    <block wx:if="{{view === 'all'}}">
-      <view class="lesson-block" wx:for="{{lessons}}" wx:key="lesson" wx:for-item="les">
-        <view class="lesson-head {{les.lesson === currentLesson ? 'lesson-head-cur' : ''}}">
-          第 {{les.lesson}} 课 · {{les.topic}}
-          <text class="seal" wx:if="{{les.lesson === currentLesson}}">本周</text>
-        </view>
-        <view class="card ci-row" wx:for="{{les.items}}" wx:key="ci_id" wx:for-item="ci" data-id="{{ci.ci_id}}" bindtap="goDetail">
-          <view class="ci-head">
-            <text class="ci-cipai">{{ci.cipai}}</text>
-            <text class="ci-title" wx:if="{{ci.title}}">· {{ci.title}}</text>
-            <text class="seal" wx:if="{{ci.updated}}">已更新</text>
-            <text class="seal seal-blue" wx:if="{{ci.level === 'intensive'}}">精读</text>
-          </view>
-          <view class="ci-author">{{ci.dynasty}} · {{ci.author}}</view>
-        </view>
-      </view>
-    </block>
+    </view>
 
     <disclaimer-bar />
   </block>

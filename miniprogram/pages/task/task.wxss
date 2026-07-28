@@ -6,20 +6,25 @@
 .deliver-submit { font-size: 26rpx; color: var(--ink); margin-top: 8rpx; }
 .deliver-points { font-size: 24rpx; color: var(--gray); margin-top: 8rpx; line-height: 1.6; }
 
-.theme-card { border-left: 6rpx solid var(--cinnabar); }
+.theme-card { margin-bottom: 14rpx; }
+.theme-known { border-left: 6rpx solid var(--cinnabar); }
+.theme-term {
+  color: var(--primary);
+  font-size: 25rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
 .theme-title {
   font-size: 34rpx;
   font-weight: 600;
   color: var(--ink);
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-display);
   margin-bottom: 12rpx;
 }
 .theme-meta { margin-top: 16rpx; }
-
-.past { display: flex; align-items: baseline; padding: 20rpx 24rpx; }
-.past-term { font-size: 26rpx; color: var(--gray); width: 130rpx; flex-shrink: 0; }
-.past-title { font-size: 28rpx; color: var(--ink); }
-.past-unknown { font-size: 26rpx; color: var(--gray); }
+.theme-pending { color: var(--cinnabar); font-size: 29rpx; font-weight: 600; }
+.theme-uncollected { color: var(--gray); font-size: 26rpx; }
+.pending-note { color: var(--gray); font-size: 24rpx; line-height: 1.6; margin: 4rpx 4rpx 24rpx; }
 
 .form-chips { margin-top: 16rpx; }
 .copy-row { margin-top: 20rpx; }

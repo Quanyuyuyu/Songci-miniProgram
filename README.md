@@ -1,6 +1,6 @@
 # 宋词导读 · 课程助手（微信小程序）
 
-《宋词导读》(GEHA1117) 单课程查询工具：本周读哪首词、本学期要交什么、往届学长学姐做成过什么样、词作原文与自撰简注去哪看。
+《宋词导读》(GEHA1117) 单课程查询工具：全学期每周读哪些词、本学期要交什么、往届同学做成过什么样、词作原文与自撰简注去哪看。
 
 **本产品为学生个人创作的学习辅助工具，非课程或学校官方发布，内容仅供参考，一切要求以教师课堂通知为准。**
 
@@ -27,7 +27,9 @@
 - **数据读取唯一入口**：`services/data.js` 的 `getData(type, key)`。页面中禁止出现 `wx.request`、禁止 `require` 任何 JSON 文件；新增数据文件时只需在 `services/registry.js` 注册一条 type → 路径映射。
 - **降级链**：内存缓存 → storage 离线缓存（7 天）→ `services/fallback.js` 内联兜底（仅 course/weeks）→ 空态文案。
 - **本地功能只存本机**（wx.storage，不回传、不具凭证效力）：拍照配词自检、期末规范自检、私人笔记（`sc_note_{ci_id}`，「我的笔记」页可汇总复制）。
-- **学期状态**：`data/semester-26spring.json` 的 `current_week` 由维护者每周手动更新；新学期复制该文件改 term 即可。
+- **阅读周历**：`data/schedule.json` 只维护全学期教学周与阅读词目，不设实时周状态；实际进度始终以当学期课堂安排为准。
+- **词作详情**：`data/ci-detail/` 中每首词都使用统一字段，均提供原文、注音、简注、背景、阅读问题与互读链接，不划分阅读等级。
+- **作品写作**：在 `data/works_src/` 中以 Markdown 修改稿件，再运行 `tools/md_to_workjson.py` 生成小程序原生 `sections` JSON。
 
 ## 内容红线（验收时 grep 应为空）
 
@@ -42,6 +44,6 @@ miniprogram/
 ├─ services/                      # data.js(唯一入口) registry.js fallback.js
 ├─ utils/                         # store(storage) ui constants
 ├─ components/                    # 8 个展示组件
-├─ pages/                         # 4 tab + 8 子页
+├─ pages/                         # 4 tab + 9 子页
 └─ data/                          # 远端 JSON（本地开发时由 python 静态服务提供）
 ```

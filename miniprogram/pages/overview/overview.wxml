@@ -35,15 +35,12 @@
     </view>
 
     <!-- 教学周历 -->
-    <section-head title="教学周历" sub="16 周授课" />
+    <section-head title="教学周历" />
     <view class="card">
       <view class="week-row" wx:for="{{weeks}}" wx:key="w">
-        <view class="week-no {{item.w === currentWeek ? 'week-no-cur' : ''}}">W{{item.w}}</view>
+        <view class="week-no">W{{item.w}}</view>
         <view class="week-main">
-          <view class="week-theme {{item.w === currentWeek ? 'week-theme-cur' : ''}}">
-            {{item.theme}}
-            <text class="seal" wx:if="{{item.w === currentWeek}}">本周</text>
-          </view>
+          <view class="week-theme">{{item.theme}}</view>
           <view class="week-detail">{{item.detail}}</view>
         </view>
       </view>

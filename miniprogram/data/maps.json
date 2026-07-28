@@ -23,6 +23,7 @@
     { "key": "nansong", "label": "南宋" }
   ],
   "themes": [
+    { "tag": "江南", "desc": "江南风物与旧游之忆", "ci_ids": ["yijiangnan-jiangnanhao", "yijiangnan-zuiyihangzhou", "yijiangnan-qiciyiwugong"] },
     { "tag": "闺情", "desc": "闺中相思与男女情事", "ci_ids": ["genglouzi-liusichang", "genglouzi-xingdouxi", "genglouzi-yuluxiang", "yejinmen-fengzhaqi", "huanxisha-shoujuan", "tashaxing-bihaiwubo", "yidijing-liuyong", "mantingfang-shanmoweiyun", "queqiaoxian-xianyun", "fengxiaoyin-hanzhen", "pusaman-qixi", "xingxiangzi-qixi", "shaonianyou-bingdao", "fenghuangtaishang-xiangleng", "tashaxing-yanyan", "zhegutian-feishui"] },
     { "tag": "羁旅", "desc": "客中行役与思归", "ci_ids": ["qingpingle-bielaichunban", "yiyuhang-changyiqiantang", "yiyuhang-changyixihu", "yiyuhang-changyigushan", "yiyuhang-changyixishan", "yiyuhang-changyiguanchao", "qishi-liuyong", "bashengganzhou-duixiaoxiao", "yidijing-liuyong", "mantingfang-shanmoweiyun", "sumuzhe-liaochenxiang"] },
     { "tag": "咏物", "desc": "咏物寄意：草、梅、蟋蟀", "ci_ids": ["sumuzhe-cao", "fengxiaoyin-hanzhen", "yanjiaoer-guanmei", "hangongchun-mei", "yujiaao-xueli", "qitianle-yilang"] },
@@ -32,7 +33,7 @@
     { "tag": "身世", "desc": "自写生平怀抱与进退", "ci_ids": ["shantingliu-yanshu", "qishi-liuyong", "linjiangxian-yeyin", "bashengganzhou-youqingfeng", "niannujiao-duanhong", "zhegutian-huangju", "zhegutian-hanri", "moyuer-gengnengxiao", "hexinlang-shenyi", "shuidiaogetou-mengou", "zhegutian-xiangmo", "qitianle-yilang"] }
   ],
   "family": {
-    "xiaoling": ["更漏子", "谒金门", "浣溪沙", "清平乐", "忆余杭", "踏莎行", "玉楼春", "鹊桥仙", "鹧鸪天", "盐角儿", "菩萨蛮", "少年游", "双调忆王孙"],
+    "xiaoling": ["忆江南", "更漏子", "谒金门", "浣溪沙", "清平乐", "忆余杭", "踏莎行", "玉楼春", "鹊桥仙", "鹧鸪天", "盐角儿", "菩萨蛮", "少年游", "双调忆王孙"],
     "zhongdiao": ["苏幕遮", "临江仙", "山亭柳", "忆帝京", "行香子", "渔家傲", "阳关引"],
     "manci": ["戚氏", "八声甘州", "永遇乐", "水龙吟", "满庭芳", "念奴娇", "凤箫吟", "汉宫春", "西河", "凤凰台上忆吹箫", "摸鱼儿", "贺新郎", "水调歌头", "齐天乐"]
   }

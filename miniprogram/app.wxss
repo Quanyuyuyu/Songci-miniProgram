@@ -10,10 +10,12 @@ page {
   --gray: #8A8378;         /* 辅助灰 */
   --line: #E4DDCB;         /* 分隔线 */
   --radius: 24rpx;
+  --font-sans: "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-display: "Noto Serif SC", "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
 
   background: var(--paper);
   color: var(--ink);
-  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--font-sans);
   font-size: 30rpx;
   line-height: 1.6;
 }
@@ -41,9 +43,9 @@ page {
 .text-gray { color: var(--gray); font-size: 26rpx; }
 .text-primary { color: var(--primary); }
 
-/* 词作原文：宋体系 + 行高 1.8 */
+/* 词作原文：清晰无衬线字体 + 舒展行高 */
 .ci-text {
-  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-family: var(--font-sans);
   font-size: 34rpx;
   line-height: 1.8;
   color: var(--ink);
