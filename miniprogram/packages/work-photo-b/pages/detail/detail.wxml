@@ -1,0 +1,1 @@
+<work-reader loading="{{loading}}" error="{{error}}" work="{{work}}" bindsource="onSource" />

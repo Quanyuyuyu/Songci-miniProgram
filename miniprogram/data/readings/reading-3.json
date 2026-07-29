@@ -1,0 +1,34 @@
+{
+  "id": "reading-3",
+  "title": "采诗入律，别领风骚——“隐括词”撷英",
+  "author": "孟庆洁、王书华",
+  "summary": "《语文知识》1997 年第 6 期",
+  "kicker": "宋词导读 · 推荐阅读",
+  "form_tag": "阅读",
+  "collecting": false,
+  "original_url": "https://doi.org/10.13513/j.cnki.41-1041/h.1997.06.004",
+  "source_label": "DOI 原文页",
+  "page_count": 3,
+  "image_urls": [
+    "/packages/reading-b/images/reading-3/page-01.jpg",
+    "/packages/reading-b/images/reading-3/page-02.jpg",
+    "/packages/reading-b/images/reading-3/page-03.jpg"
+  ],
+  "sections": [
+    {
+      "type": "img",
+      "url": "/packages/reading-b/images/reading-3/page-01.jpg",
+      "alt": "原文第 1 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-b/images/reading-3/page-02.jpg",
+      "alt": "原文第 2 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-b/images/reading-3/page-03.jpg",
+      "alt": "原文第 3 页"
+    }
+  ]
+}

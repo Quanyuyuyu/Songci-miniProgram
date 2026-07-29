@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import unittest
 from pathlib import Path
@@ -127,10 +128,11 @@ class WorkContentTests(unittest.TestCase):
             path.stem: read_json(path)
             for path in (DATA / "works").glob("*.json")
         }
+        cls.manifest = read_json(ROOT / "data" / "works_src" / "source-manifest.json")["works"]
 
     def test_archive_and_work_files_match(self) -> None:
         expected = {item["id"] for item in self.archive_items}
-        self.assertEqual(len(expected), 39)
+        self.assertEqual(len(expected), 46)
         self.assertEqual(set(self.works), expected)
         titles = {item["id"]: item["title"] for item in self.archive_items}
         for work_id, work in self.works.items():
@@ -156,6 +158,123 @@ class WorkContentTests(unittest.TestCase):
                 for item in self.archive[category]
             )
             self.assertGreater(count, 0, term)
+        actual = {
+            term: sum(
+                item["term"] == term
+                for category in ("photo", "essay")
+                for item in self.archive[category]
+            )
+            for term in terms
+        }
+        self.assertEqual(actual, {
+            "26Spring": 8,
+            "25Fall": 6,
+            "25Spring": 9,
+            "24Fall": 8,
+            "24Spring": 5,
+            "23Fall": 7,
+        })
+
+    def test_multi_poem_sources_are_split_into_single_work_entries(self) -> None:
+        expected = {
+            "photo-2": "欧阳修《浪淘沙》配词",
+            "photo-28": "冯延巳《清平乐·雨晴烟晚》配词",
+            "photo-4": "辛弃疾《清平乐·村居》配词",
+            "photo-29": "晏殊《渔家傲·荷叶初开犹半卷》配词",
+            "photo-11": "柳永《戚氏》配词",
+            "photo-23": "欧阳修《玉楼春》配词",
+            "photo-24": "苏轼《临江仙》配词",
+            "photo-14": "苏轼《水调歌头》配词",
+            "photo-25": "苏轼《卜算子·黄州定慧院寓居作》配词",
+            "photo-15": "苏轼《行香子·过七里濑》配词",
+            "photo-26": "李清照《永遇乐》配词",
+            "photo-17": "李清照《永遇乐·落日熔金》配词",
+            "photo-27": "柳永《戚氏》配词",
+        }
+        for work_id, title in expected.items():
+            work = self.works[work_id]
+            self.assertEqual(work["title"], title, work_id)
+            self.assertEqual(
+                sum(section["type"] == "img" for section in work["sections"]),
+                1,
+                work_id,
+            )
+
+    def test_curated_essay_has_semantic_sections_without_pdf_artifacts(self) -> None:
+        work = self.works["essay-5"]
+        sections = work["sections"]
+        self.assertEqual(sections[0], {"type": "h", "level": 1, "text": "摘要"})
+        self.assertGreaterEqual(sum(item["type"] == "h" for item in sections), 9)
+        self.assertEqual(sum(item["type"] == "quote" for item in sections), 4)
+        self.assertTrue(all("\n" not in item["text"] for item in sections if item["type"] == "p"))
+        text = "".join(item.get("text", "") for item in sections)
+        self.assertNotIn("2022533173", text)
+        self.assertNotIn("苏轼和他的月亮沈则羲", normalized(text))
+
+    def test_all_works_are_reflowed_without_layout_or_identity_artifacts(self) -> None:
+        corpus = "\n".join(
+            section.get("text", "")
+            for work in self.works.values()
+            for section in work["sections"]
+            if section["type"] != "img"
+        )
+        self.assertNotRegex(corpus, r"(?<!\d)20\d{7,10}(?!\d)")
+        for fragment in (
+            "上下滑动阅览",
+            "小p一下",
+            "相机直出相机直出",
+            "信息与技术学院2021级本科生",
+            "数学科学研究所",
+        ):
+            self.assertNotIn(fragment, corpus)
+        for work_id, work in self.works.items():
+            for index, section in enumerate(work["sections"]):
+                if section["type"] == "p":
+                    self.assertNotIn("\n", section["text"], f"{work_id}:{index}")
+                    self.assertLessEqual(len(section["text"]), 700, f"{work_id}:{index}")
+
+    def test_song_and_photo_examples_keep_semantic_reading_blocks(self) -> None:
+        for work_id in ("creative-2", "creative-3"):
+            sections = self.works[work_id]["sections"]
+            self.assertTrue(any(item["type"] == "quote" for item in sections), work_id)
+            self.assertTrue(any(item["type"] == "h" and item["text"] == "教师评语" for item in sections))
+        for work_id in (
+            "photo-1", "photo-2", "photo-4", "photo-12", "photo-19",
+            "photo-20", "photo-21", "photo-22", "photo-28", "photo-29",
+        ):
+            sections = self.works[work_id]["sections"]
+            self.assertTrue(any(item["type"] == "quote" for item in sections), work_id)
+            self.assertTrue(any(item["type"] == "h" for item in sections), work_id)
+
+    def test_essay_poems_use_quote_blocks_and_horizontal_titles(self) -> None:
+        expected_quote_counts = {
+            "essay-1": 1,
+            "essay-2": 4,
+            "essay-3": 5,
+            "essay-5": 4,
+            "essay-6": 1,
+            "essay-9": 4,
+            "essay-10": 3,
+            "essay-11": 7,
+            "essay-12": 4,
+            "essay-13": 10,
+            "essay-14": 2,
+        }
+        for work_id, minimum in expected_quote_counts.items():
+            sections = self.works[work_id]["sections"]
+            self.assertGreaterEqual(
+                sum(item["type"] == "quote" for item in sections),
+                minimum,
+                work_id,
+            )
+
+        sections = self.works["essay-14"]["sections"]
+        self.assertTrue(any(
+            item["type"] == "h" and item["text"] == "姜夔《念奴娇·闹红一舸》"
+            for item in sections
+        ))
+        paragraphs = [item["text"] for item in sections if item["type"] == "p"]
+        self.assertTrue({"念", "奴", "娇"}.isdisjoint(paragraphs))
 
     def test_sections_are_renderable_and_local_images_exist(self) -> None:
         allowed = {"h", "p", "quote", "note", "img"}
@@ -169,64 +288,52 @@ class WorkContentTests(unittest.TestCase):
                     self.assertIn(section.get("level"), {1, 2, 3}, f"{work_id}:{index}")
                 if section["type"] == "img":
                     url = section["url"]
-                    self.assertTrue(url.startswith("/images/works/"), f"{work_id}:{url}")
+                    self.assertTrue(url.startswith("/packages/work-"), f"{work_id}:{url}")
                     self.assertTrue((MINI / url.lstrip("/")).is_file(), f"{work_id}:{url}")
                     continue
                 text = section.get("text", "")
                 self.assertTrue(text.strip(), f"{work_id}:{index}")
-                current_text = normalized(text)
-                self.assertNotEqual(current_text, previous_text, f"{work_id}:{index}")
-                previous_text = current_text
 
-    def test_photo_works_share_one_structure(self) -> None:
-        banned_body_fragments = (
-            "shot on", "小p一下", "相机直出相机直出", "拍照配词一设备",
-        )
-        photos = {key: value for key, value in self.works.items() if key.startswith("photo-")}
-        self.assertEqual(len(photos), 22)
-        for work_id, work in photos.items():
-            h1 = [item["text"] for item in work["sections"] if item["type"] == "h" and item["level"] == 1]
-            self.assertGreaterEqual(len(h1), 3, work_id)
-            self.assertEqual(h1[:2], ["镜头", "配词"], work_id)
-            self.assertIn(h1[2], {"随笔", "赏析", "创作手记"}, work_id)
-            self.assertTrue(any(item["type"] == "img" for item in work["sections"]), work_id)
-            self.assertTrue(any(item["type"] == "quote" for item in work["sections"]), work_id)
-            body = "\n".join(
-                item.get("text", "")
-                for item in work["sections"]
-                if item["type"] == "p"
-            ).lower()
-            self.assertFalse(any(fragment.lower() in body for fragment in banned_body_fragments), work_id)
+    def test_generated_works_match_the_source_manifest(self) -> None:
+        self.assertEqual(set(self.manifest), set(self.works))
+        for work_id, record in self.manifest.items():
+            manuscript = (ROOT / "data" / "works_src" / f"{work_id}.md").read_text(encoding="utf-8")
+            self.assertRegex(manuscript, r"(?m)^verbatim: (?:true|false)$", work_id)
+            sections = self.works[work_id]["sections"]
+            if record["mode"] == "page_images":
+                self.assertEqual(len(sections), record["page_count"], work_id)
+                self.assertTrue(all(item["type"] == "img" for item in sections), work_id)
+                continue
+            text = "".join(item.get("text", "") for item in sections)
+            digest = hashlib.sha256(normalized(text).encode("utf-8")).hexdigest()
+            self.assertEqual(digest, record["text_sha256"], work_id)
 
-        photo_eight = photos["photo-8"]["sections"]
-        capture = next(item for item in photo_eight if "HUAWEI P50 Pro" in item.get("text", ""))
-        self.assertEqual(capture["type"], "note")
+    def test_importer_has_no_rewriting_pipeline(self) -> None:
+        importer = (ROOT / "tools" / "import_knowledgebase.py").read_text(encoding="utf-8")
+        for legacy_name in ("SCANNED_TEXT", "PHOTO_END_MARKERS", "def redact", "def text_to_markdown"):
+            self.assertNotIn(legacy_name, importer)
 
-    def test_hierarchical_examples_keep_distinct_heading_levels(self) -> None:
-        creative = {
-            item["text"]: item["level"]
-            for item in self.works["creative-1"]["sections"]
-            if item["type"] == "h"
-        }
-        self.assertEqual(creative["01. 所选宋词及赏析"], 2)
-        self.assertEqual(creative["赏析"], 3)
 
-        garden = {
-            item["text"]: item["level"]
-            for item in self.works["essay-14"]["sections"]
-            if item["type"] == "h"
-        }
-        self.assertEqual(garden["壹 · 缘起｜姑苏印记"], 2)
-        self.assertEqual(garden["01 · 闹红一舸"], 3)
+class ReadingContentTests(unittest.TestCase):
+    def test_readings_open_as_page_faithful_sections(self) -> None:
+        books = read_json(DATA / "books.json")
+        documents = [item for item in books["readings"] if item.get("kind") == "document"]
+        self.assertEqual(len(documents), 4)
+        self.assertTrue(any(item["url"] == "https://longyusheng.org/" for item in books["readings"]))
+        self.assertNotIn("ima", json.dumps(books, ensure_ascii=False).lower())
+        self.assertTrue(all("url" not in item for item in books["textbooks"]))
+        self.assertTrue(all(item["url"].startswith("https://") for item in books["readings"]))
+        for item in documents:
+            reading = read_json(DATA / "readings" / f"{item['id']}.json")
+            self.assertEqual(reading["page_count"], len(reading["sections"]))
+            self.assertTrue(all(section["type"] == "img" for section in reading["sections"]))
+            for url in reading["image_urls"]:
+                self.assertTrue((MINI / url.lstrip("/")).is_file(), url)
 
-    def test_private_or_import_artifacts_do_not_reappear(self) -> None:
-        corpus = "\n".join(
-            section.get("text", "")
-            for work in self.works.values()
-            for section in work["sections"]
-        )
-        for fragment in ("李东宇", "杨礼", "数学科学研究所", "shot on", "小p一下"):
-            self.assertNotIn(fragment, corpus)
+    def test_reading_manifest_covers_current_documents(self) -> None:
+        manifest = read_json(ROOT / "data" / "readings_src" / "source-manifest.json")
+        self.assertEqual(set(manifest), {f"reading-{index}" for index in range(1, 5)})
+        self.assertEqual(sum(item["page_count"] for item in manifest.values()), 17)
 
 
 class RuntimePresentationTests(unittest.TestCase):
@@ -252,9 +359,32 @@ class RuntimePresentationTests(unittest.TestCase):
         styles = (MINI / "app.wxss").read_text(encoding="utf-8")
         self.assertIn('--font-sans: "Noto Sans SC"', styles)
         self.assertIn("font-family: var(--font-sans);", styles)
-        work_wxml = (MINI / "pages" / "work-detail" / "work-detail.wxml").read_text(encoding="utf-8")
+        work_wxml = (MINI / "components" / "work-reader" / "work-reader.wxml").read_text(encoding="utf-8")
         self.assertIn("sec-h-{{item.level || 1}}", work_wxml)
         self.assertIn("item.type === 'note'", work_wxml)
+
+    def test_main_package_and_each_subpackage_fit_upload_limit(self) -> None:
+        limit = 2 * 1024 * 1024
+        package_root = MINI / "packages"
+        for package in package_root.iterdir():
+            if package.is_dir():
+                size = sum(path.stat().st_size for path in package.rglob("*") if path.is_file())
+                self.assertLess(size, limit, package.name)
+        main_size = sum(
+            path.stat().st_size
+            for path in MINI.rglob("*")
+            if path.is_file() and package_root not in path.parents
+        )
+        self.assertLess(main_size, limit, "main package")
+
+    def test_legacy_ima_copy_is_absent_from_runtime_ui(self) -> None:
+        corpus = "\n".join(
+            path.read_text(encoding="utf-8")
+            for root in (MINI / "pages", MINI / "components", MINI / "data")
+            for path in root.rglob("*")
+            if path.is_file() and path.suffix in {".js", ".json", ".wxml"}
+        )
+        self.assertNotIn("ima 知识库", corpus)
 
 
 if __name__ == "__main__":

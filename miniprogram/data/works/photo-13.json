@@ -6,18 +6,17 @@
   "collecting": false,
   "reading_minutes": 2,
   "image_urls": [
-    "/images/works/photo-13/01.jpg"
+    "/packages/work-photo-b/images/photo-13/01.jpg"
   ],
   "sections": [
     {
-      "type": "h",
-      "level": 1,
-      "text": "镜头"
+      "type": "img",
+      "url": "/packages/work-photo-b/images/photo-13/01.jpg",
+      "alt": "南京明孝陵孙权墓"
     },
     {
-      "type": "img",
-      "url": "/images/works/photo-13/01.jpg",
-      "alt": "明孝陵神道"
+      "type": "note",
+      "text": "2025年3月2日摄于南京明孝陵 · 手机拍摄"
     },
     {
       "type": "h",
@@ -26,20 +25,15 @@
     },
     {
       "type": "quote",
-      "text": "年少万兜鍪，坐断东南战未休。天下英雄谁敌手？曹刘。生子当如孙仲谋。\n——辛弃疾《南乡子·登京口北固亭有怀》"
+      "text": "年少万兜鍪，坐断东南战未休。天下英雄谁敌手？曹刘。生子当如孙仲谋。"
     },
     {
       "type": "note",
-      "text": "拍摄信息：2025 年 3 月 2 日 · 南京明孝陵 · 手机拍摄"
+      "text": "辛弃疾《南乡子·登京口北固亭有怀》"
     },
     {
       "type": "h",
       "level": 1,
-      "text": "随笔"
-    },
-    {
-      "type": "h",
-      "level": 2,
       "text": "登明孝陵怀古"
     },
     {
@@ -62,6 +56,5 @@
       "type": "p",
       "text": "暮色渐合，斜阳晚照。忽见数点寒鸦掠过长空，恍若当年建业宫阙檐马叮咚。余抚碑长叹：纵有长江天堑，六代衣冠，终不过《黍离》之悲。惟江月年年照流水，犹似旧时横槊英雄泪。遂再拜冢前，心怀怅然而归。"
     }
-  ],
-  "summary": "登明孝陵怀古，以文言记游：天下英雄谁敌手，曹刘。"
+  ]
 }

@@ -49,10 +49,14 @@
     </view>
 
     <section-head title="推荐阅读材料" />
-    <view class="card book" wx:for="{{readings}}" wx:key="title">
-      <view class="book-title">{{item.title}}</view>
-      <view class="book-meta">{{item.author}}</view>
-      <view class="book-isbn">{{item.source}}</view>
+    <view class="card book reading-card" wx:for="{{readings}}" wx:key="title"
+          data-item="{{item}}" bindtap="onReadingTap">
+      <view class="reading-main">
+        <view class="book-title">{{item.title}}</view>
+        <view class="book-meta" wx:if="{{item.author}}">{{item.author}}</view>
+        <view class="book-isbn">{{item.source}}</view>
+      </view>
+      <view class="reading-arrow">{{item.id ? '›' : '⧉'}}</view>
     </view>
     <view class="books-note">{{booksNote}}</view>
 

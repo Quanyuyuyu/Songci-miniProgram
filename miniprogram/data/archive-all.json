@@ -4,7 +4,7 @@
       "title": "古韵新声——用当代歌写过去的故事",
       "term": "",
       "form_tag": "音乐改编",
-      "brief": "以苏轼《江城子·乙卯正月二十日夜记梦》为本，改写当代歌曲并演唱，逐句分析改写的得与失。",
+      "brief": "",
       "status": "ready",
       "id": "creative-1"
     },
@@ -12,7 +12,7 @@
       "title": "《不醒人之梦》",
       "term": "",
       "form_tag": "公众号·图文",
-      "brief": "隐括晏几道词与人生，以当代歌曲写梦中的故人、聚散与回望。",
+      "brief": "",
       "status": "ready",
       "id": "creative-2"
     },
@@ -20,7 +20,7 @@
       "title": "《风雨人生》",
       "term": "",
       "form_tag": "公众号·图文",
-      "brief": "将苏轼《定风波》置入苏轼与秦观的通信，以对唱重写风雨人生。",
+      "brief": "",
       "status": "ready",
       "id": "creative-3"
     }
@@ -30,7 +30,7 @@
       "title": "冯延巳《抛球乐》配词",
       "term": "24Spring",
       "form_tag": "文档",
-      "brief": "南京老山珍珠泉边：落花、池水与锦鲤，同一朵春花的两张照片。",
+      "brief": "",
       "status": "ready",
       "id": "photo-1"
     },
@@ -38,15 +38,23 @@
       "title": "欧阳修《浪淘沙》配词",
       "term": "24Spring",
       "form_tag": "文档",
-      "brief": "世纪公园踏青：「今年花胜去年红」，一场与春天的郑重告别。",
+      "brief": "",
       "status": "ready",
       "id": "photo-2"
+    },
+    {
+      "title": "冯延巳《清平乐·雨晴烟晚》配词",
+      "term": "24Spring",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-28"
     },
     {
       "title": "欧阳修《夜行船》配词",
       "term": "24Spring",
       "form_tag": "文档",
-      "brief": "乌镇水穷处忽现戏台，儿时随外婆看戏的记忆被重新点亮。",
+      "brief": "",
       "status": "ready",
       "id": "photo-3"
     },
@@ -54,15 +62,23 @@
       "title": "辛弃疾《清平乐·村居》配词",
       "term": "24Fall",
       "form_tag": "文档",
-      "brief": "社会实践途中的一张照片，恰好装下「最喜小儿亡赖」的天真。",
+      "brief": "",
       "status": "ready",
       "id": "photo-4"
+    },
+    {
+      "title": "晏殊《渔家傲·荷叶初开犹半卷》配词",
+      "term": "24Fall",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-29"
     },
     {
       "title": "自撰《浣溪沙·秋夜》配词",
       "term": "24Fall",
       "form_tag": "文档",
-      "brief": "校园水池与故乡凉亭：自己填一首词，为两处夜色作注。",
+      "brief": "",
       "status": "ready",
       "id": "photo-5"
     },
@@ -70,7 +86,7 @@
       "title": "苏轼《行香子·过七里濑》配词",
       "term": "23Fall",
       "form_tag": "文档",
-      "brief": "严冬的富春江桐庐段：山还是那山，水已换了一番寒意。",
+      "brief": "",
       "status": "ready",
       "id": "photo-6"
     },
@@ -78,7 +94,7 @@
       "title": "苏轼《江城子》配词",
       "term": "23Fall",
       "form_tag": "文档",
-      "brief": "洱海雨后初晴：「凤凰山下雨初晴」，霞光落进万顷波心。",
+      "brief": "",
       "status": "ready",
       "id": "photo-7"
     },
@@ -86,15 +102,15 @@
       "title": "苏轼《行香子》配词",
       "term": "23Fall",
       "form_tag": "文档",
-      "brief": "高考后的安徽自驾：远山长、云山乱、晓山青，一如千年前。",
+      "brief": "",
       "status": "ready",
       "id": "photo-8"
     },
     {
-      "title": "《禅》配词",
+      "title": "苏轼《临江仙》配词",
       "term": "23Fall",
       "form_tag": "文档",
-      "brief": "龙华寺回廊里独坐的中年人：他不属于这里，又早已超越这里。",
+      "brief": "",
       "status": "ready",
       "id": "photo-9"
     },
@@ -102,7 +118,7 @@
       "title": "自撰《临江仙》配词",
       "term": "23Fall",
       "form_tag": "文档",
-      "brief": "生日前夜自填一阕《临江仙》，写给父母、故友与所有读到的人。",
+      "brief": "",
       "status": "ready",
       "id": "photo-10"
     },
@@ -110,15 +126,31 @@
       "title": "柳永《戚氏》配词",
       "term": "25Fall",
       "form_tag": "文档",
-      "brief": "「况有狂朋怪侣，遇当歌对酒竞留连」：两处青春，同一群朋友。",
+      "brief": "",
       "status": "ready",
       "id": "photo-11"
+    },
+    {
+      "title": "欧阳修《玉楼春》配词",
+      "term": "25Fall",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-23"
+    },
+    {
+      "title": "苏轼《临江仙》配词",
+      "term": "25Fall",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-24"
     },
     {
       "title": "自填《踏莎行》配词",
       "term": "25Fall",
       "form_tag": "文档",
-      "brief": "不愿「借昔日的情强作笔下的词」，于是写下此刻的秋光与自己。",
+      "brief": "",
       "status": "ready",
       "id": "photo-12"
     },
@@ -126,7 +158,7 @@
       "title": "辛弃疾《南乡子》配词",
       "term": "25Fall",
       "form_tag": "文档",
-      "brief": "登明孝陵怀古，以文言记游：天下英雄谁敌手，曹刘。",
+      "brief": "",
       "status": "ready",
       "id": "photo-13"
     },
@@ -134,39 +166,63 @@
       "title": "苏轼《水调歌头》配词",
       "term": "26Spring",
       "form_tag": "文档",
-      "brief": "中秋夜回老屋街头随手一拍：但愿人长久，千里共婵娟。",
+      "brief": "",
       "status": "ready",
       "id": "photo-14"
     },
     {
-      "title": "苏轼《行香子》配词",
+      "title": "苏轼《卜算子·黄州定慧院寓居作》配词",
       "term": "26Spring",
       "form_tag": "文档",
-      "brief": "西湖孤山：青山是不变的，云是变的，人也是。",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-25"
+    },
+    {
+      "title": "苏轼《行香子·过七里濑》配词",
+      "term": "26Spring",
+      "form_tag": "文档",
+      "brief": "",
       "status": "ready",
       "id": "photo-15"
+    },
+    {
+      "title": "李清照《永遇乐》配词",
+      "term": "26Spring",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-26"
     },
     {
       "title": "晏殊《浣溪沙》配词",
       "term": "25Spring",
       "form_tag": "文档",
-      "brief": "雨后校园：一架飞机穿过花枝的画框，落花却不再回来。",
+      "brief": "",
       "status": "ready",
       "id": "photo-16"
     },
     {
-      "title": "李清照《永遇乐》配词",
+      "title": "李清照《永遇乐·落日熔金》配词",
       "term": "25Spring",
       "form_tag": "文档",
-      "brief": "落日熔金，暮云合璧：黄昏是大自然最慷慨的渲染。",
+      "brief": "",
       "status": "ready",
       "id": "photo-17"
+    },
+    {
+      "title": "柳永《戚氏》配词",
+      "term": "25Spring",
+      "form_tag": "文档",
+      "brief": "",
+      "status": "ready",
+      "id": "photo-27"
     },
     {
       "title": "柳永《雨霖铃》配词",
       "term": "25Spring",
       "form_tag": "文档",
-      "brief": "通宵赶作业的雨夜：寒蝉凄切，对长亭晚。",
+      "brief": "",
       "status": "ready",
       "id": "photo-18"
     },
@@ -174,7 +230,7 @@
       "title": "欧阳修《减字木兰花》配词",
       "term": "25Spring",
       "form_tag": "文档",
-      "brief": "日日经过的花坛前第一次驻足：留春不住，却留住了这个春天。",
+      "brief": "",
       "status": "ready",
       "id": "photo-19"
     },
@@ -182,23 +238,23 @@
       "title": "米芾《蝶恋花》配词",
       "term": "25Spring",
       "form_tag": "文档",
-      "brief": "夜归路上的一塔间月：宝月圆时多异气。",
+      "brief": "",
       "status": "ready",
       "id": "photo-20"
     },
     {
       "title": "苏轼《永遇乐》配词",
-      "term": "25Spring",
+      "term": "25Fall",
       "form_tag": "文档",
-      "brief": "棉絮云与满月：别来三度，孤光又满。",
+      "brief": "",
       "status": "ready",
       "id": "photo-21"
     },
     {
       "title": "晏殊《浣溪沙》配词",
-      "term": "25Spring",
+      "term": "24Spring",
       "form_tag": "文档",
-      "brief": "咖啡馆窗外的粼粼夕阳：夕阳西下几时回。",
+      "brief": "",
       "status": "ready",
       "id": "photo-22"
     }
@@ -208,15 +264,15 @@
       "title": "《小山词》是回头之词",
       "term": "26Spring",
       "form_tag": "文字",
-      "brief": "从故乡记忆与「江西词派」出发重读晏几道：回头之词，亦是来路之词。",
+      "brief": "",
       "status": "ready",
       "id": "essay-1"
     },
     {
       "title": "宋词中的夜晚——读书札记几则",
-      "term": "24Spring",
+      "term": "26Spring",
       "form_tag": "文字",
-      "brief": "以「夜」为线索串联词作：古人在夜里做什么、想什么。",
+      "brief": "",
       "status": "ready",
       "id": "essay-2"
     },
@@ -224,7 +280,7 @@
       "title": "宋词中的感性与理性",
       "term": "23Fall",
       "form_tag": "文字",
-      "brief": "在「文以载道」的传统旁，追问词如何以感性成就独特的语言。",
+      "brief": "",
       "status": "ready",
       "id": "essay-3"
     },
@@ -232,7 +288,7 @@
       "title": "男子作闺音与宋词的性别流动美学",
       "term": "25Spring",
       "form_tag": "文字",
-      "brief": "从温庭筠、李煜、柳永的代言体出发，讨论男性词人的女性视角写作。",
+      "brief": "",
       "status": "ready",
       "id": "essay-4"
     },
@@ -240,7 +296,7 @@
       "title": "苏轼和他的月亮",
       "term": "25Spring",
       "form_tag": "文字",
-      "brief": "月开词境、月寄相思：统计与细读并行，看月亮与东坡的羁绊。",
+      "brief": "",
       "status": "ready",
       "id": "essay-5"
     },
@@ -248,7 +304,7 @@
       "title": "重读《忆余杭》有感",
       "term": "25Spring",
       "form_tag": "文字",
-      "brief": "重读课堂分享过的《忆余杭》组词，为当年的「怪异感」找一个解释。",
+      "brief": "",
       "status": "ready",
       "id": "essay-6"
     },
@@ -256,7 +312,7 @@
       "title": "竹杖芒鞋定风波——从《定风波》看苏轼",
       "term": "24Fall",
       "form_tag": "文字",
-      "brief": "从词牌源流讲到东坡九首《定风波》，读出一个变化中的苏轼。",
+      "brief": "",
       "status": "ready",
       "id": "essay-7"
     },
@@ -264,7 +320,7 @@
       "title": "易安之「风」——复杂心绪与意象美感",
       "term": "24Fall",
       "form_tag": "文字",
-      "brief": "以「风」为切口，读李清照词中心绪与意象的互相生发。",
+      "brief": "",
       "status": "ready",
       "id": "essay-8"
     },
@@ -272,7 +328,7 @@
       "title": "此恨不关风与月——我所触及的词心",
       "term": "26Spring",
       "form_tag": "文字",
-      "brief": "由《蕙风词话》的「词心」说起，写到欧阳修，写到自己的词心。",
+      "brief": "",
       "status": "ready",
       "id": "essay-9"
     },
@@ -280,7 +336,7 @@
       "title": "《少年游》新编",
       "term": "24Fall",
       "form_tag": "创作",
-      "brief": "以李师师的视角重写周邦彦《少年游》本事，创作型的期末尝试。",
+      "brief": "",
       "status": "ready",
       "id": "essay-10"
     },
@@ -288,7 +344,7 @@
       "title": "词中之眠",
       "term": "24Fall",
       "form_tag": "文字",
-      "brief": "从好眠、梦眠与失眠三条线索，细读睡眠如何承载宋词中的现实与梦境。",
+      "brief": "",
       "status": "ready",
       "id": "essay-11"
     },
@@ -296,15 +352,15 @@
       "title": "读姜夔《鹧鸪天·元夕有所梦》有感",
       "term": "24Fall",
       "form_tag": "文字",
-      "brief": "从克制的梦境与“两处沉吟”入手，读白石词水面之下的暗流。",
+      "brief": "",
       "status": "ready",
       "id": "essay-12"
     },
     {
       "title": "苏东坡也有 MBTI 吗？",
-      "term": "26Spring",
+      "term": "23Fall",
       "form_tag": "公众号",
-      "brief": "借荣格八维重新观察苏轼，在标签之外理解他的感知、思考与自由。",
+      "brief": "",
       "status": "ready",
       "id": "essay-13"
     },
@@ -312,7 +368,7 @@
       "title": "退思园里的《念奴娇·闹红一舸》",
       "term": "26Spring",
       "form_tag": "公众号",
-      "brief": "从姜夔荷词走入退思园，在闹红一舸、菰雨生凉轩与水香榭之间读词。",
+      "brief": "",
       "status": "ready",
       "id": "essay-14"
     }

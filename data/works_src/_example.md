@@ -14,4 +14,4 @@ collecting: false
 
 ![示例配图](https://example.com/sample.jpg)
 
-最后一段收尾。本地图片用法见 README：把图片放进 images/works/ 后写 `![说明](images/works/xxx.jpg)`。
+最后一段收尾。本地图片用法见 README：把图片放进 `images/<id>/` 后写 `![说明](images/<id>/xxx.jpg)`。

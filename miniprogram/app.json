@@ -11,8 +11,29 @@
     "pages/cipai/cipai",
     "pages/maps/maps",
     "pages/notes/notes",
-    "pages/about/about",
-    "pages/work-detail/work-detail"
+    "pages/about/about"
+  ],
+  "subPackages": [
+    {
+      "root": "packages/work-text",
+      "pages": ["pages/detail/detail"]
+    },
+    {
+      "root": "packages/work-photo-a",
+      "pages": ["pages/detail/detail"]
+    },
+    {
+      "root": "packages/work-photo-b",
+      "pages": ["pages/detail/detail"]
+    },
+    {
+      "root": "packages/reading-a",
+      "pages": ["pages/detail/detail"]
+    },
+    {
+      "root": "packages/reading-b",
+      "pages": ["pages/detail/detail"]
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#F6F1E4",

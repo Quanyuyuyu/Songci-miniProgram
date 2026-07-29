@@ -1,0 +1,58 @@
+<view class="page">
+  <empty-state wx:if="{{error}}" icon="卷" title="内容未能加载" reason="{{error}}" />
+
+  <block wx:elif="{{!loading && work}}">
+    <view wx:if="{{work.collecting}}" class="collecting">
+      <view class="c-mark">卷</view>
+      <view class="c-title">内容整理中</view>
+      <view class="c-reason">正文正在校订收录</view>
+    </view>
+
+    <block wx:else>
+      <view class="reading-sheet">
+        <view class="work-header">
+          <view class="work-kicker">{{work.kicker || '词笺 · 优秀作品'}}</view>
+          <view class="work-head">
+            <view class="work-title">{{work.title}}</view>
+            <view class="work-seal" wx:if="{{work.form_tag}}">{{work.form_tag}}</view>
+          </view>
+          <view class="title-rule">
+            <view class="rule-line"></view>
+            <view class="rule-knot">◇</view>
+            <view class="rule-line"></view>
+          </view>
+          <view class="work-meta" wx:if="{{work.termDisplay || work.reading_minutes || work.author}}">
+            <text wx:if="{{work.author}}">{{work.author}}</text>
+            <text class="meta-dot" wx:if="{{work.author && (work.termDisplay || work.reading_minutes)}}">·</text>
+            <text wx:if="{{work.termDisplay}}">{{work.termDisplay}}</text>
+            <text class="meta-dot" wx:if="{{work.termDisplay && work.reading_minutes}}">·</text>
+            <text wx:if="{{work.reading_minutes}}">约 {{work.reading_minutes}} 分钟</text>
+          </view>
+          <view class="work-summary" wx:if="{{work.summary}}">{{work.summary}}</view>
+          <view class="source-link" wx:if="{{work.original_url}}" bindtap="onSourceTap">
+            <text>{{work.source_label || '来源网页'}}</text><text class="source-arrow">⧉</text>
+          </view>
+        </view>
+
+        <view class="work-body">
+          <block wx:for="{{work.sections}}" wx:key="index">
+            <view wx:if="{{item.type === 'h'}}" class="sec-h sec-h-{{item.level || 1}}">
+              <view class="sec-h-mark"></view><text>{{item.text}}</text>
+            </view>
+            <view wx:elif="{{item.type === 'p'}}" class="sec-p"><text selectable user-select>{{item.text}}</text></view>
+            <view wx:elif="{{item.type === 'quote'}}" class="sec-quote"><text selectable user-select>{{item.text}}</text></view>
+            <view wx:elif="{{item.type === 'note'}}" class="sec-note"><text selectable user-select>{{item.text}}</text></view>
+            <view wx:elif="{{item.type === 'img'}}" class="image-block">
+              <image class="sec-img" src="{{item.url}}" mode="widthFix" lazy-load show-menu-by-longpress
+                     data-src="{{item.url}}" bindtap="onPreviewImage" />
+              <view class="image-caption" wx:if="{{item.alt}}">{{item.alt}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <disclaimer-bar />
+    </block>
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">展卷中…</view>
+</view>

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -52,8 +53,13 @@ summary: 测试摘要
             self.assertEqual(document["sections"][1]["level"], 2)
             self.assertEqual(document["sections"][3]["text"], "拍摄信息：测试地点 · 测试设备")
             self.assertEqual(document["sections"][4]["text"], "引文第一行\n引文第二行")
-            self.assertEqual(document["image_urls"], ["/images/works/essay-99/sample.jpg"])
-            self.assertTrue((output_images / "essay-99" / "sample.jpg").is_file())
+            self.assertEqual(
+                document["image_urls"],
+                ["/packages/work-text/images/essay-99/sample.jpg"],
+            )
+            self.assertTrue(
+                (output_images / "work-text" / "images" / "essay-99" / "sample.jpg").is_file()
+            )
 
     def test_rejects_http_and_path_traversal(self) -> None:
         for url in ("http://example.com/a.jpg", "../outside.jpg"):
@@ -66,9 +72,61 @@ summary: 测试摘要
                 with self.assertRaises(CompileError):
                     compile_markdown(manuscript, Path(raw_temp) / "output", copy_images=False)
 
-    def test_repository_has_39_complete_manuscripts(self) -> None:
+    def test_verbatim_mode_reflows_layout_without_rewriting_text(self) -> None:
+        with tempfile.TemporaryDirectory() as raw_temp:
+            manuscript = Path(raw_temp) / "essay-99.md"
+            body = """一、月下读词
+这是被页面宽度截断的第一
+行正文。
+
+拍摄地点：校园
+
+配词：“明月几时有”
+"""
+            manuscript.write_text(
+                "---\ntitle: 测试\nform_tag: 文字\nverbatim: true\n---\n" + body,
+                encoding="utf-8",
+            )
+            document = compile_markdown(manuscript, copy_images=False)
+            self.assertEqual(
+                [item["type"] for item in document["sections"]],
+                ["h", "p", "note", "quote"],
+            )
+            self.assertTrue(all("\n" not in item.get("text", "") for item in document["sections"]))
+            compiled = "".join(item.get("text", "") for item in document["sections"])
+            self.assertEqual(re.sub(r"\s+", "", compiled), re.sub(r"\s+", "", body))
+
+    def test_verbatim_mode_honors_explicit_markdown_blocks(self) -> None:
+        with tempfile.TemporaryDirectory() as raw_temp:
+            manuscript = Path(raw_temp) / "essay-99.md"
+            manuscript.write_text(
+                """---
+title: 测试
+form_tag: 文字
+verbatim: true
+---
+## 念奴娇
+
+> 闹红一舸，记来时、尝与鸳鸯为侣。
+>
+> 日暮，青盖亭亭，情人不见。
+
+*姜夔《念奴娇·闹红一舸》*
+""",
+                encoding="utf-8",
+            )
+            document = compile_markdown(manuscript, copy_images=False)
+            self.assertEqual(
+                [item["type"] for item in document["sections"]],
+                ["h", "quote", "note"],
+            )
+            self.assertEqual(document["sections"][0]["text"], "念奴娇")
+            self.assertIn("\n\n", document["sections"][1]["text"])
+            self.assertEqual(document["sections"][2]["text"], "姜夔《念奴娇·闹红一舸》")
+
+    def test_repository_has_46_complete_manuscripts(self) -> None:
         paths = discover_markdown(REPO_ROOT / "data" / "works_src")
-        self.assertEqual(len(paths), 39)
+        self.assertEqual(len(paths), 46)
         for path in paths:
             document = compile_markdown(path, copy_images=False)
             self.assertFalse(document["collecting"], path.name)

@@ -1,0 +1,52 @@
+{
+  "id": "reading-1",
+  "title": "“放情须远”与“用意愈深”——潘阆《酒泉子》的两面",
+  "author": "马里扬",
+  "summary": "《古典文学知识》2017 年第 2 期",
+  "kicker": "宋词导读 · 推荐阅读",
+  "form_tag": "阅读",
+  "collecting": false,
+  "original_url": "https://m.pinshiwen.com/shishu/yanjiu/20191202254800.html",
+  "source_label": "公开全文网页",
+  "page_count": 6,
+  "image_urls": [
+    "/packages/reading-a/images/reading-1/page-01.jpg",
+    "/packages/reading-a/images/reading-1/page-02.jpg",
+    "/packages/reading-a/images/reading-1/page-03.jpg",
+    "/packages/reading-a/images/reading-1/page-04.jpg",
+    "/packages/reading-a/images/reading-1/page-05.jpg",
+    "/packages/reading-a/images/reading-1/page-06.jpg"
+  ],
+  "sections": [
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-01.jpg",
+      "alt": "原文第 1 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-02.jpg",
+      "alt": "原文第 2 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-03.jpg",
+      "alt": "原文第 3 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-04.jpg",
+      "alt": "原文第 4 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-05.jpg",
+      "alt": "原文第 5 页"
+    },
+    {
+      "type": "img",
+      "url": "/packages/reading-a/images/reading-1/page-06.jpg",
+      "alt": "原文第 6 页"
+    }
+  ]
+}

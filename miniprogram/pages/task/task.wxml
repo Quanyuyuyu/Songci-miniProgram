@@ -31,7 +31,7 @@
 
     <view class="link-card card card-tap" bindtap="goArchive">
       <view class="link-title">看范例 · 优秀拍照配词</view>
-      <view class="link-desc">往届做成过什么样（全文见课程 ima 知识库）›</view>
+      <view class="link-desc">往届做成过什么样 ›</view>
     </view>
   </block>
 
@@ -106,7 +106,7 @@
 
     <view class="link-card card card-tap" bindtap="goArchive">
       <view class="link-title">看范例 · 优秀期末论文</view>
-      <view class="link-desc">往届写成过什么样（全文见课程 ima 知识库）›</view>
+      <view class="link-desc">往届写成过什么样 ›</view>
     </view>
   </block>
 

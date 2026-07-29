@@ -15,6 +15,7 @@ const inflight = {};    // { cacheKey: Promise }
 const BUNDLED_FIRST = {
   schedule: true,
   'ci-index': true,
+  books: true,
   'semester__26spring': true
 };
 

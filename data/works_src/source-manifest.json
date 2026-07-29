@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "works": {
+    "creative-1": {
+      "mode": "curated_markdown",
+      "source_sha256": "e3ecab82dd9d69d3f6807a0e3f04b1618ea0b3436ae0bebcf98c800c26fa9e94",
+      "text_sha256": "396ef70c10b99583feeb44698e0b5675be58ead821ac030d122134aa76569560",
+      "text_characters": 2696,
+      "image_count": 1,
+      "term": ""
+    },
+    "photo-1": {
+      "mode": "curated_markdown",
+      "source_sha256": "d496dc99a64ffb86e8c773b497452f6d970604854c00f48fb4eb38088bea069b",
+      "text_sha256": "d91b64fd51ad9cc4dce5ce9b7a5b67ccc755add4e5caf21146a1aa8cf9c8b3a9",
+      "text_characters": 829,
+      "image_count": 2,
+      "term": "24Spring"
+    },
+    "photo-2": {
+      "mode": "curated_markdown",
+      "source_sha256": "4a312ec88cd928380d2cecb70e150ea8c56fad356b7dc71bbe8823a4a53867a4",
+      "text_sha256": "f83e6d0ee7bd13dec56859e4a351195d30e005af67e2a4696cd2f814adb475d8",
+      "text_characters": 464,
+      "image_count": 1,
+      "term": "24Spring"
+    },
+    "photo-3": {
+      "mode": "curated_markdown",
+      "source_sha256": "b6c7660f029af95198ca637cb657dbc8cd6a94a341a00ba87fe227ad8cc56645",
+      "text_sha256": "c25df90127a6e54172929e6ce77261e897e638f5dc3126b6f5d3228d04761e77",
+      "text_characters": 404,
+      "image_count": 1,
+      "term": "24Spring"
+    },
+    "photo-4": {
+      "mode": "curated_markdown",
+      "source_sha256": "e2b367c7198b23c95eaf045b489c3b63d60ba4365b3ab88c79e082ffa32d8b25",
+      "text_sha256": "95bcb1005045bfd033e53b9f53476b81f54a2632f5f9bdd087926e683debebf5",
+      "text_characters": 503,
+      "image_count": 1,
+      "term": "24Fall"
+    },
+    "photo-5": {
+      "mode": "curated_markdown",
+      "source_sha256": "61841065e2d47a2644f1ddc85ea337900439deb1c26f046bde89ebab90ff278a",
+      "text_sha256": "a9d406c771caa7b9fed09528dc6555c88a9c34c86c88d1075ff9ad2d69ea6379",
+      "text_characters": 769,
+      "image_count": 2,
+      "term": "24Fall"
+    },
+    "photo-6": {
+      "mode": "curated_markdown",
+      "source_sha256": "756a579d3a113641cf6b14a49344aad861f1743ca3aacdf577a2315a3ae736d9",
+      "text_sha256": "3e29502fcd37c4cedb1e65f58efc7dcc110700dce02b4c70cb192f7d4e97cc46",
+      "text_characters": 810,
+      "image_count": 2,
+      "term": "23Fall"
+    },
+    "photo-7": {
+      "mode": "curated_markdown",
+      "source_sha256": "033946065d2355dfacbefc0e11883ceb9355ac1b4668c61a901e75289a76557f",
+      "text_sha256": "a6f598200b878bc218d8b24b69c26700d89ae14094478e98482166a4173beac0",
+      "text_characters": 418,
+      "image_count": 1,
+      "term": "23Fall"
+    },
+    "photo-8": {
+      "mode": "curated_markdown",
+      "source_sha256": "6161b2dc0cecba1968443d80b041ff9f0896129578e58758952ec7dd95a4c080",
+      "text_sha256": "183cf2677da1483961a2de188b3d03b906618bfa374e5ed2623103657568a878",
+      "text_characters": 420,
+      "image_count": 1,
+      "term": "23Fall"
+    },
+    "photo-9": {
+      "mode": "curated_markdown",
+      "source_sha256": "c373d5da8e90dac04bc5e8192a68412bcb9e8218dfb6714684e0b0882bc69ba4",
+      "text_sha256": "faafa9b91325c059a059d778a66914b9f791d9f5eb81ac0799668fd12ec83999",
+      "text_characters": 879,
+      "image_count": 1,
+      "term": "23Fall"
+    },
+    "photo-10": {
+      "mode": "curated_markdown",
+      "source_sha256": "e14f5d1277b114e68f38f2999f32300aa7ff07807cf00a216563b4787eb7cad4",
+      "text_sha256": "42e0086982e7213efd09ede9844760349919099e8a2a9f611fe90c3d7da273f1",
+      "text_characters": 800,
+      "image_count": 2,
+      "term": "23Fall"
+    },
+    "photo-11": {
+      "mode": "curated_markdown",
+      "source_sha256": "9dbc57c1a5f72f44b9b6a23e9e739f57e117b009044907afde773111a330822a",
+      "text_sha256": "00cd74689d5ae539e788c8503d7b285a06e37432e9ba9f31d62b411338791eee",
+      "text_characters": 1120,
+      "image_count": 1,
+      "term": "25Fall"
+    },
+    "photo-23": {
+      "mode": "curated_markdown",
+      "source_sha256": "9dbc57c1a5f72f44b9b6a23e9e739f57e117b009044907afde773111a330822a",
+      "text_sha256": "4d44921cee95b49c18d15cc9cf753490c6b7e839e851d338bb1c703ffde76224",
+      "text_characters": 526,
+      "image_count": 1,
+      "term": "25Fall"
+    },
+    "photo-24": {
+      "mode": "curated_markdown",
+      "source_sha256": "9dbc57c1a5f72f44b9b6a23e9e739f57e117b009044907afde773111a330822a",
+      "text_sha256": "4003b43934fdc1f7f87681b597d12f8ec7a0ff2510959c445d1c661d40954101",
+      "text_characters": 182,
+      "image_count": 1,
+      "term": "25Fall"
+    },
+    "photo-12": {
+      "mode": "curated_markdown",
+      "source_sha256": "d35ad6fc6cb6bcc2fcd46a85a195e64351009649b59507f41a7122afd0731ce6",
+      "text_sha256": "7c4037d5486af264c88321ab263a1c15452986dd85d6143156c955e93a883083",
+      "text_characters": 804,
+      "image_count": 2,
+      "term": "25Fall"
+    },
+    "photo-13": {
+      "mode": "curated_markdown",
+      "source_sha256": "182668c699ab076c6071b6f1af9effca10abf46083288091dd595e4dcad31b44",
+      "text_sha256": "d033c40eddaab13d45c6dc661f0ba6ef117c2d8a83764041e3d90847ea59bea1",
+      "text_characters": 698,
+      "image_count": 1,
+      "term": "25Fall"
+    },
+    "photo-14": {
+      "mode": "curated_markdown",
+      "source_sha256": "b65591ae3031506e4855e158d3c3db3d620de25766c42ca5031adf07451b984c",
+      "text_sha256": "a7c1a4cb864bf15e3c21d1316fbd026e7d266b27277ef588de257f2c457248a7",
+      "text_characters": 500,
+      "image_count": 1,
+      "term": "26Spring"
+    },
+    "photo-25": {
+      "mode": "curated_markdown",
+      "source_sha256": "b65591ae3031506e4855e158d3c3db3d620de25766c42ca5031adf07451b984c",
+      "text_sha256": "88ff044a7a13e2a0ca72da2e5430459a6c5a3c254c28b53e7cc0476377567b5e",
+      "text_characters": 471,
+      "image_count": 1,
+      "term": "26Spring"
+    },
+    "photo-15": {
+      "mode": "curated_markdown",
+      "source_sha256": "839fbfe0cd2411d7ee2f631da73060bbcacd1196de7882da303ebb5467b200be",
+      "text_sha256": "f6988a043b188c45b66dae5c8301d6e427054e8797eba0189368ff7272b5789c",
+      "text_characters": 431,
+      "image_count": 1,
+      "term": "26Spring"
+    },
+    "photo-26": {
+      "mode": "curated_markdown",
+      "source_sha256": "839fbfe0cd2411d7ee2f631da73060bbcacd1196de7882da303ebb5467b200be",
+      "text_sha256": "b7505a758c241b4e0f14c2e1e2efb7ad92508e252f7f7f422699cef3d1725cb7",
+      "text_characters": 353,
+      "image_count": 1,
+      "term": "26Spring"
+    },
+    "photo-16": {
+      "mode": "curated_markdown",
+      "source_sha256": "aab4b829060042da7c16e491644f6b183e11fa673ff6ab224c4603c9e431d7ef",
+      "text_sha256": "aa28b8b0b90500fa60f4e866d2afcc68742478473f9d7fb8c2a73b43794e4579",
+      "text_characters": 414,
+      "image_count": 1,
+      "term": "25Spring"
+    },
+    "photo-17": {
+      "mode": "curated_markdown",
+      "source_sha256": "7b154632eee2e2c51cc4d91e33cc69a39c33179cba541676e42c2480834b0eb0",
+      "text_sha256": "2fbf2adb1aa8d6f24d4b3e2745d99da1d46d9005692d81d299112a657e37b54b",
+      "text_characters": 444,
+      "image_count": 1,
+      "term": "25Spring"
+    },
+    "photo-27": {
+      "mode": "curated_markdown",
+      "source_sha256": "7b154632eee2e2c51cc4d91e33cc69a39c33179cba541676e42c2480834b0eb0",
+      "text_sha256": "ae5ea39122ae2f7f2f54f9289253d0965ab9ae9a97fa319b6fe937d804268249",
+      "text_characters": 481,
+      "image_count": 1,
+      "term": "25Spring"
+    },
+    "photo-18": {
+      "mode": "curated_markdown",
+      "source_sha256": "9244037e608c0de2b6c695ba0e8712ff6b1c9a0c29fee98aa1496860284d356c",
+      "text_sha256": "1f6861fb964a7774c9b7638958e6f56db430a0ac14ee8c259ce1d0f903f11c7c",
+      "text_characters": 385,
+      "image_count": 1,
+      "term": "25Spring"
+    },
+    "photo-19": {
+      "mode": "curated_markdown",
+      "source_sha256": "e8c151d17d88454104c487bb371851a007590de8c2495c1a5fd51428c1042683",
+      "text_sha256": "7338cfc47eeadfec6bd5a53be57319027579d8aaa7b65beca420714f6b7bee3a",
+      "text_characters": 1008,
+      "image_count": 2,
+      "term": "25Spring"
+    },
+    "photo-20": {
+      "mode": "curated_markdown",
+      "source_sha256": "636c2c7340b99507c7299953f09ef6464a061be2d3e392fb03c9154df224a9db",
+      "text_sha256": "89f97399006b91a1ee1319c6bb71a348f01ed9ed02738a3c823decb4a0057d24",
+      "text_characters": 661,
+      "image_count": 1,
+      "term": "25Spring"
+    },
+    "photo-21": {
+      "mode": "curated_markdown",
+      "source_sha256": "53741ec76191ac888f46f1ca5b8931fe42d32c13d7c91e787be45d9eecfb8de2",
+      "text_sha256": "083d31f43673a424c26ad7ef75f499914f97a0a8b29b03fac96efe3816c4d6d9",
+      "text_characters": 431,
+      "image_count": 1,
+      "term": "25Fall"
+    },
+    "photo-22": {
+      "mode": "curated_markdown",
+      "source_sha256": "16339b0fc01cb3a9bc2b8c11803889af1ff74aaa8494d4873bec650623b49189",
+      "text_sha256": "8b3c858837735165815fd19c4beea5befb8312f32138fdb9e82e7c5e87e1658c",
+      "text_characters": 335,
+      "image_count": 1,
+      "term": "24Spring"
+    },
+    "essay-1": {
+      "mode": "curated_markdown",
+      "source_sha256": "0ca34a6816f6f5743514224a78b571bd2012d968ffb3dd92e56271d8ccfd0103",
+      "text_sha256": "5a7694c964d3cce2e8afdd3a82afbe0fc5e3a36ea450b95f75a2216c66d68dab",
+      "text_characters": 2913,
+      "image_count": 0,
+      "term": "26Spring"
+    },
+    "essay-2": {
+      "mode": "curated_markdown",
+      "source_sha256": "89afc7996f8d3038e23ade390f88c3cc6b6e911ea488e972e1b4d13d599525e2",
+      "text_sha256": "427cad1e4d6985e377786df330db2594e860f5c2030ae06eb916e273f9321e3a",
+      "text_characters": 3777,
+      "image_count": 0,
+      "term": "26Spring"
+    },
+    "essay-3": {
+      "mode": "curated_markdown",
+      "source_sha256": "24eddf7c06db69ae003a1e4b08ce9211245931469a55ae706063ef728b8cb402",
+      "text_sha256": "fd576740e2388bb2329cda64ff8f550a1f07db25421d4eb7d26520087504d9c6",
+      "text_characters": 3855,
+      "image_count": 0,
+      "term": "23Fall"
+    },
+    "essay-4": {
+      "mode": "curated_markdown",
+      "source_sha256": "c249ae3a554714447edff18a6f7950dcc776f46c1b23c6eb861ac2928874ee80",
+      "text_sha256": "0ce0023b19fff3bae0abca28f64edafd09371d3261832ea96a728210ba6a9d5e",
+      "text_characters": 3840,
+      "image_count": 0,
+      "term": "25Spring"
+    },
+    "essay-5": {
+      "mode": "curated_markdown",
+      "source_sha256": "04c9bcddb5db2694e757f3ba762638c1f630ab270d8a899c2d1af1bf16617b59",
+      "text_sha256": "178e6ff6c238db09ce22ce0e2743b38a4a804cf92d4a84d752742aa4f1970ad6",
+      "text_characters": 2530,
+      "image_count": 0,
+      "term": "25Spring"
+    },
+    "essay-6": {
+      "mode": "curated_markdown",
+      "source_sha256": "9230df50f78bcdf2af06c570b636fa774b6055d3133760d8e2f1533ef08497e0",
+      "text_sha256": "d10e31ddb03a50969177fc610983e19ce27ba9cb0a0f8d15b3971031b987ea7e",
+      "text_characters": 2076,
+      "image_count": 0,
+      "term": "25Spring"
+    },
+    "essay-7": {
+      "mode": "curated_markdown",
+      "source_sha256": "8b3f0da443986dcc41defd5f06de1eb0253cbec3c90e888130d99fce7ed67375",
+      "text_sha256": "25588838ddda87d8326550ee5689370bf6fad9a2278d94e77c70ab6fc09c2dfa",
+      "text_characters": 4383,
+      "image_count": 0,
+      "term": "24Fall"
+    },
+    "essay-8": {
+      "mode": "curated_markdown",
+      "source_sha256": "aeb2b87f8c31413f2696a1d9d11e8086336ad4f74947c486ba76393055ab6580",
+      "text_sha256": "41ff2018d5438f5b13e70f3fe7e57fdedc760d5a540b961792fe8b0c730447b2",
+      "text_characters": 2079,
+      "image_count": 0,
+      "term": "24Fall"
+    },
+    "essay-9": {
+      "mode": "curated_markdown",
+      "source_sha256": "97f62ad0deaf8a8654190de2e0b075c2c2b45c9317a82a83d90c7e604dc906d7",
+      "text_sha256": "1d026abdada5c323d407c2177b9f2402cec51ea02b57de2aec5695d21d4acb88",
+      "text_characters": 2721,
+      "image_count": 0,
+      "term": "26Spring"
+    },
+    "essay-10": {
+      "mode": "curated_markdown",
+      "source_sha256": "0641672f4754a5c0d210dde26a215459c9a481573c420bf7c6b5d4afdc581640",
+      "text_sha256": "91f2bc03832a95a0d847121ba37f95a0efdbb625907e1ae3396523748707391e",
+      "text_characters": 3522,
+      "image_count": 0,
+      "term": "24Fall"
+    },
+    "essay-11": {
+      "mode": "curated_markdown",
+      "source_sha256": "99be10efe799143a82d83cd354c147e4cb092dd54f16d42d9b5757f40de5f4b7",
+      "text_sha256": "e38de6fc24ac96afb7ab36fa6e1fe708e9776634751c070a14e76ce53da94956",
+      "text_characters": 2687,
+      "image_count": 0,
+      "term": "24Fall"
+    },
+    "essay-12": {
+      "mode": "curated_markdown",
+      "source_sha256": "b9968c767faea035f700bb4eea6e643afb0ff832f12e5e524152f7c7fa038c3a",
+      "text_sha256": "c466756e72e38892ecbb53cd129f2af7221751390bb9ac741701cca8d7ea08a4",
+      "text_characters": 2044,
+      "image_count": 0,
+      "term": "24Fall"
+    },
+    "essay-13": {
+      "mode": "curated_markdown",
+      "original_url": "https://mp.weixin.qq.com/s/-oLUeBCHBSCwLDy_msfvjQ",
+      "text_sha256": "87f630195918c672cb2a3d64d0c6273cca7a6b1be531905c059b95157f7af134",
+      "text_characters": 4074,
+      "image_count": 2,
+      "term": "23Fall"
+    },
+    "essay-14": {
+      "mode": "curated_markdown",
+      "original_url": "https://mp.weixin.qq.com/s/QY4wLcqbPPqZ4r_5Gk64SQ",
+      "text_sha256": "348d1e148254d5d5ac4cc6d870fac8e666284749e2b69349c83f65059478933e",
+      "text_characters": 3354,
+      "image_count": 3,
+      "term": "26Spring"
+    },
+    "creative-2": {
+      "mode": "curated_markdown",
+      "original_url": "https://mp.weixin.qq.com/s/aD529aJjY1CZxAhm5NDnwQ",
+      "text_sha256": "893b1ac0e3713ffc807922ff1f0fd760f18708e39ad34e7fb9ba3f7aa31aa661",
+      "text_characters": 1952,
+      "image_count": 1,
+      "term": ""
+    },
+    "creative-3": {
+      "mode": "curated_markdown",
+      "original_url": "https://mp.weixin.qq.com/s/aD529aJjY1CZxAhm5NDnwQ",
+      "text_sha256": "dd439b11ef374cb4858c9d935e247ae51371d11f434edf4311f79c52dd6af019",
+      "text_characters": 1812,
+      "image_count": 1,
+      "term": ""
+    },
+    "photo-28": {
+      "mode": "curated_markdown",
+      "source_sha256": "4a312ec88cd928380d2cecb70e150ea8c56fad356b7dc71bbe8823a4a53867a4",
+      "text_sha256": "9f1963066832150c01a3070e57881bc2f1fa5da98bdc1f027e9ae6fbe261193a",
+      "text_characters": 421,
+      "image_count": 1,
+      "term": "24Spring"
+    },
+    "photo-29": {
+      "mode": "curated_markdown",
+      "source_sha256": "e2b367c7198b23c95eaf045b489c3b63d60ba4365b3ab88c79e082ffa32d8b25",
+      "text_sha256": "0eac272dfb79142467cd69f2bcd0bfb24e7a5f3e867d73ad806216c6da4be1af",
+      "text_characters": 498,
+      "image_count": 1,
+      "term": "24Fall"
+    }
+  }
+}

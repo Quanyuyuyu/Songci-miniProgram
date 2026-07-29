@@ -15,6 +15,7 @@ SOURCES = {
     "schedule": DATA_DIR / "schedule.json",
     "ci-index": DATA_DIR / "ci-index.json",
     "semester-26spring": DATA_DIR / "semester-26spring.json",
+    "books": DATA_DIR / "books.json",
 }
 
 

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state",
+    "disclaimer-bar": "/components/disclaimer-bar/disclaimer-bar"
+  }
+}

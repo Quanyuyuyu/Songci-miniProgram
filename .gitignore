@@ -5,6 +5,8 @@ project.private.config.json
 node_modules/
 miniprogram_npm/
 *.log
+__pycache__/
+*.pyc
 
 # OS metadata
 .DS_Store

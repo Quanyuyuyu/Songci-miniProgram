@@ -93,7 +93,12 @@ Page({
       toast('作品内容整理中');
       return;
     }
-    wx.navigateTo({ url: '/pages/work-detail/work-detail?id=' + id });
+    let packageName = 'work-text';
+    if (id.indexOf('photo-') === 0) {
+      const number = Number(id.split('-')[1]);
+      packageName = number <= 11 ? 'work-photo-a' : 'work-photo-b';
+    }
+    wx.navigateTo({ url: '/packages/' + packageName + '/pages/detail/detail?id=' + id });
   },
 
   onReturn() {

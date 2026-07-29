@@ -40,5 +40,6 @@ module.exports = {
   },
   schedule: bundledData.schedule,
   'ci-index': bundledData['ci-index'],
+  books: bundledData.books,
   'semester__26spring': bundledData['semester-26spring']
 };
