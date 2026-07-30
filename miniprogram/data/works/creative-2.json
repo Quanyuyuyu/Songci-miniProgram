@@ -2,6 +2,7 @@
   "id": "creative-2",
   "title": "《不醒人之梦》",
   "form_tag": "公众号·图文",
+  "byline": "贺云翔",
   "term": "",
   "collecting": false,
   "reading_minutes": 5,
@@ -29,7 +30,7 @@
     },
     {
       "type": "note",
-      "text": "填词：某同学"
+      "text": "填词：贺云翔"
     },
     {
       "type": "h",

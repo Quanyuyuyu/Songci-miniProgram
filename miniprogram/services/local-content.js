@@ -71,7 +71,8 @@ module.exports = {
       "form_tag": "音乐改编",
       "brief": "",
       "status": "ready",
-      "id": "creative-1"
+      "id": "creative-1",
+      "byline": "陈泉宇、李东宇、杨礼"
     },
     {
       "title": "《不醒人之梦》",
@@ -79,7 +80,8 @@ module.exports = {
       "form_tag": "公众号·图文",
       "brief": "",
       "status": "ready",
-      "id": "creative-2"
+      "id": "creative-2",
+      "byline": "贺云翔"
     },
     {
       "title": "《风雨人生》",
@@ -87,7 +89,8 @@ module.exports = {
       "form_tag": "公众号·图文",
       "brief": "",
       "status": "ready",
-      "id": "creative-3"
+      "id": "creative-3",
+      "byline": "王华秋"
     }
   ],
   "photo": [
@@ -97,7 +100,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-1"
+      "id": "photo-1",
+      "byline": "温储赫"
     },
     {
       "title": "欧阳修《浪淘沙》配词",
@@ -105,7 +109,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-2"
+      "id": "photo-2",
+      "byline": "王华秋"
     },
     {
       "title": "冯延巳《清平乐·雨晴烟晚》配词",
@@ -113,7 +118,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-28"
+      "id": "photo-28",
+      "byline": "王华秋"
     },
     {
       "title": "欧阳修《夜行船》配词",
@@ -121,7 +127,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-3"
+      "id": "photo-3",
+      "byline": "林一帆"
     },
     {
       "title": "辛弃疾《清平乐·村居》配词",
@@ -129,7 +136,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-4"
+      "id": "photo-4",
+      "byline": "张博芊"
     },
     {
       "title": "晏殊《渔家傲·荷叶初开犹半卷》配词",
@@ -137,7 +145,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-29"
+      "id": "photo-29",
+      "byline": "张博芊"
     },
     {
       "title": "自撰《浣溪沙·秋夜》配词",
@@ -145,7 +154,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-5"
+      "id": "photo-5",
+      "byline": "张季恒"
     },
     {
       "title": "苏轼《行香子·过七里濑》配词",
@@ -153,7 +163,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-6"
+      "id": "photo-6",
+      "byline": "周洗舷"
     },
     {
       "title": "苏轼《江城子》配词",
@@ -161,7 +172,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-7"
+      "id": "photo-7",
+      "byline": "陈泉宇"
     },
     {
       "title": "苏轼《行香子》配词",
@@ -169,7 +181,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-8"
+      "id": "photo-8",
+      "byline": "钱晟"
     },
     {
       "title": "苏轼《临江仙》配词",
@@ -177,7 +190,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-9"
+      "id": "photo-9",
+      "byline": "马瑛浩"
     },
     {
       "title": "自撰《临江仙》配词",
@@ -185,7 +199,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-10"
+      "id": "photo-10",
+      "byline": "贺云翔"
     },
     {
       "title": "柳永《戚氏》配词",
@@ -193,7 +208,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-11"
+      "id": "photo-11",
+      "byline": "廖奕博"
     },
     {
       "title": "欧阳修《玉楼春》配词",
@@ -201,7 +217,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-23"
+      "id": "photo-23",
+      "byline": "廖奕博"
     },
     {
       "title": "苏轼《临江仙》配词",
@@ -209,7 +226,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-24"
+      "id": "photo-24",
+      "byline": "廖奕博"
     },
     {
       "title": "自填《踏莎行》配词",
@@ -217,7 +235,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-12"
+      "id": "photo-12",
+      "byline": "罗亦鸣"
     },
     {
       "title": "辛弃疾《南乡子》配词",
@@ -225,7 +244,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-13"
+      "id": "photo-13",
+      "byline": "郭皓文"
     },
     {
       "title": "苏轼《水调歌头》配词",
@@ -233,7 +253,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-14"
+      "id": "photo-14",
+      "byline": "李雨凝"
     },
     {
       "title": "苏轼《卜算子·黄州定慧院寓居作》配词",
@@ -241,7 +262,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-25"
+      "id": "photo-25",
+      "byline": "李雨凝"
     },
     {
       "title": "苏轼《行香子·过七里濑》配词",
@@ -249,7 +271,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-15"
+      "id": "photo-15",
+      "byline": "宋诗语"
     },
     {
       "title": "李清照《永遇乐》配词",
@@ -257,7 +280,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-26"
+      "id": "photo-26",
+      "byline": "宋诗语"
     },
     {
       "title": "晏殊《浣溪沙》配词",
@@ -265,7 +289,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-16"
+      "id": "photo-16",
+      "byline": "沈则羲"
     },
     {
       "title": "李清照《永遇乐·落日熔金》配词",
@@ -273,7 +298,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-17"
+      "id": "photo-17",
+      "byline": "王诗涵"
     },
     {
       "title": "柳永《戚氏》配词",
@@ -281,7 +307,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-27"
+      "id": "photo-27",
+      "byline": "王诗涵"
     },
     {
       "title": "柳永《雨霖铃》配词",
@@ -289,7 +316,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-18"
+      "id": "photo-18",
+      "byline": "彭昊翔"
     },
     {
       "title": "欧阳修《减字木兰花》配词",
@@ -297,7 +325,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-19"
+      "id": "photo-19",
+      "byline": "吴衡"
     },
     {
       "title": "米芾《蝶恋花》配词",
@@ -305,7 +334,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-20"
+      "id": "photo-20",
+      "byline": "刘滨瑞"
     },
     {
       "title": "苏轼《永遇乐》配词",
@@ -313,7 +343,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-21"
+      "id": "photo-21",
+      "byline": "胡天宇"
     },
     {
       "title": "晏殊《浣溪沙》配词",
@@ -321,7 +352,8 @@ module.exports = {
       "form_tag": "文档",
       "brief": "",
       "status": "ready",
-      "id": "photo-22"
+      "id": "photo-22",
+      "byline": "李果"
     }
   ],
   "essay": [
@@ -331,7 +363,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-1"
+      "id": "essay-1",
+      "byline": "王令闻"
     },
     {
       "title": "宋词中的夜晚——读书札记几则",
@@ -339,7 +372,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-2"
+      "id": "essay-2",
+      "byline": "孙一文"
     },
     {
       "title": "宋词中的感性与理性",
@@ -347,7 +381,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-3"
+      "id": "essay-3",
+      "byline": "贺云翔"
     },
     {
       "title": "男子作闺音与宋词的性别流动美学",
@@ -355,7 +390,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-4"
+      "id": "essay-4",
+      "byline": "骆雨桐"
     },
     {
       "title": "苏轼和他的月亮",
@@ -363,7 +399,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-5"
+      "id": "essay-5",
+      "byline": "沈则羲"
     },
     {
       "title": "重读《忆余杭》有感",
@@ -371,7 +408,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-6"
+      "id": "essay-6",
+      "byline": "杨泰然"
     },
     {
       "title": "竹杖芒鞋定风波——从《定风波》看苏轼",
@@ -379,7 +417,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-7"
+      "id": "essay-7",
+      "byline": "卢加立"
     },
     {
       "title": "易安之「风」——复杂心绪与意象美感",
@@ -387,7 +426,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-8"
+      "id": "essay-8",
+      "byline": "张季恒"
     },
     {
       "title": "此恨不关风与月——我所触及的词心",
@@ -395,7 +435,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-9"
+      "id": "essay-9",
+      "byline": "李雨凝"
     },
     {
       "title": "《少年游》新编",
@@ -403,7 +444,8 @@ module.exports = {
       "form_tag": "创作",
       "brief": "",
       "status": "ready",
-      "id": "essay-10"
+      "id": "essay-10",
+      "byline": "张博芊"
     },
     {
       "title": "词中之眠",
@@ -411,7 +453,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-11"
+      "id": "essay-11",
+      "byline": "王芋镔"
     },
     {
       "title": "读姜夔《鹧鸪天·元夕有所梦》有感",
@@ -419,7 +462,8 @@ module.exports = {
       "form_tag": "文字",
       "brief": "",
       "status": "ready",
-      "id": "essay-12"
+      "id": "essay-12",
+      "byline": "卢璐"
     },
     {
       "title": "苏东坡也有 MBTI 吗？",
@@ -427,7 +471,8 @@ module.exports = {
       "form_tag": "公众号",
       "brief": "",
       "status": "ready",
-      "id": "essay-13"
+      "id": "essay-13",
+      "byline": "胡羽萱"
     },
     {
       "title": "退思园里的《念奴娇·闹红一舸》",
@@ -435,7 +480,8 @@ module.exports = {
       "form_tag": "公众号",
       "brief": "",
       "status": "ready",
-      "id": "essay-14"
+      "id": "essay-14",
+      "byline": "宋诗语"
     }
   ],
   "note": "作品正文与配图均已脱敏整理，可在小程序内完整阅读；请将它们视为方法参考，而非可直接挪用的答案。",
@@ -779,6 +825,7 @@ module.exports = {
       "tag": "惜春",
       "desc": "伤春惜时，春光易逝",
       "ci_ids": [
+        "yijiangnan-qiciyiwugong",
         "huanxisha-handan",
         "huanxisha-shoujuan",
         "qingpingle-bielaichunban",

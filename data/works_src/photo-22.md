@@ -1,6 +1,7 @@
 ---
 title: 晏殊《浣溪沙》配词
 form_tag: 文档
+byline: 李果
 term: 24Spring
 collecting: false
 verbatim: false

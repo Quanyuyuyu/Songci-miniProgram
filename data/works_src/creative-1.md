@@ -1,6 +1,7 @@
 ---
 title: 古韵新声——用当代歌写过去的故事
 form_tag: 音乐改编
+byline: 陈泉宇、李东宇、杨礼
 term: 
 collecting: false
 verbatim: true

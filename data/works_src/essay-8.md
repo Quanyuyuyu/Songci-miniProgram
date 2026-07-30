@@ -1,6 +1,7 @@
 ---
 title: 易安之「风」——复杂心绪与意象美感
 form_tag: 文字
+byline: 张季恒
 term: 24Fall
 collecting: false
 verbatim: true

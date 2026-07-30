@@ -1,6 +1,7 @@
 ---
 title: 苏轼《临江仙》配词
 form_tag: 文档
+byline: 廖奕博
 term: 25Fall
 collecting: false
 verbatim: false

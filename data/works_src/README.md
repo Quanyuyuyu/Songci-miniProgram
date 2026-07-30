@@ -22,6 +22,7 @@
 ---
 title: 作品标题
 form_tag: 文字
+byline: 作者署名
 term: 2026春
 collecting: false
 summary: 卡片摘要
@@ -61,7 +62,7 @@ python tools/md_to_workjson.py data/works_src
 python tools/md_to_workjson.py data/works_src/essay-2.md --demo
 ```
 
-生成 JSON 还包含 `reading_minutes` 与 `image_urls`，供详情页显示阅读时长和打开图片预览。
+生成 JSON 还包含 `byline`、`reading_minutes` 与 `image_urls`，供详情页显示署名、阅读时长和打开图片预览。
 
 ## 从知识库重新导入
 

@@ -1,6 +1,7 @@
 ---
 title: 宋词中的感性与理性
 form_tag: 文字
+byline: 贺云翔
 term: 23Fall
 collecting: false
 verbatim: true

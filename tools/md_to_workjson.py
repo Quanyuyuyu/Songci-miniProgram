@@ -49,6 +49,7 @@ VERBATIM_QUOTE_RE = re.compile(r"^(?:配词|所配词句)[：:].+")
 KNOWN_META = {
     "title",
     "form_tag",
+    "byline",
     "term",
     "collecting",
     "verbatim",
@@ -73,6 +74,7 @@ def parse_front_matter(text: str) -> tuple[dict[str, Any], str]:
     defaults: dict[str, Any] = {
         "title": "",
         "form_tag": "",
+        "byline": "",
         "term": "",
         "collecting": False,
         "verbatim": False,
@@ -413,6 +415,7 @@ def compile_markdown(
         "id": work_id,
         "title": meta["title"],
         "form_tag": meta["form_tag"],
+        "byline": meta["byline"],
         "term": meta["term"],
         "collecting": bool(meta["collecting"]),
         "reading_minutes": max(1, math.ceil(text_count / 450)),

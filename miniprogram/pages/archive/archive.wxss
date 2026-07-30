@@ -45,6 +45,7 @@
 
 .work-head { display: flex; align-items: center; justify-content: space-between; }
 .work-title { font-size: 30rpx; font-weight: 600; color: var(--ink); flex: 1; padding-right: 16rpx; }
+.work-byline { font-size: 24rpx; color: var(--gray); margin-top: 6rpx; }
 .work-brief { font-size: 26rpx; color: var(--ink-soft); margin-top: 12rpx; line-height: 1.7; }
 .work-meta { font-size: 22rpx; color: var(--celadon); margin-top: 10rpx; }
 

@@ -1,6 +1,7 @@
 ---
 title: 苏东坡也有 MBTI 吗？
 form_tag: 公众号
+作者：胡羽萱
 term: 23Fall
 collecting: false
 verbatim: true

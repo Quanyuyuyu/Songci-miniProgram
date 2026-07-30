@@ -44,7 +44,7 @@
     </view>
 
     <!-- 入手三问 -->
-    <section-head title="入手三问" sub="为课堂分享的三分钟准备，不给答案" wx:if="{{ci.questions && ci.questions.length}}" />
+    <section-head title="入手三问" sub="为课堂分享的三分钟准备，不给答案 · 问题为AI辅助提出，仅供参考" wx:if="{{ci.questions && ci.questions.length}}" />
     <view class="card q-card" wx:if="{{ci.questions && ci.questions.length}}">
       <view class="q" wx:for="{{ci.questions}}" wx:key="index">
         <view class="q-no">{{index + 1}}</view>

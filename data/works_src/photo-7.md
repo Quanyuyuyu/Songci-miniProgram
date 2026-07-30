@@ -1,6 +1,7 @@
 ---
 title: 苏轼《江城子》配词
 form_tag: 文档
+byline: 陈泉宇
 term: 23Fall
 collecting: false
 verbatim: false

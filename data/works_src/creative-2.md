@@ -1,6 +1,7 @@
 ---
 title: 《不醒人之梦》
 form_tag: 公众号·图文
+byline: 贺云翔
 term:
 collecting: false
 verbatim: false
@@ -15,7 +16,7 @@ original_url: https://mp.weixin.qq.com/s/aD529aJjY1CZxAhm5NDnwQ
 
 *隐括原词：晏几道词*
 
-*填词：某同学*
+*填词：贺云翔*
 
 # 改编歌词
 

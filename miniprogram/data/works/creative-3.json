@@ -2,6 +2,7 @@
   "id": "creative-3",
   "title": "《风雨人生》",
   "form_tag": "公众号·图文",
+  "byline": "王华秋",
   "term": "",
   "collecting": false,
   "reading_minutes": 5,
@@ -33,7 +34,7 @@
     },
     {
       "type": "note",
-      "text": "填词：某同学"
+      "text": "填词：王华秋"
     },
     {
       "type": "h",

@@ -135,8 +135,11 @@ class WorkContentTests(unittest.TestCase):
         self.assertEqual(len(expected), 46)
         self.assertEqual(set(self.works), expected)
         titles = {item["id"]: item["title"] for item in self.archive_items}
+        archive_by_id = {item["id"]: item for item in self.archive_items}
         for work_id, work in self.works.items():
             self.assertEqual(work["title"], titles[work_id])
+            self.assertEqual(work["byline"], archive_by_id[work_id]["byline"], work_id)
+            self.assertNotEqual(work["byline"], "某同学", work_id)
             self.assertFalse(work["collecting"], work_id)
             self.assertTrue((ROOT / "data" / "works_src" / f"{work_id}.md").is_file())
 
@@ -218,6 +221,7 @@ class WorkContentTests(unittest.TestCase):
             for section in work["sections"]
             if section["type"] != "img"
         )
+        self.assertNotIn("某同学", corpus)
         self.assertNotRegex(corpus, r"(?<!\d)20\d{7,10}(?!\d)")
         for fragment in (
             "上下滑动阅览",

@@ -39,6 +39,7 @@
         <view class="work-title">{{item.title}}</view>
         <view class="seal" wx:if="{{item.form_tag}}">{{item.form_tag}}</view>
       </view>
+      <view class="work-byline" wx:if="{{item.byline}}">{{item.byline}}</view>
       <view class="work-brief" wx:if="{{item.brief}}">{{item.brief}}</view>
       <view class="work-meta" wx:if="{{item.termDisplay}}">收录学期：{{item.termDisplay}}</view>
     </view>

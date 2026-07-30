@@ -29,7 +29,7 @@
     { "tag": "咏物", "desc": "咏物寄意：草、梅、蟋蟀", "ci_ids": ["sumuzhe-cao", "fengxiaoyin-hanzhen", "yanjiaoer-guanmei", "hangongchun-mei", "yujiaao-xueli", "qitianle-yilang"] },
     { "tag": "友情", "desc": "送别、怀友与知己之谊", "ci_ids": ["yangguanyin-kouzhun", "yulouchun-zunqian", "yongyule-changyibieshi", "shuilongyin-xiaozhouhengjie", "bashengganzhou-youqingfeng", "niannujiao-duanhong", "hexinlang-shenyi"] },
     { "tag": "怀古", "desc": "登临怀古，兴亡之叹", "ci_ids": ["xihe-jinling"] },
-    { "tag": "惜春", "desc": "伤春惜时，春光易逝", "ci_ids": ["huanxisha-handan", "huanxisha-shoujuan", "qingpingle-bielaichunban", "tashaxing-xiaojinghongxi", "yulouchun-zunqian", "qingpingle-chungui", "sumuzhe-cao", "yiwangsun-hushang", "moyuer-gengnengxiao"] },
+    { "tag": "惜春", "desc": "伤春惜时，春光易逝", "ci_ids": ["yijiangnan-qiciyiwugong", "huanxisha-handan", "huanxisha-shoujuan", "qingpingle-bielaichunban", "tashaxing-xiaojinghongxi", "yulouchun-zunqian", "qingpingle-chungui", "sumuzhe-cao", "yiwangsun-hushang", "moyuer-gengnengxiao"] },
     { "tag": "身世", "desc": "自写生平怀抱与进退", "ci_ids": ["shantingliu-yanshu", "qishi-liuyong", "linjiangxian-yeyin", "bashengganzhou-youqingfeng", "niannujiao-duanhong", "zhegutian-huangju", "zhegutian-hanri", "moyuer-gengnengxiao", "hexinlang-shenyi", "shuidiaogetou-mengou", "zhegutian-xiangmo", "qitianle-yilang"] }
   ],
   "family": {

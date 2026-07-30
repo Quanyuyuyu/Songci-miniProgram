@@ -21,6 +21,7 @@ class MarkdownCompilerTest(unittest.TestCase):
                 """---
 title: 测试词笺
 form_tag: 文字
+byline: 测试作者
 term: 2026春
 collecting: false
 summary: 测试摘要
@@ -45,6 +46,7 @@ summary: 测试摘要
             document = compile_markdown(manuscript, output_images)
 
             self.assertEqual(document["id"], "essay-99")
+            self.assertEqual(document["byline"], "测试作者")
             self.assertEqual(
                 [item["type"] for item in document["sections"]],
                 ["h", "h", "p", "note", "quote", "img"],
@@ -130,6 +132,7 @@ verbatim: true
         for path in paths:
             document = compile_markdown(path, copy_images=False)
             self.assertFalse(document["collecting"], path.name)
+            self.assertTrue(document["byline"], path.name)
             self.assertTrue(document["sections"], path.name)
 
 

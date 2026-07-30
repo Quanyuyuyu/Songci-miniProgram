@@ -1,6 +1,7 @@
 ---
 title: 《少年游》新编
 form_tag: 创作
+byline: 张博芊
 term: 24Fall
 collecting: false
 verbatim: true

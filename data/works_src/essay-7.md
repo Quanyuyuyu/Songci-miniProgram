@@ -1,6 +1,7 @@
 ---
 title: 竹杖芒鞋定风波——从《定风波》看苏轼
 form_tag: 文字
+byline: 卢加立
 term: 24Fall
 collecting: false
 verbatim: true

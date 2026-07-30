@@ -37,7 +37,7 @@ Page({
 
     getData('work', id)
       .then((work) => {
-        const viewWork = Object.assign({}, work, { termDisplay: formatTerm(work.term) });
+        const viewWork = Object.assign({}, work, { termDisplay: formatTerm(work.term), author: work.byline || work.author || '' });
         this.setData({ loading: false, work: viewWork });
         wx.setNavigationBarTitle({ title: work.title || '作品详情' });
       })

@@ -1,6 +1,7 @@
 ---
 title: 自撰《临江仙》配词
 form_tag: 文档
+byline: 贺云翔
 term: 23Fall
 collecting: false
 verbatim: false

@@ -1,6 +1,7 @@
 ---
 title: 退思园里的《念奴娇·闹红一舸》
 form_tag: 公众号
+作者：宋诗语
 term: 26Spring
 collecting: false
 verbatim: true

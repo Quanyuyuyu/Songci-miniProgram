@@ -42,6 +42,16 @@ WECHAT_URLS = {
 }
 WEB_TERMS = {"essay-13": "23Fall", "essay-14": "26Spring"}
 
+# These sources do not carry a student name in their local filename. Keep the
+# verified canonical bylines here so re-importing cannot restore a pen name.
+SPECIAL_BYLINES = {
+    "creative-1": "陈泉宇、李东宇、杨礼",
+    "creative-2": "贺云翔",
+    "creative-3": "王华秋",
+    "essay-13": "胡羽萱",
+    "essay-14": "宋诗语",
+}
+
 SOURCE_SIZES = {
     "creative-1": 264223,
     "photo-1": 393220,
@@ -153,6 +163,21 @@ def term_from_filename(path: Path) -> str:
         raise RuntimeError(f"作品文件名缺少学期: {path.name}")
     season = "Spring" if match.group(2) == "春" else "Fall"
     return match.group(1)[2:] + season
+
+
+def byline_from_filename(path: Path) -> str:
+    byline = re.sub(r"[\s-]*20\d{2}(?:春|秋)$", "", path.stem).strip()
+    if not byline:
+        raise RuntimeError(f"作品文件名缺少署名: {path.name}")
+    return byline
+
+
+def byline_for_work(work_id: str, source: Path | None = None) -> str:
+    if work_id in SPECIAL_BYLINES:
+        return SPECIAL_BYLINES[work_id]
+    if source is None:
+        raise RuntimeError(f"作品缺少可提取署名的源文件: {work_id}")
+    return byline_from_filename(source)
 
 
 def locate_sources(root: Path) -> dict[str, Path]:
@@ -399,6 +424,7 @@ def front_matter(item: dict, original_url: str = "") -> str:
         "---",
         f"title: {item['title']}",
         f"form_tag: {item.get('form_tag', '')}",
+        f"byline: {item.get('byline', '')}",
         f"term: {item.get('term', '')}",
         "collecting: false",
         "verbatim: true",
@@ -563,10 +589,13 @@ def synchronize_archive(sources: dict[str, Path]) -> tuple[dict, dict[str, dict]
     data = json.loads(ARCHIVE_PATH.read_text(encoding="utf-8"))
     flat = {item["id"]: item for category in ("creative", "photo", "essay") for item in data[category]}
     for work_id, source in sources.items():
+        flat[work_id]["byline"] = byline_for_work(work_id, source)
         if work_id != "creative-1":
             flat[work_id]["term"] = term_from_filename(source)
     for work_id, term in WEB_TERMS.items():
         flat[work_id]["term"] = term
+    for work_id in ("creative-2", "creative-3", "essay-13", "essay-14"):
+        flat[work_id]["byline"] = byline_for_work(work_id)
     for item in flat.values():
         item["brief"] = ""
     ARCHIVE_PATH.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

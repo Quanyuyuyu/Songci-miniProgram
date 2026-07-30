@@ -1,6 +1,7 @@
 ---
 title: 《风雨人生》
 form_tag: 公众号·图文
+byline: 王华秋
 term:
 collecting: false
 verbatim: false
@@ -17,7 +18,7 @@ original_url: https://mp.weixin.qq.com/s/aD529aJjY1CZxAhm5NDnwQ
 
 *隐括原词：苏轼《定风波·莫听穿林打叶声》*
 
-*填词：某同学*
+*填词：王华秋*
 
 # 改编歌词
 
