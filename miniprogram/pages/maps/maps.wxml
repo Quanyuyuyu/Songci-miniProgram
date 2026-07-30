@@ -36,8 +36,20 @@
         <view class="fam-label">{{item.label}}</view>
         <view class="fam-names">
           <text class="fam-name" wx:for="{{item.names}}" wx:for-item="name" wx:key="*this"
-                data-name="{{name}}" bindtap="goCipaiList">{{name}}</text>
+                data-name="{{name}}" bindtap="onFamilyTap">{{name}}</text>
         </view>
+      </view>
+      <view wx:if="{{expandedFamily}}" class="card fam-detail">
+        <view class="fam-detail-head">{{expandedFamily}} · 同调篇目</view>
+        <view class="fam-detail-meter" wx:if="{{familyItems[expandedFamily].meter}}">调式：{{familyItems[expandedFamily].meter}}</view>
+        <view class="fam-detail-tone" wx:if="{{familyItems[expandedFamily].tone}}">声情：{{familyItems[expandedFamily].tone}}</view>
+        <view class="fam-detail-list" wx:if="{{familyItems[expandedFamily].poems.length > 0}}">
+          <view class="fam-poem" wx:for="{{familyItems[expandedFamily].poems}}" wx:for-item="ci" wx:key="id" data-id="{{ci.id}}" bindtap="goDetail">
+            《{{ci.cipai}}{{ci.title ? '·' + ci.title : ''}}》 {{ci.author}}
+            <text class="fam-week">W{{ci.week}}</text>
+          </view>
+        </view>
+        <view class="fam-detail-empty" wx:else>（课内暂无同调篇目）</view>
       </view>
     </block>
 

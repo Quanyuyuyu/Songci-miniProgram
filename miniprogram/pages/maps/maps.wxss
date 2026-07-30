@@ -41,6 +41,16 @@
   font-family: var(--font-display);
 }
 
+/* 词牌同调篇目展开 */
+.fam-detail { margin-top: -8rpx; }
+.fam-detail-head { font-size: 30rpx; font-weight: 600; color: var(--ink); margin-bottom: 12rpx; }
+.fam-detail-meter { font-size: 26rpx; color: var(--ink-soft); line-height: 1.6; margin-bottom: 4rpx; }
+.fam-detail-tone { font-size: 26rpx; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16rpx; }
+.fam-detail-list { border-top: 1rpx dashed var(--line); padding-top: 8rpx; }
+.fam-poem { font-size: 26rpx; color: var(--primary); padding: 10rpx 0; }
+.fam-week { font-size: 22rpx; color: var(--gray); margin-left: 12rpx; }
+.fam-detail-empty { font-size: 24rpx; color: var(--gray); padding-top: 8rpx; }
+
 /* 主题串联 */
 .theme-head { display: flex; align-items: center; }
 .theme-tag {

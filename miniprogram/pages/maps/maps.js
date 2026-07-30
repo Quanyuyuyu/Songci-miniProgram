@@ -13,17 +13,24 @@ Page({
     family: [],
     themes: [],
     expandedTheme: '',
-    themeItems: {}
+    themeItems: {},
+    expandedFamily: '',
+    familyItems: {}
   },
 
   onLoad() {
     Promise.all([
       getData('maps'),
-      getData('ci-index')
-    ]).then(([maps, idx]) => {
+      getData('ci-index'),
+      getData('cipai')
+    ]).then(([maps, idx, cipaiData]) => {
       const indexMap = {};
       (idx.list || []).forEach((c) => { indexMap[c.id] = c; });
       this._index = indexMap;
+
+      const cipaiMap = {};
+      (cipaiData.list || []).forEach((c) => { cipaiMap[c.name] = c; });
+      this._cipaiMap = cipaiMap;
 
       const family = Object.keys(maps.family || {}).map((k) => ({
         key: k,
@@ -64,6 +71,19 @@ Page({
         .map((id) => this._index[id]).filter(Boolean);
     }
     this.setData({ expandedTheme: expanded, themeItems: themeItems });
+  },
+
+  onFamilyTap(e) {
+    const name = e.currentTarget.dataset.name;
+    const expanded = this.data.expandedFamily === name ? '' : name;
+    const familyItems = Object.assign({}, this.data.familyItems);
+    if (expanded && !familyItems[expanded]) {
+      const info = this._cipaiMap[expanded] || {};
+      const poems = (info.ci_ids || [])
+        .map((id) => this._index[id]).filter(Boolean);
+      familyItems[expanded] = { meter: info.meter || '', tone: info.tone || '', poems };
+    }
+    this.setData({ expandedFamily: expanded, familyItems: familyItems });
   },
 
   goCipaiList(e) {
