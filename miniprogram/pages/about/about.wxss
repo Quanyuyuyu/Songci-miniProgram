@@ -24,3 +24,4 @@
 .para { font-size: 28rpx; color: var(--ink-soft); line-height: 1.7; }
 .statement { color: var(--cinnabar); }
 .item { font-size: 26rpx; color: var(--ink-soft); padding: 8rpx 0; line-height: 1.6; }
+.admin-entry { display: block; margin: 48rpx auto 0; padding: 16rpx 32rpx; text-align: center; font-size: 22rpx; color: #8E7C66; border: 1rpx dashed #D6C8A8; border-radius: 8rpx; background: transparent; width: fit-content; }

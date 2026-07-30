@@ -5,9 +5,9 @@ page {
   --ink: #2A2620;          /* 墨色正文 */
   --ink-soft: #4A443A;     /* 墨色次级 */
   --primary: #2F4A6E;      /* 墨蓝主色 */
-  --celadon: #8AA6A0;      /* 青磁辅色 */
+  --celadon: #4F716A;      /* 青磁辅色：浅底文字对比度 >= 4.5 */
   --cinnabar: #A03B2C;     /* 朱砂暗红（仅里程碑/徽章/印章） */
-  --gray: #8A8378;         /* 辅助灰 */
+  --gray: #6F685F;         /* 辅助灰：浅底文字对比度 >= 4.5 */
   --line: #E4DDCB;         /* 分隔线 */
   --radius: 24rpx;
   --font-sans: "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -34,7 +34,7 @@ page {
   margin-bottom: 24rpx;
 }
 
-.card-tap:active { opacity: 0.75; }
+.card-tap-hover { opacity: 0.76; }
 
 .title-lg { font-size: 40rpx; font-weight: 600; color: var(--ink); }
 .title-md { font-size: 34rpx; font-weight: 600; color: var(--ink); }
@@ -85,7 +85,7 @@ page {
   padding: 32rpx 28rpx;
   margin-bottom: 24rpx;
 }
-.entry-card:active { opacity: 0.75; }
+.entry-card-hover { background: #F2EBDC; }
 .entry-emoji { font-size: 44rpx; margin-right: 24rpx; }
 .entry-main { flex: 1; }
 .entry-title { font-size: 32rpx; font-weight: 600; }

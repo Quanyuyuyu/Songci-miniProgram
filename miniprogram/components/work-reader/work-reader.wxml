@@ -43,8 +43,10 @@
             <view wx:elif="{{item.type === 'quote'}}" class="sec-quote"><text selectable user-select>{{item.text}}</text></view>
             <view wx:elif="{{item.type === 'note'}}" class="sec-note"><text selectable user-select>{{item.text}}</text></view>
             <view wx:elif="{{item.type === 'img'}}" class="image-block">
-              <image class="sec-img" src="{{item.url}}" mode="widthFix" lazy-load show-menu-by-longpress
-                     data-src="{{item.url}}" bindtap="onPreviewImage" />
+              <view class="image-preview" data-src="{{item.url}}" bindtap="onPreviewImage"
+                    hover-class="image-preview-hover" hover-start-time="20" hover-stay-time="80">
+                <image class="sec-img" src="{{item.url}}" mode="widthFix" lazy-load show-menu-by-longpress />
+              </view>
               <view class="image-caption" wx:if="{{item.alt}}">{{item.alt}}</view>
             </view>
           </block>

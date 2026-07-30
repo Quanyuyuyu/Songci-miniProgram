@@ -61,7 +61,8 @@
     <!-- 关联篇目 -->
     <section-head title="关联篇目" sub="同调 · 同人 · 同题 · 同法 · 同源" wx:if="{{links.length}}" />
     <scroll-view scroll-x class="links-scroll" wx:if="{{links.length}}">
-      <view class="link-card" wx:for="{{links}}" wx:key="ci_id" data-id="{{item.ci_id}}" bindtap="goLinked">
+      <view class="link-card" wx:for="{{links}}" wx:key="ci_id" data-id="{{item.ci_id}}" bindtap="goLinked"
+            hover-class="link-card-hover" hover-start-time="20" hover-stay-time="80">
         <view class="link-rel">{{item.relLabel}}</view>
         <view class="link-cipai">{{item.cipai}}</view>
         <view class="link-ci-title" wx:if="{{item.title}}">· {{item.title}}</view>

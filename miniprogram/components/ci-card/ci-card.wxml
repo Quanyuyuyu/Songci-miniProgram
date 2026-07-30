@@ -1,4 +1,5 @@
-<view class="ci-card" bindtap="onTap">
+<view class="ci-card" bindtap="onTap"
+      hover-class="ci-card-hover" hover-start-time="20" hover-stay-time="80">
   <view class="ci-head">
     <text class="ci-cipai">{{item.cipai}}</text>
     <text class="ci-title" wx:if="{{item.title}}">· {{item.title}}</text>

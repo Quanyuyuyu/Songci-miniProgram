@@ -2,7 +2,8 @@
   <empty-state wx:if="{{error}}" icon="🗂" title="档案数据未能加载" reason="{{error}}" />
 
   <block wx:if="{{!loading}}">
-    <view class="archive-return" wx:if="{{returnTarget}}" bindtap="onReturn">
+    <view class="archive-return" wx:if="{{returnTarget}}" bindtap="onReturn"
+          hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
       <text class="return-icon">←</text>
       <text>{{returnTarget.label}}</text>
     </view>
@@ -13,7 +14,8 @@
     <view class="term-grid">
       <view class="term-card {{activeTerm === item.term ? 'term-active' : ''}}"
             wx:for="{{terms}}" wx:key="term"
-            data-term="{{item.term}}" bindtap="onTermTap">
+            data-term="{{item.term}}" bindtap="onTermTap"
+            hover-class="term-card-hover" hover-start-time="20" hover-stay-time="80">
         <view class="term-display">{{item.display}}</view>
         <view class="term-status {{activeTerm === item.term ? 'term-status-active' : ''}}">
           {{item.statusText}}
@@ -31,7 +33,8 @@
     <view class="cat-desc" wx:for="{{categories}}" wx:key="key" wx:if="{{activeCategory === item.key}}">{{item.desc}}</view>
 
     <empty-state wx:if="{{!works.length}}" icon="🗂" title="暂未收录" reason="{{activeTermDisplay}}尚未收录该类作品" />
-    <view class="work-card card card-tap" wx:for="{{works}}" wx:key="id" data-id="{{item.id}}" bindtap="onWorkTap">
+    <view class="work-card card card-tap" wx:for="{{works}}" wx:key="id" data-id="{{item.id}}" bindtap="onWorkTap"
+          hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
       <view class="work-head">
         <view class="work-title">{{item.title}}</view>
         <view class="seal" wx:if="{{item.form_tag}}">{{item.form_tag}}</view>

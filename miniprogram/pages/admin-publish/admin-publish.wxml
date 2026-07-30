@@ -1,0 +1,58 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">一键发布作品</view>
+    <view class="hero-sub">仅供管理员使用；非管理员点击会返回 403</view>
+  </view>
+
+  <view class="card">
+    <view class="row">
+      <view class="row-label">当前用户 OPENID</view>
+      <view class="row-value mono">{{openid || '获取中…'}}</view>
+      <button class="copy-btn" bindtap="copyOpenid" disabled="{{!openid}}">复制</button>
+    </view>
+    <view class="row">
+      <view class="row-label">待发布作品数</view>
+      <view class="row-value">{{worksCount}} 篇</view>
+    </view>
+    <view class="hint">发到云端 <text class="mono">content</text> 集合，文档 <text class="mono">_id = work__{{'<id>'}}</text>，数据走 <text class="mono">works-bundled.js</text> 内嵌副本。</view>
+  </view>
+
+  <view class="card">
+    <button class="primary" bindtap="startPublish" disabled="{{publishing}}">
+      {{publishing ? '发布中…' : '一键发布全部作品到云端'}}
+    </button>
+
+    <view class="progress" wx:if="{{progressTotal > 0}}">
+      <progress percent="{{progressCur / progressTotal * 100}}" stroke-width="6" activeColor="#8C2A2A" backgroundColor="#EFE7D6" />
+      <view class="progress-text">{{progressText}}</view>
+    </view>
+
+    <view class="result" wx:if="{{finished}}">
+      <view class="result-line ok">✓ 成功 {{successCount}} 篇</view>
+      <view class="result-line fail" wx:if="{{failedCount > 0}}">✗ 失败 {{failedCount}} 篇</view>
+      <view class="result-sample" wx:if="{{failedSample.length > 0}}">
+        <view class="sample-title">失败样例：</view>
+        <view class="sample-item" wx:for="{{failedSample}}" wx:key="*this">{{item}}</view>
+      </view>
+      <view class="result-debug" wx:if="{{debugInfo}}">
+        <view class="debug-title">🔍 调试信息（直接对比下面两行）</view>
+        <view class="debug-line">
+          <text class="debug-label">云函数看到的你：</text>
+          <text user-select="true" class="mono debug-value">{{debugInfo.yourOpenid}}</text>
+        </view>
+        <view class="debug-line">
+          <text class="debug-label">环境变量白名单：</text>
+          <text user-select="true" class="mono debug-value">{{debugInfo.configuredAdmins.length ? debugInfo.configuredAdmins.join(' / ') : '(空)'}}</text>
+        </view>
+        <view class="debug-hint">{{debugInfo.hint}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tip">
+    <view>说明：</view>
+    <view>1. 本页只遍历本地内嵌的 <text class="mono">works-bundled.js</text>（46 篇），调 saveContent 云函数并发批量发到云数据库 content 集合。</view>
+    <view>2. 云端存在同名 _id 文档会被覆盖；不会影响其他类型（course / cipai / ci-detail 等）。</view>
+    <view>3. 失败 403 几乎都是因为你的 OPENID 不在 saveContent 的 ADMIN_OPENIDS 环境变量中——把上方 OPENID 复制给负责人即可。</view>
+  </view>
+</view>

@@ -24,6 +24,8 @@ JSON_DIR = ROOT / "miniprogram" / "data" / "readings"
 PACKAGE_ROOT = ROOT / "miniprogram" / "packages"
 BOOKS_PATH = ROOT / "miniprogram" / "data" / "books.json"
 MANIFEST_PATH = SOURCE_DIR / "source-manifest.json"
+MAX_PAGE_IMAGE_BYTES = 92_000
+MIN_JPEG_QUALITY = 28
 
 
 def cnki_search(title: str) -> str:
@@ -103,7 +105,7 @@ def compact_page(pixmap: fitz.Pixmap, destination: Path) -> None:
     while True:
         buffer = io.BytesIO()
         source.save(buffer, "JPEG", quality=quality, optimize=True, progressive=True)
-        if buffer.tell() <= 92_000 or quality <= 42:
+        if buffer.tell() <= MAX_PAGE_IMAGE_BYTES or quality <= MIN_JPEG_QUALITY:
             destination.write_bytes(buffer.getvalue())
             return
         quality -= 5

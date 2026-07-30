@@ -3,7 +3,7 @@
 .book-isbn { font-size: 24rpx; color: var(--gray); margin-top: 8rpx; }
 .books-note { font-size: 24rpx; color: var(--gray); margin: 4rpx 0 12rpx; }
 .reading-card { display: flex; align-items: center; }
-.reading-card:active { background: #F2EBDC; }
+.reading-card-hover { background: #F2EBDC; }
 .reading-main { flex: 1; min-width: 0; }
 .reading-arrow { width: 44rpx; flex-shrink: 0; margin-left: 16rpx; color: var(--cinnabar); font-size: 40rpx; line-height: 1; text-align: center; }
 .about-link {

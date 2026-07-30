@@ -5,10 +5,10 @@
   padding: 28rpx;
   margin-bottom: 24rpx;
 }
-.task:active { opacity: 0.75; }
+.task-hover { background: #F2EBDC; }
 .task-head { display: flex; align-items: center; }
 .task-emoji { font-size: 40rpx; margin-right: 16rpx; }
 .task-title { font-size: 32rpx; font-weight: 600; color: var(--ink, #2A2620); flex: 1; }
-.task-arrow { color: var(--gray, #8A8378); font-size: 36rpx; }
+.task-arrow { color: var(--gray, #6F685F); font-size: 36rpx; }
 .task-summary { font-size: 28rpx; color: var(--ink-soft, #4A443A); margin-top: 14rpx; }
-.task-point { font-size: 26rpx; color: var(--gray, #8A8378); margin-top: 8rpx; }
+.task-point { font-size: 26rpx; color: var(--gray, #6F685F); margin-top: 8rpx; }

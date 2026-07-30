@@ -343,6 +343,23 @@ class RuntimePresentationTests(unittest.TestCase):
         self.assertEqual(course["weeks_total"], 16)
         self.assertEqual([item["w"] for item in weeks], list(range(1, 17)))
 
+    def test_overview_uses_complete_bundled_course_data(self) -> None:
+        source = (MINI / "services" / "bundled-data.js").read_text(encoding="utf-8")
+        payload = source.split("module.exports = ", 1)[1].rstrip(";\n")
+        bundled = json.loads(payload)
+        self.assertEqual(bundled["course"], read_json(DATA / "course.json"))
+        self.assertEqual(bundled["weeks"], read_json(DATA / "weeks.json"))
+        self.assertEqual(len(bundled["course"]["effort_list"]), 4)
+        self.assertTrue(bundled["course"]["rules"])
+
+        fallback = (MINI / "services" / "fallback.js").read_text(encoding="utf-8")
+        self.assertIn("course: bundledData.course", fallback)
+        self.assertIn("weeks: bundledData.weeks", fallback)
+
+        data_service = (MINI / "services" / "data.js").read_text(encoding="utf-8")
+        self.assertRegex(data_service, r"(?m)^  course: true,$")
+        self.assertRegex(data_service, r"(?m)^  weeks: true,$")
+
     def test_user_interface_has_no_week_or_reading_level_switch(self) -> None:
         roots = [MINI / "pages", MINI / "components", MINI / "services"]
         extensions = {".js", ".json", ".wxml", ".wxss"}
@@ -355,6 +372,68 @@ class RuntimePresentationTests(unittest.TestCase):
         for fragment in ("本周", "精读", "略读", "ci-intensive", "ci-skim"):
             self.assertNotIn(fragment, corpus)
 
+    def test_touch_feedback_uses_native_hover_classes(self) -> None:
+        style_corpus = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in MINI.rglob("*.wxss")
+        )
+        template_corpus = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in MINI.rglob("*.wxml")
+        )
+        self.assertNotIn(":active", style_corpus)
+        for hover_class in (
+            "card-tap-hover",
+            "entry-card-hover",
+            "term-card-hover",
+            "reading-card-hover",
+            "link-card-hover",
+            "ci-card-hover",
+            "task-hover",
+            "image-preview-hover",
+        ):
+            self.assertIn(f'hover-class="{hover_class}"', template_corpus)
+            self.assertIn(f".{hover_class}", style_corpus)
+
+        for tag in re.findall(r"<view\b[^>]*\bclass=\"[^\"]*card-tap[^\"]*\"[^>]*>", template_corpus):
+            self.assertIn('hover-class="card-tap-hover"', tag)
+
+    def test_auxiliary_text_colors_meet_contrast_requirement(self) -> None:
+        styles = (MINI / "app.wxss").read_text(encoding="utf-8")
+        tokens = dict(re.findall(r"--([a-z-]+):\s*(#[0-9A-Fa-f]{6})", styles))
+
+        def luminance(color: str) -> float:
+            channels = [int(color[index:index + 2], 16) / 255 for index in (1, 3, 5)]
+            linear = [
+                channel / 12.92
+                if channel <= 0.04045
+                else ((channel + 0.055) / 1.055) ** 2.4
+                for channel in channels
+            ]
+            return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2]
+
+        def contrast(foreground: str, background: str) -> float:
+            high, low = sorted(
+                (luminance(foreground), luminance(background)),
+                reverse=True,
+            )
+            return (high + 0.05) / (low + 0.05)
+
+        for foreground in ("gray", "celadon"):
+            for background in ("paper", "card"):
+                self.assertGreaterEqual(
+                    contrast(tokens[foreground], tokens[background]),
+                    4.5,
+                    f"{foreground} on {background}",
+                )
+
+        runtime_styles = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in MINI.rglob("*.wxss")
+        )
+        self.assertNotIn("#8A8378", runtime_styles)
+        self.assertNotIn("#8AA6A0", runtime_styles)
+
     def test_noto_first_font_stack_and_structured_work_rendering(self) -> None:
         styles = (MINI / "app.wxss").read_text(encoding="utf-8")
         self.assertIn('--font-sans: "Noto Sans SC"', styles)
@@ -364,18 +443,61 @@ class RuntimePresentationTests(unittest.TestCase):
         self.assertIn("item.type === 'note'", work_wxml)
 
     def test_main_package_and_each_subpackage_fit_upload_limit(self) -> None:
-        limit = 2 * 1024 * 1024
-        package_root = MINI / "packages"
-        for package in package_root.iterdir():
-            if package.is_dir():
-                size = sum(path.stat().st_size for path in package.rglob("*") if path.is_file())
-                self.assertLess(size, limit, package.name)
+        app = read_json(MINI / "app.json")
+        project = read_json(ROOT / "project.config.json")
+        subpackage_roots = [MINI / item["root"] for item in app["subPackages"]]
+        ignored_roots = [
+            MINI / item["value"]
+            for item in project.get("packOptions", {}).get("ignore", [])
+            if item.get("type") == "folder"
+        ]
+
+        def belongs_to(path: Path, roots: list[Path]) -> bool:
+            return any(root == path or root in path.parents for root in roots)
+
+        subpackage_limit = 2 * 1024 * 1024
+        for package in subpackage_roots:
+            size = sum(path.stat().st_size for path in package.rglob("*") if path.is_file())
+            self.assertLess(size, subpackage_limit, package.name)
+
         main_size = sum(
             path.stat().st_size
             for path in MINI.rglob("*")
-            if path.is_file() and package_root not in path.parents
+            if path.is_file()
+            and not belongs_to(path, subpackage_roots)
+            and not belongs_to(path, ignored_roots)
         )
-        self.assertLess(main_size, limit, "main package")
+        self.assertLess(main_size, int(1.5 * 1024 * 1024), "main package")
+
+    def test_remote_content_json_is_excluded_from_upload_package(self) -> None:
+        project = read_json(ROOT / "project.config.json")
+        ignored = {
+            (item.get("type"), item.get("value"))
+            for item in project.get("packOptions", {}).get("ignore", [])
+        }
+        self.assertIn(("folder", "data/works"), ignored)
+        self.assertIn(("folder", "data/readings"), ignored)
+
+    def test_static_media_stays_below_quality_scan_limit(self) -> None:
+        media_extensions = {
+            ".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp", ".svg", ".ico",
+            ".mp3", ".wav", ".aac", ".m4a", ".flac", ".ogg", ".wma",
+        }
+        oversized = [
+            f"{path.relative_to(ROOT)} ({path.stat().st_size} bytes)"
+            for path in ROOT.rglob("*")
+            if path.is_file()
+            and path.suffix.lower() in media_extensions
+            and path.stat().st_size > 200_000
+        ]
+        self.assertEqual(oversized, [])
+
+    def test_subpackage_detail_logic_is_absent_from_main_utils(self) -> None:
+        legacy_helper = MINI / "utils" / "work-detail-page.js"
+        self.assertFalse(legacy_helper.exists())
+        for path in (MINI / "packages").rglob("*.js"):
+            source = path.read_text(encoding="utf-8")
+            self.assertNotIn("work-detail-page", source, str(path.relative_to(MINI)))
 
     def test_legacy_ima_copy_is_absent_from_runtime_ui(self) -> None:
         corpus = "\n".join(

@@ -12,6 +12,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = REPO_ROOT / "miniprogram" / "data"
 OUTPUT = REPO_ROOT / "miniprogram" / "services" / "bundled-data.js"
 SOURCES = {
+    "course": DATA_DIR / "course.json",
+    "weeks": DATA_DIR / "weeks.json",
     "schedule": DATA_DIR / "schedule.json",
     "ci-index": DATA_DIR / "ci-index.json",
     "semester-26spring": DATA_DIR / "semester-26spring.json",

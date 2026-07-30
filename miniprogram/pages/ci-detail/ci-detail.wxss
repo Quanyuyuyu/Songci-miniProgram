@@ -75,7 +75,7 @@
   padding: 20rpx;
   margin-right: 20rpx;
 }
-.link-card:active { opacity: 0.75; }
+.link-card-hover { opacity: 0.76; }
 .link-rel {
   display: inline-block;
   font-size: 20rpx;

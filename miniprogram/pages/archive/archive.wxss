@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 .term-active { border-color: var(--primary); box-shadow: inset 0 0 0 1rpx var(--primary); }
-.term-card:active { opacity: 0.75; }
+.term-card-hover { opacity: 0.76; }
 .term-display { font-size: 30rpx; font-weight: 600; color: var(--ink); }
 .term-status { font-size: 22rpx; color: var(--gray); margin-top: 8rpx; }
 .term-status-active { color: var(--cinnabar); }

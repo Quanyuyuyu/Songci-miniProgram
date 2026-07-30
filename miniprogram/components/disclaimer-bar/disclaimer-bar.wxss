@@ -17,6 +17,6 @@
 }
 .disclaimer-text {
   font-size: 22rpx;
-  color: var(--gray, #8A8378);
+  color: var(--gray, #6F685F);
   line-height: 1.6;
 }

@@ -5,6 +5,7 @@
   "libVersion": "3.8.0",
   "projectname": "songci-course-helper",
   "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
     "es6": true,
     "enhance": true,
@@ -34,7 +35,16 @@
   "condition": {},
   "simulatorPluginLibVersion": {},
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "data/works"
+      },
+      {
+        "type": "folder",
+        "value": "data/readings"
+      }
+    ],
     "include": []
   },
   "editorSetting": {}

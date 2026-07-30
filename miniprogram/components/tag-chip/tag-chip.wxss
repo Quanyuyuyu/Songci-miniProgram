@@ -6,8 +6,8 @@
   margin: 0 12rpx 12rpx 0;
 }
 .chip-theme {
-  color: var(--celadon, #8AA6A0);
-  border: 1rpx solid var(--celadon, #8AA6A0);
+  color: var(--celadon, #4F716A);
+  border: 1rpx solid var(--celadon, #4F716A);
 }
 .chip-technique {
   color: var(--primary, #2F4A6E);

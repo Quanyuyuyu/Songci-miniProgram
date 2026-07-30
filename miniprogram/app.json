@@ -11,7 +11,8 @@
     "pages/cipai/cipai",
     "pages/maps/maps",
     "pages/notes/notes",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/admin-publish/admin-publish"
   ],
   "subPackages": [
     {
@@ -43,7 +44,7 @@
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#8A8378",
+    "color": "#6F685F",
     "selectedColor": "#2F4A6E",
     "backgroundColor": "#FBF7EC",
     "borderStyle": "white",

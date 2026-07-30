@@ -1,5 +1,21 @@
 const readings = require('../../data/readings.js');
-const { openSource } = require('../../../../utils/work-detail-page.js');
+
+function copySource(url) {
+  if (!url) return;
+  wx.setClipboardData({
+    data: url,
+    success: () => wx.showToast({ title: '来源链接已复制', icon: 'none' })
+  });
+}
+
+function openSource(url) {
+  if (!url) return;
+  if (url.indexOf('https://mp.weixin.qq.com/') === 0 && wx.openOfficialAccountArticle) {
+    wx.openOfficialAccountArticle({ url, fail: () => copySource(url) });
+    return;
+  }
+  copySource(url);
+}
 
 Page({
   data: { loading: true, error: '', id: '', work: null },

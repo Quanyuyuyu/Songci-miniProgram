@@ -33,6 +33,6 @@
 }
 .ms-note {
   font-size: 24rpx;
-  color: var(--gray, #8A8378);
+  color: var(--gray, #6F685F);
   margin-top: 4rpx;
 }

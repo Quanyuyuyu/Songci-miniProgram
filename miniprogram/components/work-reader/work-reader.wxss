@@ -24,8 +24,9 @@
 .sec-quote { margin: 28rpx 0; padding: 20rpx 24rpx; border-left: 5rpx solid var(--celadon); background: #F1EBDD; color: #3E4845; font-family: var(--font-sans); font-size: 29rpx; line-height: 1.95; white-space: pre-wrap; word-break: break-word; }
 .sec-note { margin: 12rpx 0 20rpx; padding-left: 18rpx; border-left: 3rpx solid var(--line); color: var(--gray); font-size: 23rpx; line-height: 1.7; white-space: pre-wrap; word-break: break-word; }
 .image-block { margin: 30rpx 0 34rpx; }
+.image-preview { width: 100%; }
 .sec-img { display: block; width: 100%; box-sizing: border-box; border: 1rpx solid #D7CEB9; border-radius: 4rpx; background: #EEE8DA; }
-.sec-img:active { opacity: 0.84; }
+.image-preview-hover { opacity: 0.84; }
 .image-caption { margin-top: 11rpx; color: var(--gray); font-family: var(--font-sans); font-size: 22rpx; line-height: 1.5; text-align: center; }
 .collecting { text-align: center; padding: 110rpx 40rpx; }
 .c-mark { width: 66rpx; height: 66rpx; margin: 0 auto; border: 2rpx solid var(--cinnabar); border-radius: 4rpx; color: var(--cinnabar); font-family: var(--font-display); font-size: 34rpx; line-height: 66rpx; }

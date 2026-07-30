@@ -5,12 +5,12 @@
   padding: 24rpx 28rpx;
   margin-bottom: 20rpx;
 }
-.ci-card:active { opacity: 0.75; }
+.ci-card-hover { background: #F2EBDC; }
 .ci-head { display: flex; align-items: baseline; }
 .ci-cipai { font-size: 32rpx; font-weight: 600; color: var(--primary, #2F4A6E); }
 .ci-title { font-size: 28rpx; color: var(--ink, #2A2620); margin-left: 6rpx; }
-.ci-author { font-size: 24rpx; color: var(--gray, #8A8378); margin-top: 6rpx; }
-.ci-week { color: var(--celadon, #8AA6A0); }
+.ci-author { font-size: 24rpx; color: var(--gray, #6F685F); margin-top: 6rpx; }
+.ci-week { color: var(--celadon, #4F716A); }
 .ci-first {
   font-size: 30rpx;
   margin-top: 12rpx;
@@ -21,8 +21,8 @@
 .ci-tags { margin-top: 10rpx; }
 .ci-tag {
   font-size: 22rpx;
-  color: var(--celadon, #8AA6A0);
-  border: 1rpx solid var(--celadon, #8AA6A0);
+  color: var(--celadon, #4F716A);
+  border: 1rpx solid var(--celadon, #4F716A);
   border-radius: 999rpx;
   padding: 0 14rpx;
   margin-right: 12rpx;

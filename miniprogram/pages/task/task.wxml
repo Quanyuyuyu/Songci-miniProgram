@@ -29,7 +29,8 @@
       <milestone-list items="{{photo.milestones}}" note="具体时间以课程群通知为准" />
     </view>
 
-    <view class="link-card card card-tap" bindtap="goArchive">
+    <view class="link-card card card-tap" bindtap="goArchive"
+          hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
       <view class="link-title">看范例 · 优秀拍照配词</view>
       <view class="link-desc">往届做成过什么样 ›</view>
     </view>
@@ -99,12 +100,14 @@
       <milestone-list items="{{final.milestones}}" note="迟交代价：{{final.late_penalty}}" />
     </view>
 
-    <view class="link-card card card-tap" bindtap="goNotes">
+    <view class="link-card card card-tap" bindtap="goNotes"
+          hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
       <view class="link-title">攒词作体悟 · 我的笔记</view>
       <view class="link-desc">期末可由平时积累的阅读体悟连缀成文 ›</view>
     </view>
 
-    <view class="link-card card card-tap" bindtap="goArchive">
+    <view class="link-card card card-tap" bindtap="goArchive"
+          hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
       <view class="link-title">看范例 · 优秀期末论文</view>
       <view class="link-desc">往届写成过什么样 ›</view>
     </view>

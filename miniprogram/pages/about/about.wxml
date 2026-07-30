@@ -21,4 +21,6 @@
   </view>
 
   <disclaimer-bar text="{{statement}}" />
+
+  <navigator url="/pages/admin-publish/admin-publish" class="admin-entry">管理后台 · 一键发布作品</navigator>
 </view>

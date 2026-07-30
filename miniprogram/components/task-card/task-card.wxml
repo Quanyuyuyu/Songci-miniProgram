@@ -1,4 +1,5 @@
-<view class="task" bindtap="onTap">
+<view class="task" bindtap="onTap"
+      hover-class="task-hover" hover-start-time="20" hover-stay-time="80">
   <view class="task-head">
     <text class="task-emoji">{{emoji}}</text>
     <text class="task-title">{{title}}</text>
