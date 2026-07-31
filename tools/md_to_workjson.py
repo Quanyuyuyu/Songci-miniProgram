@@ -27,6 +27,7 @@ IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$")
 QUOTE_RE = re.compile(r"^>\s?(.*)$")
 NOTE_RE = re.compile(r"^\*([^*].*?)\*$")
+NUMBERED_REF_RE = re.compile(r"^\[\d+\]\s*$")
 REMOTE_IMAGE_RE = re.compile(r"^https://", re.IGNORECASE)
 VERBATIM_HEADING_RE = re.compile(
     r"^(?:"
@@ -344,7 +345,10 @@ def reflow_verbatim_lines(lines: list[str], work_id: str = "") -> list[dict[str,
 
     previous_line = ""
     source_line_layout = work_id in {"essay-13", "essay-14"}
-    for line, gap, indentation in entries:
+    entries_list = list(entries)
+    i = 0
+    while i < len(entries_list):
+        line, gap, indentation = entries_list[i]
         if source_line_layout:
             gap = max(gap, 1)
         if VERBATIM_HEADING_RE.fullmatch(line):
@@ -352,16 +356,36 @@ def reflow_verbatim_lines(lines: list[str], work_id: str = "") -> list[dict[str,
             level = 1 if re.match(r"^(?:[一二三四五六七八九十]+[、.．]|第|[壹贰叁肆伍陆柒捌玖拾])", line) else 2
             result.append({"type": "h", "level": level, "text": line})
             previous_line = line
+            i += 1
+            continue
+        if NUMBERED_REF_RE.fullmatch(line):
+            # 参考文献编号行 [N] —— 与紧随的非空作者行合并为一段（"[N] 作者..."）
+            # 这样保证条目内紧凑、条目间（gap≥1 或多行空）独立成段
+            flush_paragraph()
+            if i + 1 < len(entries_list):
+                next_line, next_gap, _ = entries_list[i + 1]
+                # 紧挨着的下一行（无空行隔开）才算作者行，否则 [N] 单独成段
+                if next_gap == 0:
+                    combined = line + " " + next_line
+                    result.append({"type": "p", "text": combined})
+                    previous_line = next_line
+                    i += 2
+                    continue
+            result.append({"type": "p", "text": line})
+            previous_line = line
+            i += 1
             continue
         if VERBATIM_NOTE_RE.match(line):
             flush_paragraph()
             result.append({"type": "note", "text": line})
             previous_line = line
+            i += 1
             continue
         if VERBATIM_QUOTE_RE.match(line):
             flush_paragraph()
             result.append({"type": "quote", "text": line})
             previous_line = line
+            i += 1
             continue
 
         should_break = bool(paragraph) and (
@@ -374,11 +398,13 @@ def reflow_verbatim_lines(lines: list[str], work_id: str = "") -> list[dict[str,
                     or (len(previous_line) <= 20 and len(line) <= 20)
                 )
             )
+            or re.match(r"^\[\d+\]", line)
         )
         if should_break:
             flush_paragraph()
         append_to_paragraph(line)
         previous_line = line
+        i += 1
 
     flush_paragraph()
     return result

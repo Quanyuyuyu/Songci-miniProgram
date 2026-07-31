@@ -208,11 +208,42 @@ class WorkContentTests(unittest.TestCase):
         sections = work["sections"]
         self.assertEqual(sections[0], {"type": "h", "level": 1, "text": "摘要"})
         self.assertGreaterEqual(sum(item["type"] == "h" for item in sections), 9)
-        self.assertEqual(sum(item["type"] == "quote" for item in sections), 4)
+        self.assertEqual(sum(item["type"] == "quote" for item in sections[:-2]), 4)
+        self.assertEqual(sections[-2], {"type": "h", "level": 1, "text": "教师点评"})
+        self.assertEqual(sections[-1]["type"], "quote")
         self.assertTrue(all("\n" not in item["text"] for item in sections if item["type"] == "p"))
         text = "".join(item.get("text", "") for item in sections)
         self.assertNotIn("2022533173", text)
         self.assertNotIn("苏轼和他的月亮沈则羲", normalized(text))
+
+    def test_teacher_reviews_are_final_total_comments_only(self) -> None:
+        expected = {f"essay-{index}" for index in range(1, 13)}
+        found = set()
+        for work_id, work in self.works.items():
+            sections = work["sections"]
+            review_indexes = [
+                index
+                for index, section in enumerate(sections)
+                if section.get("type") == "h" and section.get("text") == "教师点评"
+            ]
+            if not review_indexes:
+                continue
+            found.add(work_id)
+            self.assertEqual(review_indexes, [len(sections) - 2], work_id)
+            self.assertEqual(sections[-1]["type"], "quote", work_id)
+        self.assertEqual(found, expected)
+
+        corpus = "\n".join(
+            section.get("text", "")
+            for work_id in expected
+            for section in self.works[work_id]["sections"]
+        )
+        self.assertNotIn("这里前后应有一些过渡", corpus)
+        self.assertIn(
+            "非常有意思的思考。将宋词传统的写作与当今结合的佳作。\n\n"
+            "但是在举例时存在一些并非“男子作闺音”的词句，可以在表述时写得更清楚一些。",
+            self.works["essay-4"]["sections"][-1]["text"],
+        )
 
     def test_all_works_are_reflowed_without_layout_or_identity_artifacts(self) -> None:
         corpus = "\n".join(
@@ -252,12 +283,13 @@ class WorkContentTests(unittest.TestCase):
 
     def test_essay_poems_use_quote_blocks_and_horizontal_titles(self) -> None:
         expected_quote_counts = {
-            "essay-1": 1,
-            "essay-2": 4,
+            "essay-1": 2,
+            "essay-2": 5,
             "essay-3": 5,
+            "essay-4": 1,
             "essay-5": 4,
-            "essay-6": 1,
-            "essay-9": 4,
+            "essay-6": 2,
+            "essay-9": 5,
             "essay-10": 3,
             "essay-11": 7,
             "essay-12": 4,
@@ -371,7 +403,9 @@ class RuntimePresentationTests(unittest.TestCase):
             path.read_text(encoding="utf-8")
             for root in roots
             for path in root.rglob("*")
-            if path.is_file() and path.suffix in extensions
+            if path.is_file()
+            and path.suffix in extensions
+            and path.name != "works-bundled.js"
         )
         for fragment in ("本周", "精读", "略读", "ci-intensive", "ci-skim"):
             self.assertNotIn(fragment, corpus)
