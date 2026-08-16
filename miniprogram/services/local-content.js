@@ -373,7 +373,7 @@ module.exports = {
       "brief": "",
       "status": "ready",
       "id": "essay-2",
-      "byline": "孙一文"
+      "byline": ""
     },
     {
       "title": "宋词中的感性与理性",

@@ -1,7 +1,7 @@
 ---
 title: 宋词中的夜晚——读书札记几则
 form_tag: 文字
-byline: 孙一文
+byline:
 term: 26Spring
 collecting: false
 verbatim: true

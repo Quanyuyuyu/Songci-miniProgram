@@ -9,24 +9,19 @@
   "image_urls": [
     "/packages/work-text/images/essay-14/01.jpg",
     "/packages/work-text/images/essay-14/02.jpg",
-    "/packages/work-text/images/essay-14/03.jpg"
+    "/packages/work-text/images/essay-14/03.jpg",
+    "/packages/work-text/images/essay-14/04.jpg",
+    "/packages/work-text/images/essay-14/05.jpg",
+    "/packages/work-text/images/essay-14/06.jpg",
+    "/packages/work-text/images/essay-14/07.jpg",
+    "/packages/work-text/images/essay-14/08.jpg",
+    "/packages/work-text/images/essay-14/09.jpg",
+    "/packages/work-text/images/essay-14/10.jpg",
+    "/packages/work-text/images/essay-14/11.jpg",
+    "/packages/work-text/images/essay-14/12.jpg",
+    "/packages/work-text/images/essay-14/13.jpg"
   ],
   "sections": [
-    {
-      "type": "img",
-      "url": "/packages/work-text/images/essay-14/01.jpg",
-      "alt": ""
-    },
-    {
-      "type": "img",
-      "url": "/packages/work-text/images/essay-14/02.jpg",
-      "alt": ""
-    },
-    {
-      "type": "img",
-      "url": "/packages/work-text/images/essay-14/03.jpg",
-      "alt": ""
-    },
     {
       "type": "h",
       "level": 1,
@@ -36,6 +31,11 @@
       "type": "h",
       "level": 2,
       "text": "缘起｜姑苏印记"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/01.jpg",
+      "alt": ""
     },
     {
       "type": "p",
@@ -77,6 +77,11 @@
       "text": "闹红一舸，记来时、尝与鸳鸯为侣。三十六陂人未到，水佩风裳无数。翠叶吹凉，玉容销酒，更洒菰蒲雨。嫣然摇动，冷香飞上诗句。\n\n日暮，青盖亭亭，情人不见，争忍凌波去？只恐舞衣寒易落，愁入西风南浦。高柳垂阴，老鱼吹浪，留我花间住。田田多少，几回沙际归路。"
     },
     {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/02.jpg",
+      "alt": ""
+    },
+    {
       "type": "h",
       "level": 1,
       "text": "贰"
@@ -85,6 +90,11 @@
       "type": "h",
       "level": 2,
       "text": "读词｜荷风习习"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/03.jpg",
+      "alt": ""
     },
     {
       "type": "p",
@@ -162,6 +172,16 @@
       "text": "01 · 闹红一舸"
     },
     {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/04.jpg",
+      "alt": ""
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/05.jpg",
+      "alt": ""
+    },
+    {
       "type": "p",
       "text": "退思园的 “闹红一舸”，便是直取词的开端。“闹红一舸”是在苏州古典园林中的“舫”，即船，但它不是真实画舫，而是依托在岸边的半座临水小舟。船头部分为悬山式[3]，匾额“闹红一舸”四字，写的是“闹红一舸”处观的园中景：“闹红”是荷花盛放的鲜活，“一舸”是泛舟花间的闲适。词中“记来时，尝与鸳鸯为侣，三十六陂人未到，水佩风裳无数”，写的正是荷塘深处的清幽，于池前无人惊扰，唯有荷叶如美人裙摆，随风摇曳，水声如佩环轻鸣。舫头两盏红灯笼，更与满园葱茏相映照，合于“闹红”之中，尤其在雪景中惹眼。"
     },
@@ -179,12 +199,32 @@
       "text": "02 · 菰雨生凉轩"
     },
     {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/06.jpg",
+      "alt": ""
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/07.jpg",
+      "alt": ""
+    },
+    {
       "type": "p",
       "text": "“翠叶吹凉，玉容消酒，更洒菰蒲雨。”荷叶姿态千异，叶盖微卷，便能吹出丝丝凉风。文人常写雨水打叶声，打的是一阵阵的愁绪，但此处，雨打菰蒲，打出的不仅是忧愁，更是阵阵清凉。园中的“菰雨生凉轩”正生于此。轩内用作纳凉。"
     },
     {
       "type": "p",
       "text": "轩外之景，更是词中画面的还原。轩周遍植荷花、菰蒲，芦苇摇曳，南隅芭蕉倚竹、棕榈映翠。夏秋之时，荷香阵阵，清风穿轩，正是“翠叶吹凉”的真切体验；遇雨之时，蕉叶承白珠，菰蒲听雨，雨打荷叶声声慢，便是“更洒菰蒲雨”的实景再现。"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/08.jpg",
+      "alt": ""
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/09.jpg",
+      "alt": ""
     },
     {
       "type": "p",
@@ -194,6 +234,16 @@
       "type": "h",
       "level": 2,
       "text": "03 · 水香榭"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/10.jpg",
+      "alt": ""
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/11.jpg",
+      "alt": ""
     },
     {
       "type": "p",
@@ -207,6 +257,11 @@
       "type": "h",
       "level": 2,
       "text": "04 · 眠云亭"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/12.jpg",
+      "alt": ""
     },
     {
       "type": "p",
@@ -233,6 +288,11 @@
     {
       "type": "p",
       "text": "我喜欢这首词，不仅是喜欢词本身，也是喜欢游过退思园后再读词的感觉。微风荡漾，清凉浸身。可以说，我喜欢的，大概也是退思园设计者对于词的解读。"
+    },
+    {
+      "type": "img",
+      "url": "/packages/work-text/images/essay-14/13.jpg",
+      "alt": ""
     },
     {
       "type": "h",
