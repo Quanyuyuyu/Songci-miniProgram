@@ -17,6 +17,75 @@
     <view class="hint">发到云端 <text class="mono">content</text> 集合，文档 <text class="mono">_id = work__{{'<id>'}}</text>，数据走 <text class="mono">works-bundled.js</text> 内嵌副本。</view>
   </view>
 
+  <!-- 题壁选录：把学生通过「意见反馈」写来的话选录到题壁页 -->
+  <view class="card">
+    <view class="sec-title">题壁选录</view>
+    <view class="sec-sub">学生在题壁页「落笔」后，内容会进 mp 后台「管理 → 用户反馈」；在此选录后即公开展示。</view>
+
+    <textarea class="board-input" value="{{boardText}}" bindinput="onBoardInput"
+      maxlength="300" placeholder="粘贴或写下留言内容" auto-height />
+    <view class="board-count">{{boardText.length}}/300</view>
+
+    <view class="row">
+      <view class="row-label">日期</view>
+      <picker mode="date" value="{{boardDate}}" bindchange="onBoardDate">
+        <view class="row-value">{{boardDate}}</view>
+      </picker>
+    </view>
+
+    <view class="row">
+      <view class="row-label">署名方式</view>
+      <radio-group class="radio-group" bindchange="onBoardAnon">
+        <label class="radio"><radio value="1" checked="{{boardAnonymous}}" />匿名（显示「佚名」）</label>
+        <label class="radio"><radio value="0" checked="{{!boardAnonymous}}" />署名（显示词牌雅号）</label>
+      </radio-group>
+    </view>
+
+    <view class="row" wx:if="{{!boardAnonymous}}">
+      <view class="row-label">词牌雅号</view>
+      <input class="board-input-line" value="{{boardPenName}}" bindinput="onBoardPen"
+        placeholder="留空则自动分配" maxlength="12" />
+    </view>
+
+    <button class="primary" bindtap="publishBoard" disabled="{{boardPublishing}}">
+      {{boardPublishing ? '题写中…' : '题上此壁'}}
+    </button>
+
+    <view class="board-list" wx:if="{{boardList.length}}">
+      <view class="board-list-title">已题 {{boardList.length}} 则</view>
+      <view class="board-item" wx:for="{{boardList}}" wx:key="id">
+        <view class="board-item-head">
+          <text class="board-item-name">{{item.anonymous ? '佚名' : (item.penName || '自动')}}</text>
+          <text class="board-item-date">{{item.date}}</text>
+          <text class="board-item-del" data-id="{{item.id}}" bindtap="removeBoardItem">撤下</text>
+        </view>
+        <view class="board-item-text">{{item.content}}</view>
+      </view>
+    </view>
+
+    <view class="hint">留言写入 <text class="mono">content</text> 集合 <text class="mono">_id = board</text>。学生端打开题壁页或下拉刷新即可看到，无需重新提审。</view>
+  </view>
+
+  <!-- 建议收件箱：学生通过自建「建议窗口」直接提交的内容 -->
+  <view class="card">
+    <view class="sec-title">建议收件箱</view>
+    <view class="sec-sub">学生端「落笔」现直存云端 suggestions 集合；在此可读取、选录到题壁或删除。</view>
+
+    <view class="board-list" wx:if="{{suggestions.length}}">
+      <view class="board-list-title">未处理 {{suggestions.length}} 则</view>
+      <view class="board-item" wx:for="{{suggestions}}" wx:key="_id">
+        <view class="board-item-head">
+          <text class="board-item-name">{{item.nameText}}</text>
+          <text class="board-item-date">{{item.dateText}}</text>
+          <text class="board-item-promote" data-id="{{item._id}}" bindtap="promoteSuggestion">题上此壁</text>
+          <text class="board-item-del" data-id="{{item._id}}" bindtap="removeSuggestion">删除</text>
+        </view>
+        <view class="board-item-text">{{item.content}}</view>
+      </view>
+    </view>
+    <view class="hint" wx:else>暂无新建议。</view>
+  </view>
+
   <view class="card">
     <button class="primary" bindtap="startPublish" disabled="{{publishing}}">
       {{publishing ? '发布中…' : '一键发布全部作品到云端'}}

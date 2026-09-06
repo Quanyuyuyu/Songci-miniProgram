@@ -19,6 +19,7 @@
   font-weight: 600;
   font-family: var(--font-display);
   color: var(--ink);
+  white-space: nowrap;
 }
 .hero-sub { font-size: 26rpx; color: var(--gray); margin-top: 12rpx; line-height: 1.7; }
 .para { font-size: 28rpx; color: var(--ink-soft); line-height: 1.7; }

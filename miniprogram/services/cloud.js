@@ -56,10 +56,28 @@ function getTempFileURL(fileID) {
     });
 }
 
+/** 提交建议（自建窗口）：写入云库 suggestions 集合 */
+function submitSuggestion(payload) {
+  return callFunction('suggestion', { action: 'submit', data: payload });
+}
+
+/** 读取建议收件箱（仅管理端） */
+function listSuggestions() {
+  return callFunction('suggestion', { action: 'list' });
+}
+
+/** 删除一条建议（仅管理端） */
+function removeSuggestion(id) {
+  return callFunction('suggestion', { action: 'remove', id });
+}
+
 module.exports = {
   isCloud: () => !!(USE_CLOUD && wx.cloud),
   readContent,
   callFunction,
   uploadFile,
-  getTempFileURL
+  getTempFileURL,
+  submitSuggestion,
+  listSuggestions,
+  removeSuggestion
 };

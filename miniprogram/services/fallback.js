@@ -10,5 +10,7 @@ module.exports = Object.assign({}, localContent, {
   schedule: bundledData.schedule,
   'ci-index': bundledData['ci-index'],
   books: bundledData.books,
-  'semester__26spring': bundledData['semester-26spring']
+  'semester__26spring': bundledData['semester-26spring'],
+  // 题壁：云端未发布时的兜底（空留言流，页面渲染空态）
+  board: { messages: [] }
 });

@@ -88,6 +88,6 @@ page {
 .entry-card-hover { background: #F2EBDC; }
 .entry-emoji { font-size: 44rpx; margin-right: 24rpx; }
 .entry-main { flex: 1; }
-.entry-title { font-size: 32rpx; font-weight: 600; }
+.entry-title { font-size: 32rpx; font-weight: 600; white-space: nowrap; }
 .entry-desc { font-size: 26rpx; color: var(--gray); margin-top: 4rpx; }
 .entry-arrow { color: var(--gray); font-size: 30rpx; }

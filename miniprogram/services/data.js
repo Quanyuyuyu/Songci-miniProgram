@@ -69,6 +69,7 @@ function isUsableData(type, data) {
   if (type === 'cipai') return Array.isArray(data.list) && data.list.length > 0;
   if (type === 'maps') return Array.isArray(data.timeline) && data.timeline.length > 0;
   if (type === 'ci-detail') return !!(data.id && data.title);
+  if (type === 'board') return data && Array.isArray(data.messages);
   return true;
 }
 

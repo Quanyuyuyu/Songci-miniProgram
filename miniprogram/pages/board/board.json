@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "题壁",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "section-head": "/components/section-head/section-head",
+    "empty-state": "/components/empty-state/empty-state",
+    "disclaimer-bar": "/components/disclaimer-bar/disclaimer-bar"
+  }
+}

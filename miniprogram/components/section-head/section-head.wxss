@@ -11,5 +11,5 @@
   margin-right: 16rpx;
   align-self: center;
 }
-.sec-title { font-size: 34rpx; font-weight: 600; color: var(--ink, #2A2620); }
+.sec-title { font-size: 34rpx; font-weight: 600; color: var(--ink, #2A2620); white-space: nowrap; }
 .sec-sub { font-size: 24rpx; color: var(--gray, #6F685F); margin-left: 16rpx; }

@@ -4,8 +4,9 @@
   font-weight: 600;
   color: var(--primary);
   font-family: var(--font-display);
+  white-space: nowrap;
 }
-.head-title { font-size: 34rpx; color: var(--ink); margin-left: 8rpx; }
+.head-title { font-size: 34rpx; color: var(--ink); margin-left: 8rpx; white-space: nowrap; }
 .head-meta { font-size: 24rpx; color: var(--gray); margin: 10rpx 0 24rpx; }
 
 .preface {

@@ -12,5 +12,7 @@ module.exports = {
   'cipai':         () => '/data/cipai.json',
   'maps':          () => '/data/maps.json',
   'books':         () => '/data/books.json',
-  'work':          (key) => `/data/works/${key}.json`
+  'work':          (key) => `/data/works/${key}.json`,
+  // 题壁（留言板）：教师通过 saveContent 发布到 content 集合 _id='board'
+  'board':         () => '/data/board.json'
 };

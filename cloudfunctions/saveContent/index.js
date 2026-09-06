@@ -9,9 +9,17 @@ const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
 
+// 内置管理员（写在代码里、随 git 走；即使环境变量被重置也不会丢）
+// 老师 OPENID：oU8V53RRDZUJ_6ITB5k6bFo1-vfM
+const CODE_ADMINS = ['oU8V53RRDZUJ_6ITB5k6bFo1-vfM'];
+
 function getAdminOpenids() {
   const raw = process.env.ADMIN_OPENIDS || '';
-  return raw.split(',').map((s) => s.trim()).filter(Boolean);
+  const fromEnv = raw.split(',').map((s) => s.trim()).filter(Boolean);
+  // 环境变量 + 代码内置，合并去重
+  const set = {};
+  fromEnv.concat(CODE_ADMINS).forEach((oid) => { set[oid] = true; });
+  return Object.keys(set);
 }
 
 exports.main = async (event, context) => {

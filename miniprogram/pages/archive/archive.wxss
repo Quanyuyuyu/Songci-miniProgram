@@ -23,7 +23,7 @@
 }
 .term-active { border-color: var(--primary); box-shadow: inset 0 0 0 1rpx var(--primary); }
 .term-card-hover { opacity: 0.76; }
-.term-display { font-size: 30rpx; font-weight: 600; color: var(--ink); }
+.term-display { font-size: 30rpx; font-weight: 600; color: var(--ink); white-space: nowrap; }
 .term-status { font-size: 22rpx; color: var(--gray); margin-top: 8rpx; }
 .term-status-active { color: var(--cinnabar); }
 
@@ -44,7 +44,7 @@
 .cat-desc { font-size: 24rpx; color: var(--gray); margin-bottom: 20rpx; }
 
 .work-head { display: flex; align-items: center; justify-content: space-between; }
-.work-title { font-size: 30rpx; font-weight: 600; color: var(--ink); flex: 1; padding-right: 16rpx; }
+.work-title { font-size: 28rpx; font-weight: 600; color: var(--ink); flex: 1; min-width: 0; padding-right: 16rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .work-byline { font-size: 24rpx; color: var(--gray); margin-top: 6rpx; }
 .work-brief { font-size: 26rpx; color: var(--ink-soft); margin-top: 12rpx; line-height: 1.7; }
 .work-meta { font-size: 22rpx; color: var(--celadon); margin-top: 10rpx; }

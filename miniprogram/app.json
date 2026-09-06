@@ -11,6 +11,7 @@
     "pages/cipai/cipai",
     "pages/maps/maps",
     "pages/notes/notes",
+    "pages/board/board",
     "pages/about/about",
     "pages/admin-publish/admin-publish"
   ],

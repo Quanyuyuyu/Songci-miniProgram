@@ -19,6 +19,7 @@
   font-weight: 600;
   font-family: var(--font-display);
   color: var(--ink);
+  white-space: nowrap;
 }
 .hero-sub { font-size: 26rpx; color: var(--gray); margin-top: 8rpx; }
 .hero-intro { font-size: 26rpx; color: var(--ink-soft); margin-top: 18rpx; line-height: 1.7; }
@@ -71,5 +72,9 @@
 .rule-title { font-size: 28rpx; font-weight: 600; color: var(--primary); }
 .rule-text { font-size: 26rpx; color: var(--ink-soft); margin-top: 8rpx; line-height: 1.7; }
 .rule-note { font-size: 24rpx; color: var(--gray); margin-top: 16rpx; }
+
+/* 题壁入口：青磁描边，与常规信息卡区分，示意这是可参与的区域 */
+.board-entry { border-left: 6rpx solid var(--celadon); }
+.board-entry .entry-title { font-family: var(--font-display); letter-spacing: 2rpx; }
 
 .loading-hint { text-align: center; color: var(--gray); font-size: 26rpx; padding: 80rpx 0; }

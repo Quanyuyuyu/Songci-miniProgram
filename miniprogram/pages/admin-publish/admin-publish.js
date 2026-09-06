@@ -4,11 +4,25 @@
 // 最终显示成功/失败条数。失败最常见原因：当前用户不在 ADMIN_OPENIDS 白名单中。
 const works = require('../../services/works-bundled.js');
 const cloud = require('../../services/cloud.js');
+const { refresh } = require('../../services/data.js');
+
+function todayISO() {
+  const d = new Date();
+  const p = (n) => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+}
 
 Page({
   data: {
     openid: '',
     worksCount: 0,
+    // ===== 题壁选录 =====
+    boardText: '',
+    boardDate: '',
+    boardAnonymous: true,
+    boardPenName: '',
+    boardPublishing: false,
+    boardList: [],
     progressCur: 0,
     progressTotal: 0,
     progressText: '',
@@ -21,8 +35,177 @@ Page({
   },
 
   onLoad() {
-    this.setData({ worksCount: Object.keys(works).length });
+    this.setData({ worksCount: Object.keys(works).length, boardDate: todayISO() });
     this.fetchOpenid();
+    this.reloadBoard();
+  },
+
+  // ===== 题壁选录 =====
+  async reloadBoard() {
+    // refresh 会绕过内存缓存直连云端，保证看到的是最新已发布内容
+    const raw = await refresh('board').catch(() => null);
+    const messages = Array.isArray(raw && raw.messages) ? raw.messages : [];
+    this.setData({ boardList: messages });
+  },
+
+  onBoardInput(e) {
+    this.setData({ boardText: e.detail.value || '' });
+  },
+
+  onBoardDate(e) {
+    this.setData({ boardDate: e.detail.value || todayISO() });
+  },
+
+  onBoardAnon(e) {
+    this.setData({ boardAnonymous: e.detail.value === '1' });
+  },
+
+  onBoardPen(e) {
+    this.setData({ boardPenName: e.detail.value || '' });
+  },
+
+  async publishBoard() {
+    if (this.data.boardPublishing) return;
+    const content = (this.data.boardText || '').trim();
+    if (!content) {
+      wx.showToast({ title: '请先写下留言内容', icon: 'none' });
+      return;
+    }
+
+    this.setData({ boardPublishing: true });
+    const item = {
+      id: 'b' + Date.now(),
+      content: content,
+      date: this.data.boardDate || todayISO(),
+      anonymous: !!this.data.boardAnonymous,
+      penName: this.data.boardAnonymous ? '' : (this.data.boardPenName || '').trim()
+    };
+    const next = this.data.boardList.concat([item]);
+
+    try {
+      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      if (r && r.code === 0) {
+        this.setData({ boardText: '', boardPenName: '' });
+        await this.reloadBoard();
+        wx.showToast({ title: '已题上此壁', icon: 'success' });
+      } else {
+        wx.showModal({
+          title: '发布失败',
+          content: (r && r.message) || '未知错误（403 表示当前 OPENID 不在 ADMIN_OPENIDS 白名单）',
+          showCancel: false
+        });
+      }
+    } catch (e) {
+      wx.showModal({
+        title: '发布失败',
+        content: (e && e.errMsg) || String(e),
+        showCancel: false
+      });
+    }
+    this.setData({ boardPublishing: false });
+  },
+
+  async removeBoardItem(e) {
+    const id = e.currentTarget.dataset.id;
+    const confirmed = await new Promise((resolve) => {
+      wx.showModal({
+        title: '撤下这条留言？',
+        content: '撤下后学生端题壁页将不再显示',
+        success: (r) => resolve(!!r.confirm),
+        fail: () => resolve(false)
+      });
+    });
+    if (!confirmed) return;
+
+    const next = this.data.boardList.filter((m) => m.id !== id);
+    try {
+      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      if (r && r.code === 0) {
+        await this.reloadBoard();
+        wx.showToast({ title: '已撤下', icon: 'success' });
+      } else {
+        wx.showToast({ title: (r && r.message) || '操作失败', icon: 'none' });
+      }
+    } catch (err) {
+      wx.showToast({ title: '操作失败', icon: 'none' });
+    }
+  },
+
+  // ===== 建议收件箱（读取学生通过自建窗口直存的 suggestions）=====
+  async reloadSuggestions() {
+    try {
+      const r = await cloud.listSuggestions();
+      if (r && r.code === 0) {
+        const list = (r.list || []).map((s) => ({
+          _id: s._id,
+          content: s.content,
+          nameText: s.anonymous ? '佚名' : (s.penName || '自动雅号'),
+          dateText: s.date || ''
+        }));
+        this.setData({ suggestions: list });
+      } else {
+        this.setData({ suggestions: [] });
+      }
+    } catch (e) {
+      this.setData({ suggestions: [] });
+    }
+  },
+
+  async removeSuggestion(e) {
+    const id = e.currentTarget.dataset.id;
+    const confirmed = await new Promise((resolve) => {
+      wx.showModal({
+        title: '删除这条建议？',
+        content: '删除后不可恢复',
+        success: (r) => resolve(!!r.confirm),
+        fail: () => resolve(false)
+      });
+    });
+    if (!confirmed) return;
+    try {
+      const r = await cloud.removeSuggestion(id);
+      if (r && r.code === 0) {
+        await this.reloadSuggestions();
+        wx.showToast({ title: '已删除', icon: 'success' });
+      } else {
+        wx.showToast({ title: (r && r.message) || '删除失败', icon: 'none' });
+      }
+    } catch (err) {
+      wx.showToast({ title: '删除失败', icon: 'none' });
+    }
+  },
+
+  async promoteSuggestion(e) {
+    const id = e.currentTarget.dataset.id;
+    const sg = (this.data.suggestions || []).find((s) => s._id === id);
+    if (!sg) return;
+    const item = {
+      id: 'b' + Date.now(),
+      content: sg.content,
+      date: sg.date || todayISO(),
+      anonymous: !!sg.anonymous,
+      penName: sg.anonymous ? '' : (sg.penName || '')
+    };
+    const next = this.data.boardList.concat([item]);
+    try {
+      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      if (r && r.code === 0) {
+        await this.reloadBoard();
+        await this.removeSuggestionById(id);
+        wx.showToast({ title: '已题上此壁', icon: 'success' });
+      } else {
+        wx.showToast({ title: (r && r.message) || '发布失败', icon: 'none' });
+      }
+    } catch (err) {
+      wx.showToast({ title: '发布失败', icon: 'none' });
+    }
+  },
+
+  async removeSuggestionById(id) {
+    try {
+      await cloud.removeSuggestion(id);
+      await this.reloadSuggestions();
+    } catch (e) { /* 忽略，promote 成功后列表已刷新 */ }
   },
 
   async fetchOpenid() {

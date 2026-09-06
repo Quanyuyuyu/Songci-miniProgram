@@ -13,7 +13,7 @@
   margin: 0 2rpx 14rpx;
 }
 .week-no { width: 62rpx; color: var(--cinnabar); font-size: 25rpx; font-weight: 600; }
-.week-topic { flex: 1; color: var(--ink); font-size: 31rpx; font-weight: 600; }
+.week-topic { flex: 1; min-width: 0; color: var(--ink); font-size: 31rpx; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .week-count { color: var(--gray); font-size: 22rpx; }
 
 .ci-row { padding: 22rpx 26rpx; margin-bottom: 14rpx; }

@@ -1,0 +1,66 @@
+<view class="page-body board-body">
+  <empty-state wx:if="{{error}}" icon="🖌️" title="题壁未能加载" reason="{{error}}" />
+
+  <block wx:if="{{!loading && !error}}">
+    <!-- 导语 -->
+    <view class="board-hero card">
+      <view class="board-title">题壁</view>
+      <view class="board-lede">古人行旅，遇驿亭粉壁，往往题诗其上，过客皆可驻足而读。此处亦是一面粉壁——对课程的一点建议，课堂上的瞬间触动，或是读词时油然而起的词心，都可以留在这里。</view>
+      <view class="board-guide">署名与否，由你。若愿藏名，便作无名过客；若肯留名，也只是一个词牌雅号，不必是真姓名。</view>
+      <view class="board-guide board-guide-dim">留言经先生选录后，方题上此壁。所记虽短，皆为真心。</view>
+    </view>
+
+    <section-head title="壁上留言" sub="{{messages.length}} 则" wx:if="{{messages.length}}" />
+
+    <view wx:if="{{messages.length}}">
+      <view class="msg-card card" wx:for="{{messages}}" wx:key="id">
+        <view class="msg-content">{{item.content}}</view>
+        <view class="msg-foot">
+          <text class="msg-name">{{item.nameText}}</text>
+          <text class="msg-sep">·</text>
+          <text class="msg-date">{{item.dateText}}</text>
+        </view>
+      </view>
+    </view>
+
+    <empty-state wx:else icon="🖌️" title="壁上尚无一字" reason="还没有留言被选录，你可以是第一个" />
+
+    <disclaimer-bar />
+  </block>
+
+  <view wx:if="{{loading}}" class="loading-hint">加载中…</view>
+
+  <!-- 自建建议窗口：用户留言直存云库 suggestions 集合（个人主体下为审核高风险项，详见 config.ENABLE_SELF_SUGGEST） -->
+  <view wx:if="{{selfSuggest}}" class="pen-bar">
+    <button class="pen-btn" bindtap="openCompose">落笔 · 给先生捎句话</button>
+    <view class="pen-tip">写下的建议会直接送达先生案头</view>
+  </view>
+
+  <view wx:if="{{showCompose}}" class="compose-mask" bindtap="closeCompose">
+    <view class="compose-card" catchtap="noop">
+      <view class="compose-title">捎句话</view>
+      <textarea class="compose-input" maxlength="300" value="{{draft}}" bindinput="onDraftInput"
+        placeholder="对课程的建议、课堂的触动，或油然而起的词心……" placeholder-class="compose-ph" />
+      <view class="compose-count">{{draftLen}}/300</view>
+      <view class="compose-row">
+        <text class="compose-label">匿名</text>
+        <switch checked="{{anon}}" bindchange="onAnonChange" color="#8AA6A0" />
+      </view>
+      <view wx:if="{{!anon}}" class="compose-row">
+        <text class="compose-label">雅号</text>
+        <input class="compose-pen" value="{{penName}}" bindinput="onPenInput"
+          placeholder="留个词牌雅号（可空，自动题名）" placeholder-class="compose-ph" maxlength="20" />
+      </view>
+      <view class="compose-actions">
+        <button class="compose-cancel" bindtap="closeCompose">暂且不写</button>
+        <button class="compose-submit" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submitSuggestion">送达</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回退：微信官方意见反馈（ENABLE_SELF_SUGGEST=false 时启用，零风险） -->
+  <view wx:if="{{!selfSuggest}}" class="pen-bar">
+    <button class="pen-btn" open-type="feedback">落笔 · 给先生捎句话</button>
+    <view class="pen-tip">选择「产品建议」写下你的词心，先生选录后便会题上此壁</view>
+  </view>
+</view>

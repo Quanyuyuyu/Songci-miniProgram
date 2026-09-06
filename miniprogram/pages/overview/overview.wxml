@@ -67,6 +67,16 @@
       <view class="rule-note">{{rules.notice}}</view>
     </view>
 
+    <!-- 题壁入口：学生留言页 -->
+    <navigator url="/pages/board/board" class="entry-card board-entry" hover-class="entry-card-hover">
+      <view class="entry-emoji">🖌️</view>
+      <view class="entry-main">
+        <view class="entry-title">题壁</view>
+        <view class="entry-desc">对课程的建议、课堂的触动、油然而起的词心，都可留在这里。可匿名。</view>
+      </view>
+      <view class="entry-arrow">›</view>
+    </navigator>
+
     <disclaimer-bar text="{{disclaimer}}" />
   </block>
 

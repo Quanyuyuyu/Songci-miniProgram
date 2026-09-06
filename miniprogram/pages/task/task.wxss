@@ -20,6 +20,7 @@
   color: var(--ink);
   font-family: var(--font-display);
   margin-bottom: 12rpx;
+  white-space: nowrap;
 }
 .theme-meta { margin-top: 16rpx; }
 .theme-pending { color: var(--cinnabar); font-size: 29rpx; font-weight: 600; }

@@ -1,0 +1,9 @@
+{
+  "name": "suggestion",
+  "version": "1.0.0",
+  "description": "建议留言窗口：submit 由任意用户写入 suggestions 集合；list/remove 仅管理端",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
