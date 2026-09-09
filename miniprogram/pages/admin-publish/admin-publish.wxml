@@ -83,6 +83,7 @@
         <view class="board-item-text">{{item.content}}</view>
       </view>
     </view>
+    <view class="hint hint-err" wx:elif="{{suggestError}}">{{suggestError}}</view>
     <view class="hint" wx:else>暂无新建议。</view>
   </view>
 

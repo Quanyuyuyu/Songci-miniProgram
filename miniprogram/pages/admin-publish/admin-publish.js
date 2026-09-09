@@ -31,7 +31,11 @@ Page({
     successCount: 0,
     failedCount: 0,
     failedSample: [],
-    debugInfo: null
+    debugInfo: null,
+    // ===== 建议收件箱 =====
+    suggestions: [],
+    suggestError: '',
+    promoting: false
   },
 
   onLoad() {
@@ -40,11 +44,24 @@ Page({
     this.reloadBoard();
   },
 
+  // 每次进入本页（含首次打开、以及从其他页面返回）都重新拉取建议收件箱，
+  // 保证老师随时看到学生最新提交的留言。
+  // 注意：此前本方法从未被调用，导致收件箱永远显示「暂无新建议」。
+  onShow() {
+    this.reloadSuggestions();
+  },
+
   // ===== 题壁选录 =====
   async reloadBoard() {
     // refresh 会绕过内存缓存直连云端，保证看到的是最新已发布内容
     const raw = await refresh('board').catch(() => null);
     const messages = Array.isArray(raw && raw.messages) ? raw.messages : [];
+    // 保护：本次拉到空、但上一次是有数据的，多半是云端读取异常（而非真的被清空）。
+    // 此时保留旧列表并提示，避免老师误以为留言丢失而重复发布。
+    if (messages.length === 0 && (this.data.boardList || []).length > 0) {
+      wx.showToast({ title: '云端读取异常，显示上次结果', icon: 'none' });
+      return;
+    }
     this.setData({ boardList: messages });
   },
 
@@ -80,10 +97,10 @@ Page({
       anonymous: !!this.data.boardAnonymous,
       penName: this.data.boardAnonymous ? '' : (this.data.boardPenName || '').trim()
     };
-    const next = this.data.boardList.concat([item]);
-
     try {
-      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      // 服务端追加：不再用 this.data.boardList.concat([item]) 整体覆盖写。
+      // 客户端 boardList 可能读到包内空兜底 { messages: [] }，覆盖写会清空已有留言。
+      const r = await cloud.appendBoardMessage(item);
       if (r && r.code === 0) {
         this.setData({ boardText: '', boardPenName: '' });
         await this.reloadBoard();
@@ -117,9 +134,9 @@ Page({
     });
     if (!confirmed) return;
 
-    const next = this.data.boardList.filter((m) => m.id !== id);
     try {
-      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      // 服务端按 id 过滤后写回，同样避免本地列表为空时整体覆盖清空题壁。
+      const r = await cloud.removeBoardMessage(id);
       if (r && r.code === 0) {
         await this.reloadBoard();
         wx.showToast({ title: '已撤下', icon: 'success' });
@@ -140,14 +157,30 @@ Page({
           _id: s._id,
           content: s.content,
           nameText: s.anonymous ? '佚名' : (s.penName || '自动雅号'),
-          dateText: s.date || ''
+          dateText: s.date || '',
+          // ↓ 必须原样保留这三个原始字段：promoteSuggestion（题上此壁）依赖它们
+          //   写回题壁。此前只映射了展示用的 nameText/dateText，导致署名(penName)、
+          //   匿名标记(anonymous)、日期(date) 全部丢失，留言被写成另一种作者名。
+          anonymous: !!s.anonymous,
+          penName: s.penName || '',
+          date: s.date || ''
         }));
-        this.setData({ suggestions: list });
-      } else {
-        this.setData({ suggestions: [] });
+        this.setData({ suggestions: list, suggestError: '' });
+        return;
       }
+      // 403 = 当前微信不在管理员白名单；其余为云端异常——都要显式提示，
+      // 不能静默显示「暂无新建议」，否则无法区分「没数据」和「没权限」。
+      this.setData({
+        suggestions: [],
+        suggestError: (r && r.message)
+          ? ('读取失败：' + r.message)
+          : '读取失败：云端未返回结果'
+      });
     } catch (e) {
-      this.setData({ suggestions: [] });
+      this.setData({
+        suggestions: [],
+        suggestError: '读取失败：' + ((e && e.errMsg) || String(e))
+      });
     }
   },
 
@@ -176,19 +209,23 @@ Page({
   },
 
   async promoteSuggestion(e) {
+    if (this.data.promoting) return;   // 防连点：避免并发两次覆盖写
     const id = e.currentTarget.dataset.id;
     const sg = (this.data.suggestions || []).find((s) => s._id === id);
     if (!sg) return;
-    const item = {
-      id: 'b' + Date.now(),
-      content: sg.content,
-      date: sg.date || todayISO(),
-      anonymous: !!sg.anonymous,
-      penName: sg.anonymous ? '' : (sg.penName || '')
-    };
-    const next = this.data.boardList.concat([item]);
+
+    this.setData({ promoting: true });
     try {
-      const r = await cloud.callFunction('saveContent', { key: 'board', data: { messages: next } });
+      const item = {
+        id: 'b' + Date.now(),
+        content: sg.content,
+        date: sg.date || todayISO(),
+        anonymous: !!sg.anonymous,
+        penName: sg.anonymous ? '' : (sg.penName || '')
+      };
+      // 服务端追加：由云函数读取题壁真实内容后追加再写回。
+      // 不再由客户端拼 boardList 整体覆盖——客户端一旦读到「空兜底」就会清空已有留言。
+      const r = await cloud.appendBoardMessage(item);
       if (r && r.code === 0) {
         await this.reloadBoard();
         await this.removeSuggestionById(id);
@@ -199,6 +236,7 @@ Page({
     } catch (err) {
       wx.showToast({ title: '发布失败', icon: 'none' });
     }
+    this.setData({ promoting: false });
   },
 
   async removeSuggestionById(id) {

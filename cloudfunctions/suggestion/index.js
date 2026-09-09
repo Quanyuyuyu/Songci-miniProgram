@@ -16,8 +16,10 @@ const PEN_NAMES = [
 ];
 
 // 内置管理员（写在代码里、随 git 走；即使环境变量被重置也不会丢）
-// 老师 OPENID：oU8V53RRDZUJ_6ITB5k6bFo1-vfM
-const CODE_ADMINS = ['oU8V53RRDZUJ_6ITB5k6bFo1-vfM'];
+const CODE_ADMINS = [
+  'oU8V53cfJjLTL7NodQJhVKADgSgM',  // 开发者本人
+  'oU8V53RRDZUJ_6ITB5k6bFo1-vfM'   // 老师
+];
 
 function getAdminOpenids() {
   const raw = process.env.ADMIN_OPENIDS || '';

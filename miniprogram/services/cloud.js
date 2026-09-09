@@ -56,6 +56,23 @@ function getTempFileURL(fileID) {
     });
 }
 
+/**
+ * 追加一条题壁留言。
+ * 走云函数的 append 模式（服务端读-追加-写回），
+ * 避免客户端用「空兜底列表」整体覆盖写回导致已有留言被清空。
+ */
+function appendBoardMessage(item) {
+  return callFunction('saveContent', { key: 'board', append: true, data: { messages: [item] } });
+}
+
+/**
+ * 撤下一条题壁留言。
+ * 同样走服务端（云函数读-过滤-写回），避免客户端本地列表为空时整体覆盖清空题壁。
+ */
+function removeBoardMessage(id) {
+  return callFunction('saveContent', { key: 'board', remove: true, removeId: id });
+}
+
 /** 提交建议（自建窗口）：写入云库 suggestions 集合 */
 function submitSuggestion(payload) {
   return callFunction('suggestion', { action: 'submit', data: payload });
@@ -77,6 +94,8 @@ module.exports = {
   callFunction,
   uploadFile,
   getTempFileURL,
+  appendBoardMessage,
+  removeBoardMessage,
   submitSuggestion,
   listSuggestions,
   removeSuggestion

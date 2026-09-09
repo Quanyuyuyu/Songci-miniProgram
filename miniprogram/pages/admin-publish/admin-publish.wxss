@@ -63,4 +63,5 @@
 .board-item-del { font-size: 24rpx; color: #8C2A2A; padding: 4rpx 10rpx; }
 .board-item-text { font-size: 26rpx; color: #2F2620; line-height: 1.7; word-break: break-word; }
 .board-item-promote { margin-left: auto; color: #4F716A; font-size: 24rpx; padding: 4rpx 10rpx; }
+.hint-err { color: #8C2A2A; }
 .board-item-del { margin-left: 20rpx; color: #8C2A2A; font-size: 24rpx; padding: 4rpx 10rpx; }
