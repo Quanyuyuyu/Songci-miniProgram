@@ -52,7 +52,7 @@ module.exports = {
     },
     {
       "key": "essay",
-      "label": "优秀期末论文",
+      "label": "优秀期末习作",
       "desc": "读书札记、连缀成文与其他形式的期末习作"
     },
     {
@@ -209,24 +209,6 @@ module.exports = {
       "brief": "",
       "status": "ready",
       "id": "photo-11",
-      "byline": "廖奕博"
-    },
-    {
-      "title": "欧阳修《玉楼春》配词",
-      "term": "25Fall",
-      "form_tag": "文档",
-      "brief": "",
-      "status": "ready",
-      "id": "photo-23",
-      "byline": "廖奕博"
-    },
-    {
-      "title": "苏轼《临江仙》配词",
-      "term": "25Fall",
-      "form_tag": "文档",
-      "brief": "",
-      "status": "ready",
-      "id": "photo-24",
       "byline": "廖奕博"
     },
     {

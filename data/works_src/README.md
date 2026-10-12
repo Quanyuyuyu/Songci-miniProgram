@@ -12,7 +12,7 @@
   -> work-detail 原生渲染
 ```
 
-当前已收录 46 篇：`creative-1..3`、`photo-1..29`、`essay-1..14`。
+当前已收录 44 篇：`creative-1..3`、`photo-1..22` 与 `photo-25..29`、`essay-1..14`。
 
 ## 日常维护
 

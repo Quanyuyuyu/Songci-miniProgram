@@ -47,7 +47,7 @@ module.exports = {
 
 - **course / weeks / schedule / ci-index / books / semester**：包内随发 → 离线可用。
 - **archive / cipai / maps / ci-detail（52 篇）**：内嵌于 `services/local-content.js` → 云端空时自动兜底。
-- **works（46 篇作品）**：被 `packOptions.ignore` 排除出包（节省主包体积） → **必须发到云端 `content` 集合**。
+- **works（44 篇作品）**：被 `packOptions.ignore` 排除出包（节省主包体积） → **必须发到云端 `content` 集合**。
 - **readings（阅读材料）**：由 `tools/import_readings.py` 生成 JS 模块 → 直接放进分包，不走云数据库。
 
 ### 数据更新免提审
@@ -63,7 +63,7 @@ module.exports = {
 1. **重生成内嵌数据**：`node tools/gen_local_content.js`
 2. **开发者工具 `Ctrl / Cmd + R` 重编译**
 3. **进入管理页**：页面底部 →「管理后台 · 一键发布作品」
-4. **点按钮**：并发批量调 `saveContent` 云函数，46 篇 10-20 秒完成
+4. **点按钮**：并发批量调 `saveContent` 云函数，44 篇 10-20 秒完成
 
 ### 权限说明
 
@@ -163,7 +163,7 @@ miniprogram/
 │  ├─ fallback.js      # 包内兜底（合并 bundled-data + local-content）
 │  ├─ bundled-data.js  # course / weeks / schedule / ci-index / books（由 build_bundled_data.py 生成）
 │  ├─ local-content.js # archive / cipai / maps / ci-detail 内嵌（由 gen_local_content.js 生成）
-│  └─ works-bundled.js # 46 篇作品内嵌，供管理页一键发布用（由 gen_local_content.js 生成）
+│  └─ works-bundled.js # 44 篇作品内嵌，供管理页一键发布用（由 gen_local_content.js 生成）
 ├─ pages/
 │  ├─ admin-publish/   # 管理后台：一键发布作品 + OPENID 诊断
 │  ├─ overview/        # 首页「课程概览」
@@ -189,7 +189,7 @@ miniprogram/
 ├─ images/             # tabbar 图标等
 └─ data/               # 本地数据 JSON（云模式下不直接读取，部分被排除出包）
    ├─ ci-detail/       # 52 首词（已内嵌进 local-content.js 兜底）
-   ├─ works/           # 46 篇作品（排除出包，仅云端；原始 JSON 供 gen_local_content 读）
+   ├─ works/           # 44 篇作品（排除出包，仅云端；原始 JSON 供 gen_local_content 读）
    └─ readings/        # 阅读材料（排除出包，由 import_readings.py 进分包）
 
 tools/

@@ -22,6 +22,19 @@
       {{publishing ? '发布中…' : '一键发布全部作品到云端'}}
     </button>
 
+    <!-- 云端下架：云端文档优先级高于包内兜底，作品从包内删除后必须同步下架云端 -->
+    <view class="takedown">
+      <view class="takedown-label">下架作品（云端）</view>
+      <view class="takedown-row">
+        <input class="takedown-input" value="{{takedownId}}" bindinput="onTakedownInput"
+          placeholder="作品 ID，如 photo-23" maxlength="32" />
+        <button class="mini-btn" bindtap="takedownWork" disabled="{{takingDown}}">
+          {{takingDown ? '下架中…' : '下架'}}
+        </button>
+      </view>
+      <view class="hint">作品从包内删除后，若此前已发布到云端，需在此下架一次；否则云端旧内容仍会显示。</view>
+    </view>
+
     <view class="progress" wx:if="{{progressTotal > 0}}">
       <progress percent="{{progressCur / progressTotal * 100}}" stroke-width="6" activeColor="#8C2A2A" backgroundColor="#EFE7D6" />
       <view class="progress-text">{{progressText}}</view>

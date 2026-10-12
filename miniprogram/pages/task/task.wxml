@@ -108,7 +108,7 @@
 
     <view class="link-card card card-tap" bindtap="goArchive"
           hover-class="card-tap-hover" hover-start-time="20" hover-stay-time="80">
-      <view class="link-title">看范例 · 优秀期末论文</view>
+      <view class="link-title">看范例 · 优秀期末习作</view>
       <view class="link-desc">往届写成过什么样 ›</view>
     </view>
   </block>

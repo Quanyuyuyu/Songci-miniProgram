@@ -17,7 +17,10 @@ Page({
     successCount: 0,
     failedCount: 0,
     failedSample: [],
-    debugInfo: null
+    debugInfo: null,
+    // ===== 云端下架 =====
+    takedownId: '',
+    takingDown: false
   },
 
   onLoad() {
@@ -42,6 +45,48 @@ Page({
       data: this.data.openid,
       success: () => wx.showToast({ title: '已复制 OPENID', icon: 'none' })
     });
+  },
+
+  // ===== 云端下架 =====
+  // 作品从包内删除后，若此前已用「一键发布全部作品」发到云端，云端文档仍然存在
+  // 且优先级高于包内兜底，小程序里会继续显示。这里提供下架入口，填作品 ID 即可。
+  onTakedownInput(e) {
+    this.setData({ takedownId: (e.detail.value || '').trim() });
+  },
+
+  async takedownWork() {
+    if (this.data.takingDown) return;
+    const raw = (this.data.takedownId || '').trim();
+    if (!raw) {
+      wx.showToast({ title: '请填作品 ID，如 photo-23', icon: 'none' });
+      return;
+    }
+    const id = raw.replace(/^work__/, '');
+    const confirmed = await new Promise((resolve) => {
+      wx.showModal({
+        title: '下架《' + id + '》？',
+        content: '将从云端删除该作品的已发布内容，学生端不再显示。',
+        success: (r) => resolve(!!r.confirm),
+        fail: () => resolve(false)
+      });
+    });
+    if (!confirmed) return;
+
+    this.setData({ takingDown: true });
+    try {
+      const r = await cloud.deleteContent('work__' + id);
+      if (r && r.code === 0) {
+        wx.showToast({
+          title: r.deleted === false ? '云端本无此篇' : '已下架',
+          icon: 'success'
+        });
+      } else {
+        wx.showToast({ title: (r && r.message) || '下架失败', icon: 'none' });
+      }
+    } catch (e) {
+      wx.showToast({ title: '下架失败', icon: 'none' });
+    }
+    this.setData({ takingDown: false });
   },
 
   async startPublish() {

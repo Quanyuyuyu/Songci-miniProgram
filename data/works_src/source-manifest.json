@@ -97,22 +97,6 @@
       "image_count": 1,
       "term": "25Fall"
     },
-    "photo-23": {
-      "mode": "curated_markdown",
-      "source_sha256": "9dbc57c1a5f72f44b9b6a23e9e739f57e117b009044907afde773111a330822a",
-      "text_sha256": "4d44921cee95b49c18d15cc9cf753490c6b7e839e851d338bb1c703ffde76224",
-      "text_characters": 526,
-      "image_count": 1,
-      "term": "25Fall"
-    },
-    "photo-24": {
-      "mode": "curated_markdown",
-      "source_sha256": "9dbc57c1a5f72f44b9b6a23e9e739f57e117b009044907afde773111a330822a",
-      "text_sha256": "4003b43934fdc1f7f87681b597d12f8ec7a0ff2510959c445d1c661d40954101",
-      "text_characters": 182,
-      "image_count": 1,
-      "term": "25Fall"
-    },
     "photo-12": {
       "mode": "curated_markdown",
       "source_sha256": "d35ad6fc6cb6bcc2fcd46a85a195e64351009649b59507f41a7122afd0731ce6",
@@ -132,8 +116,8 @@
     "photo-14": {
       "mode": "curated_markdown",
       "source_sha256": "b65591ae3031506e4855e158d3c3db3d620de25766c42ca5031adf07451b984c",
-      "text_sha256": "a7c1a4cb864bf15e3c21d1316fbd026e7d266b27277ef588de257f2c457248a7",
-      "text_characters": 500,
+      "text_sha256": "1fb081e3bd1ddfde01b9d44f85b820d96a1637ceea22497eb8fb9de40e58e0df",
+      "text_characters": 372,
       "image_count": 1,
       "term": "26Spring"
     },

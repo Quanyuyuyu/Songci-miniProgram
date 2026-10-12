@@ -132,7 +132,7 @@ class WorkContentTests(unittest.TestCase):
 
     def test_archive_and_work_files_match(self) -> None:
         expected = {item["id"] for item in self.archive_items}
-        self.assertEqual(len(expected), 46)
+        self.assertEqual(len(expected), 44)
         self.assertEqual(set(self.works), expected)
         titles = {item["id"]: item["title"] for item in self.archive_items}
         archive_by_id = {item["id"]: item for item in self.archive_items}
@@ -171,7 +171,7 @@ class WorkContentTests(unittest.TestCase):
         }
         self.assertEqual(actual, {
             "26Spring": 8,
-            "25Fall": 6,
+            "25Fall": 4,
             "25Spring": 9,
             "24Fall": 8,
             "24Spring": 5,
@@ -185,8 +185,6 @@ class WorkContentTests(unittest.TestCase):
             "photo-4": "辛弃疾《清平乐·村居》配词",
             "photo-29": "晏殊《渔家傲·荷叶初开犹半卷》配词",
             "photo-11": "柳永《戚氏》配词",
-            "photo-23": "欧阳修《玉楼春》配词",
-            "photo-24": "苏轼《临江仙》配词",
             "photo-14": "苏轼《水调歌头》配词",
             "photo-25": "苏轼《卜算子·黄州定慧院寓居作》配词",
             "photo-15": "苏轼《行香子·过七里濑》配词",

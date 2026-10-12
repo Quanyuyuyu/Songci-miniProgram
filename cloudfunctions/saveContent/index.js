@@ -34,6 +34,23 @@ exports.main = async (event, context) => {
   if (!key || typeof key !== 'string' || !/^[A-Za-z0-9_:-]{1,64}$/.test(key)) {
     return { code: 400, message: 'key 非法' };
   }
+  // ===== 删除模式（event.delete === true）=====
+  // 用于把已发布到云端的整篇文档移除（作品下架）。云端文档优先级高于包内兜底，
+  // 作品从包内删除后必须同步下架云端，否则小程序仍会显示旧内容。
+  // 放在 data 校验之前，因为删除不需要 data；文档不存在时也视为「已下架」返回成功。
+  if (event.delete === true) {
+    try {
+      await db.collection('content').doc(key).remove();
+      return { code: 0, message: 'ok', key, deleted: true };
+    } catch (e) {
+      const msg = String(e);
+      if (msg.indexOf('-502005') >= 0 || /not exist|does not exist/i.test(msg)) {
+        return { code: 0, message: 'ok（云端本无此文档）', key, deleted: false };
+      }
+      return { code: 500, message: msg };
+    }
+  }
+
   if (!data || typeof data !== 'object') {
     return { code: 400, message: 'data 缺失或格式错误' };
   }

@@ -56,10 +56,20 @@ function getTempFileURL(fileID) {
     });
 }
 
+/**
+ * 下架云端文档（整篇移除）。
+ * 作品从包内删除后，若之前已发布到云端，必须同步下架，否则云端旧数据会盖住包内内容。
+ * cacheKey 即 content 集合的 _id，例如 'work__photo-23'。
+ */
+function deleteContent(cacheKey) {
+  return callFunction('saveContent', { key: cacheKey, delete: true });
+}
+
 module.exports = {
   isCloud: () => !!(USE_CLOUD && wx.cloud),
   readContent,
   callFunction,
   uploadFile,
-  getTempFileURL
+  getTempFileURL,
+  deleteContent
 };

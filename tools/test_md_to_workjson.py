@@ -126,13 +126,16 @@ verbatim: true
             self.assertIn("\n\n", document["sections"][1]["text"])
             self.assertEqual(document["sections"][2]["text"], "姜夔《念奴娇·闹红一舸》")
 
-    def test_repository_has_46_complete_manuscripts(self) -> None:
+    def test_repository_has_44_complete_manuscripts(self) -> None:
+        # essay-2《宋词中的夜晚——读书札记几则》应作者要求以匿名收录，byline 有意留空；
+        # 其余作品必须有署名（不得出现真实姓名/学号，统一用笔名或雅号）。
+        anonymous_ok = {"essay-2"}
         paths = discover_markdown(REPO_ROOT / "data" / "works_src")
-        self.assertEqual(len(paths), 46)
+        self.assertEqual(len(paths), 44)
         for path in paths:
             document = compile_markdown(path, copy_images=False)
             self.assertFalse(document["collecting"], path.name)
-            self.assertTrue(document["byline"], path.name)
+            self.assertTrue(document["byline"] or path.stem in anonymous_ok, path.name)
             self.assertTrue(document["sections"], path.name)
 
 
